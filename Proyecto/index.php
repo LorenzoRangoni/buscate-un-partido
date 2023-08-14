@@ -1,33 +1,109 @@
 <?php
-$error=array();
-if(isset($_POST["nombre"])){
-    if(strlen($_POST["nombre"])<2)
-    {
-        array_push($error , "El nombre tiene que ser mayor a 2 ")
+$error = array();
+$submit_success = false; 
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["nombre"])) {
+        if (strlen($_POST["nombre"]) < 10) {
+            array_push($error, "El nombre tiene que ser mayor a 10 caracteres");
+        }
     }
+
+    if (isset($_POST["altura"]) && $_POST["altura"] < 1.5) {
+        array_push($error, "La altura no puede ser menor a 1,5 m ni negativa ");
+    }
+
+    if (isset($_POST["peso"]) && $_POST["peso"] < 0) {
+        array_push($error, "El peso no puede ser negativo");
+    }
+
+    if (isset($_POST["edad"]) && $_POST["edad"] < 13) {
+        array_push($error, "Tenes que ser mayor a 13 años");
+    }
+    if (isset($_POST["telefono"])&& $_POST["telefono"]< 10 ){
+        array_push($error,"El numero de telefono tiene que ser mayor a 10");
+    }
+        if (isset($_POST["sub"])) {
+            $sub = $_POST["sub"];
+            $edad = $_POST["edad"];
+        
+            if (($sub == "sub 15" && $edad > 15) ||
+                ($sub == "sub 17" && $edad > 17) ||
+                ($sub == "sub 19" && $edad > 19) ||
+                ($sub == "sub 21" && $edad > 21) ||
+                ($sub == "sub 23" && $edad > 23) ||
+                ($sub == "sub 25" && $edad > 25) ||
+                ($sub == "sub 27" && $edad > 27) ||
+                ($sub == "sub 29" && $edad > 29) ||
+                ($sub == "sub 31" && $edad > 31) ||
+                ($sub == "sub 33" && $edad > 33) ||
+                ($sub == "sub 35" && $edad > 35)) {
+                array_push($error, "La opción sub seleccionada no coincide con la edad");
+            }
+        }
+        
+    
+    if (empty($error)) {
+        $submit_success = true; 
+    }
+if ($submit_success) {
+    header("Location: envio_exitoso.php");
+    exit;
 }
+}   
+?>     
 
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
+    
     <title>Formulario de Postulación</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
+   
 </head>
 <body>
     <h2>Formulario de Postulación para jugar fútbol</h2>
-    <form action="procesar_postulacion.php" method="post" enctype="multipart/form-data">
+
+    <?php if (!empty($error)) : ?>
+        <div style="color: red;">
+            <?php foreach ($error as $errorMessage) : ?>
+                <?php echo $errorMessage; ?><br>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    <?php if (!$submit_success) : ?>
+    <form action="./" method="POST" enctype="multipart/form-data">
         <label>Nombre:</label>
         <input type="text" name="nombre" required><br>
 
-        <label>Altura (cm):</label>
+        
+        <label>Altura (m):</label>
         <input type="text" name="altura" required><br>
 
+
         <label>Peso (kg):</label>
-        <input type="number" name="peso" required><br>    
+        <input type="number" name="peso" required><br>
 
         <label>Edad:</label>
         <input type="number" name="edad" required><br>
+        
+        
+        <label>Sub el la que jugas :</label>
+<select name="sub" required>
+    <option value="">Selecciona una opción</option>
+    <option value="sub 15">Sub 15</option>
+    <option value="sub 17">Sub 17</option>
+    <option value="sub 19">Sub 19</option>
+    <option value="sub 21">Sub 21</option>
+    <option value="sub 23">Sub 23</option>
+    <option value="sub 25">Sub 25</option>
+    <option value="sub 27">Sub 27</option>
+    <option value="sub 29">Sub 29</option>
+    <option value="sub 31">Sub 31</option>
+    <option value="sub 33">Sub 33</option>
+    <option value="sub 35">Sub 35</option>
+</select>
+<br>
 
         <label>Disponibilidad horaria:</label>
 <select name="disponibilidad" required>
@@ -68,10 +144,12 @@ if(isset($_POST["nombre"])){
         <label>Mejor habilidad:</label>
         <input type="text" name="habilidad" required><br>
 
-        <label>Video Opcional  (duración entre 2 y 5 minutos):</label>
-        <input type="file" name="video" accept="video/*" ><br>
-
+       
         <input type="submit" value="Enviar">
     </form>
+    <?php else : ?>
+        <p>¡Ya estas en la lista de busqueda ahora espera que te escriban , te notificaremos cuando te escriban!</p>
+       
+    <?php endif; ?>
 </body>
 </html>
