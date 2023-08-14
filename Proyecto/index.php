@@ -1,3 +1,14 @@
+<?php
+$error=array();
+if(isset($_POST["nombre"])){
+    if(strlen($_POST["nombre"])<2)
+    {
+        array_push($error , "El nombre tiene que ser mayor a 2 ")
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +24,7 @@
         <input type="text" name="altura" required><br>
 
         <label>Peso (kg):</label>
-        <input type="number" name="peso" required><br>
+        <input type="number" name="peso" required><br>    
 
         <label>Edad:</label>
         <input type="number" name="edad" required><br>
