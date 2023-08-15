@@ -4,8 +4,7 @@ body {
     color: #333;
     font-size: 1.2rem;
     line-height: 1.4em;
-    margin: 0;
-
+    
 }
 
 h1 {
@@ -35,6 +34,11 @@ img {
     background: #333;
     color: white;
     padding: 2rem 0;
+   
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
 }
 
 .header a {
@@ -49,24 +53,35 @@ img {
 }
 
 .navigation ul {
-    float: left;
-    margin-left: 20px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .navigation ul li {
-    display: inlane-block;
-    line-height: 80px;
-    margin: 0 5px;
+    display: inline-block;
 }
 
 .navigation ul li a {
-    font-size: 1.3rem;
-    color: white;
-    padding: 7px 13px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 5px;
 }
+
+.navigation ul li a:hover {
+    background: #4a4a4a;
+}
+
+.footer{
+    background: #f2f2f2;
+    padding: 4rem 0;
+    text-align: center;
+    margin-top: 6rem;
+}
+
+.main
+{
+    padding-top: 10rem;
+}
+
