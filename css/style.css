@@ -4,7 +4,7 @@ body {
     color: #333;
     font-size: 1.2rem;
     line-height: 1.4em;
-    
+
 }
 
 h1 {
@@ -34,7 +34,7 @@ img {
     background: #333;
     color: white;
     padding: 2rem 0;
-   
+
     position: fixed;
     left: 0;
     top: 0;
@@ -73,15 +73,13 @@ img {
     background: #4a4a4a;
 }
 
-.footer{
+.footer {
     background: #f2f2f2;
     padding: 4rem 0;
     text-align: center;
     margin-top: 6rem;
 }
 
-.main
-{
+.main {
     padding-top: 10rem;
 }
-
