@@ -18,32 +18,49 @@
             background-image: url(css/cancha.jpg);
             background-repeat: no-repeat;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+        }
+
+        .arquero {
+            position: relative;
+            left: 500px;
+            top: 320px;
+        }
+
+        .lateralDerecho {
+            position: relative;
+            left: 350px;
+            top: 0;
         }
     </style>
-
-
-    <button>Arquero</button>
-    <button>Defensa Central</button>
-    <button>Lateral Izquierdo</button>
-    <button>Lateral derecho</button>
-    <button>Mediocampista Defensivo</button>
-    <button>Mediocampista ofensivo</button>
-    <button>Delantero</button>
-    <button>Extremo izquierdo</button>
-    <button>Extremo derecho</button>
-
 
 </head>
 
 <body>
     <div class="board">
 
-        <!-- PONER CONTENIDO Y BOTONES ACA -->
+        <div class="arquero"><button>Arquero</button></div>
+        <div class="lateralDerecho"><button>Lateral derecho</button></div>
+        <div><button>Defensa Central</button></div>
+        <div><button>Defensa Central</button></div>
+        <div><button>Lateral izquierdo</button></div>
+        <div><button>Mediocampista</button></div>
+        <div><button>Mediocampista ofensivo</button></div>
+        <div><button>Mediocampista</button></div>
+        <div><button>Extremo izquierdo</button></div>
+        <div><button>Delantero</button></div>
+        <div><button>Extremo derecho</button></div>
 
     </div>
-
-
-
 
 
 </body>
