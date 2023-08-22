@@ -1,7 +1,7 @@
 body {
-
+    background-color:#023020;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #333;
+    color: #fffdd0;
     font-size: 1.2rem;
     line-height: 1.4em;
     
@@ -31,7 +31,7 @@ img {
 }
 
 .header {
-    background: #333;
+    background: black ;
     color: white;
     padding: 2rem 0;
    
@@ -74,10 +74,10 @@ img {
 }
 
 .footer{
-    background: #f2f2f2;
-    padding: 4rem 0;
+    background: #333 ;
+    padding: 8rem 0;
     text-align: center;
-    margin-top: 6rem;
+    margin-top: 7rem;
 }
 
 .main
