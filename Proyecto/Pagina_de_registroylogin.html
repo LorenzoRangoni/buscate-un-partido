@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tipo de Cuenta</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+</head>
+<body>
+    <h2>Selecciona tu tipo de cuenta</h2>
+    
+    <form action="#" method="POST">
+        <label>Selecciona tu tipo de cuenta:</label>
+        <select id="tipoCuenta" name="tipoCuenta" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Jugador">Jugador</option>
+            <option value="Club">Club</option>
+        </select><br>
+        
+        <button type="button" onclick="redireccionar()">Continuar</button>
+    </form>
+
+    <script type="text/javascript">
+        function redireccionar() {
+            var tipoCuenta = document.getElementById("tipoCuenta").value;
+            if (tipoCuenta === "Jugador") {
+                window.location.href = "proyecto.php";  
+            } else if (tipoCuenta === "Club") {
+                window.location.href = "formulario_club.html";
+            }
+        }
+    </script>
+</body>
+</html>
