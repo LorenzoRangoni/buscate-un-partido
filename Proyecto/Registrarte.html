@@ -7,26 +7,24 @@
 <body>
     <h2>Registrarte</h2>
     
-    <form action="procesar_registro.html" method="POST">
+    <form action="#" method="POST" id="registroForm">
         <label>Mail:</label>
         <input type="email" name="Mail" required><br>
-        <label>jugador o Club </label>
-        <select name="Elije jugador o club" required>
-            <option value="">Selecciona una opcio</option>
-             <option value="Club">Club</option>
-             <option value="Jugador">jugador</option>
-        </select> <br>
-        <label>Nombre y Apellido o Nombre del club :</label>
+        <label>Nombre y Apellido:</label>
         <input type="text" name="Nombre" required><br>
-        <label>contraseña:</label>
+        <label>Contraseña:</label>
         <input type="password" name="password" required><br>
-        
-        <label>Confirmar contraseña:</label>
-        <input type="password" name="confirm_password" required><br>
-        
-        <button type="submit">Registrarte</button>
+         <label>Confirmar contraseña:</label>
+        <input type="password" name="confirm_password" required>
+    <p>Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a></p>
+   
+   
+    <button type="button" onclick="redireccionar()">Registrarte</button>
     </form>
-    
-    <p>Ya tienes una cuenta? <a href="login.html">Iniciar sesion</a></p>
-    
-    
+    <script type="text/javascript">
+        function redireccionar() {
+            window.location.href = "index.php";
+        }
+    </script>
+</body>
+</html>
