@@ -7,14 +7,13 @@
 <body>
     <h2>Formulario enviado correctamente</h2>
     
- 
-    </form>
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["color_picker"])) {
-            $color = $_POST["color_picker"];
+    <p id="message">Gracias por completar el formulario.</p>
+    
+    <script>
+        var color = localStorage.getItem("color_picker");
+        if (color) {
+            document.getElementById("message").style.color = color;
         }
-    ?>
-    <p style="color: <?php echo $color; ?>">Gracias por completar el formulario.</p>
- 
+    </script>
 </body>
 </html>
