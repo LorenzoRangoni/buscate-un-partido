@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         .board {
             width: 100vw;
             height: 100vh;
@@ -28,6 +22,74 @@
             width: 150px;
             height: 50px;
             border-radius: 20px;
+        }
+
+        @media(max-width: 1200px) {
+            .arquero {
+                position: relative;
+                left: 500px;
+                top: 320px;
+            }
+
+            .lateralDerecho {
+                position: relative;
+                left: 350px;
+                top: 0;
+            }
+
+            .defensaCentral1 {
+                position: relative;
+                left: 350px;
+                top: 100px;
+            }
+
+            .defensaCentral2 {
+                position: relative;
+                left: 350px;
+                top: 200px;
+            }
+
+            .lateralIzquierdo {
+                position: relative;
+                left: 350px;
+                top: 300px;
+            }
+
+            .mediocampista1 {
+                position: relative;
+                left: 100px;
+                top: 150px;
+            }
+
+            .mediocampistaOfensivo {
+                position: relative;
+                left: 30px;
+                top: -50px;
+            }
+
+            .mediocampista2 {
+                position: relative;
+                left: 100px;
+                top: -250px;
+            }
+
+            .extremoIzquierdo {
+                position: relative;
+                left: -180px;
+                top: 50px;
+            }
+
+            .delantero {
+                position: relative;
+                left: -200px;
+                top: -200px;
+            }
+
+            .extremoDerecho {
+                position: relative;
+                left: -180px;
+                top: -450px;
+            }
         }
 
         .arquero {
@@ -100,7 +162,12 @@
 </head>
 
 <body>
+
+
+
     <div class="board">
+
+
 
         <div class="arquero"><a href="arquero.html"><button>Arquero</button></a></div>
         <div class="lateralDerecho"><a href="lateralderecho.html"><button>Lateral derecho</button></a></div>
@@ -119,6 +186,9 @@
 
 
     </div>
+
+
+
 
 
 </body>
