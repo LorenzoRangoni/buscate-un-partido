@@ -31,30 +31,19 @@
             if (telefono.length < 10) {
                 errors.push("El número de teléfono debe tener al menos 10 dígitos");
             }
-            
-            if (isset($_POST["sub"])) {
-            $sub = $_POST["sub"];
-            $edad = $_POST["edad"];
-        
-            if (($sub == "sub 15" && $edad > 15) ||
-                ($sub == "sub 17" && $edad > 17) ||
-                ($sub == "sub 19" && $edad > 19) ||
-                ($sub == "sub 21" && $edad > 21) ||
-                ($sub == "sub 23" && $edad > 23) ||
-                ($sub == "sub 25" && $edad > 25) ||
-                ($sub == "sub 27" && $edad > 27) ||
-                ($sub == "sub 29" && $edad > 29) ||
-                ($sub == "sub 31" && $edad > 31) ||
-                ($sub == "sub 33" && $edad > 33) ||
-                ($sub == "sub 35" && $edad > 35)) {
-                array_push($error, "La opción sub seleccionada no coincide con la edad");
+
+            var sub = document.getElementById("sub").value;
+            var subAge = parseInt(sub.split(" ")[1]);
+            if (edad > subAge) {
+                errors.push("La opción Sub seleccionada no coincide con la edad");
             }
-        }
 
             var mejorHabilidad = document.getElementById("habilidad").value;
             if (mejorHabilidad.length < 5) {
                 errors.push("La mejor habilidad debe ser detallada");
             }
+            
+
 
             if (errors.length > 0) {
                 var errorContainer = document.getElementById("errorMessages");
@@ -62,10 +51,18 @@
                 errorContainer.style.color = "red";
                 return false;
             }
-
             return true;
-        
         }
+
+        function enviarFormulario() {
+            if (validarFormulario()) {
+                document.getElementById("formulario").submit();
+            }
+        }
+        function redireccionar() {
+            window.location.href = "envio_exitoso.html";
+        }
+        
     </script>
 </head>
 <body>
@@ -73,8 +70,7 @@
     
     <div id="errorMessages"></div>
 
-    <form action="./" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
-        <label>Nombre:</label>
+    <form id="formulario" action="envio_exitoso.html" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">        <label>Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
         
         <label>Altura (m):</label>
@@ -140,7 +136,9 @@
         <label>Mejor habilidad:</label>
         <input type="text" id="habilidad" name="habilidad" required><br>
 
-        <input type="submit" value="Enviar">
-    </form>
+
+    </form>             
+    <button onclick="enviarFormulario();">Enviar </button>
+
 </body>
 </html>

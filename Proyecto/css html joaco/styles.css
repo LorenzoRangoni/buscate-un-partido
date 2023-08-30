@@ -12,16 +12,22 @@ h2 {
     margin-top: 20px;
     
 }
-input[type="submit"] {
+button {
     background-color: #ff4500; 
     color: rgb(255, 255, 255);
     border: none;
-    padding: 10px 10px;
+    padding: 10px 20px;
+    margin-top: 10px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.5s;
 }
 
-input[type="submit"]:hover {
+button:hover {
     background-color: #15ff00; 
 }
+
+
+
+
+
