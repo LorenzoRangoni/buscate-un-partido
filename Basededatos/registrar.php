@@ -8,10 +8,10 @@
         echo "ocurrio un error con la base de datos";
     }
 
-    if (isset($_POST['enviar'])) 
+    if (isset(enviar)) 
         
         
-        $consulta = "INSERT INTO datos (nombre, numero_de_telefono_jugador) VALUES ('$nombre', '$telefono')"; 
+        $consulta = "INSERT INTO datos (nombre, altura, peso, edad, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad) VALUES ('$nombre','$altura' '$peso', '$edad', '$disponibilidad', '$posicion', '$telefono','$habilidad' )"; 
         $resultado = mysqli_query($conex, $consulta);
         if ($resultado) {
         ?>
