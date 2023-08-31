@@ -25,7 +25,7 @@
         
                 var edad = parseInt(document.getElementById("edad").value);
                 if (isNaN(edad) || edad < 13) {
-                    errors.push("Debes ser mayor a 13 años");
+                    errors.push("Debes ser menor a 13 años");
                 }
         
                 var telefono = document.getElementById("telefono").value;
@@ -127,11 +127,8 @@
             <label>Mejor habilidad:</label>
             <input type="text" id="habilidad" name="habilidad" required><br>
     
-            <button type="submit">Enviar</button>
-    
-    </form>
-    
-    <script>
+           
+         <script>
         var form = document.getElementById("formulario");
         form.addEventListener("submit", function(event) {
             if (!validarFormulario()) {
@@ -139,5 +136,12 @@
             }
         });
     </script>
+            <div class="button-container">
+                <a href="envio_exitoso.html"class="button"> </a><button type="submit">Enviar</button>
+                  </div>
+    
+    </form>
+    
+    
 </body>
 </html>
