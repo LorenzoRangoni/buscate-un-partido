@@ -1,48 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Partido</title>
+        <link rel="shortcut icon" href="imagenes/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="estilos.css">
+    </head>
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Mainpage.css">
-</head>
-
-<body>
-    <header class="header">
-        <div class="container logo-nav-container">
-            <a href="#" class="logo">LOGO</a>
-            <nav class="navigation">
-                <ul>
-                    <li>
-                        <a href="Pagina_de_registroylogin.html"class="button"> Pagina para logearse </a>
+    <body>
+        <header class="hero">
+            <nav class="nav container">
+                <div class="nav__logo">
+                    <h2 class="nav__title">Partido</h2>
+                </div>
+                <ul class="nav__link nav__link--menu">
+                    <li class="nav__items">
+                        <a href="index.html" class="nav__links">Inicio</a>
                     </li>
-                </ul>
-
-            </nav>
-        </div>
-    </header>
-
-    <main class="main">
-        <div class="container">
+                    <li class="nav__items">
+                        <a href="Pagina_de_registroylogin.html" class="nav__links">Logearse</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="encontrarjugadores.html" class="nav__links">Encontrar jugador</a>
+                    </li>
     
+                    <img src="imagenes/close.svg" alt="" class="nav__close">
+                </ul>
+                <div class="nav__menu">
+                    <img src="imagenes/menu.svg" class="nav__img">
+                </div>
+            </nav>
+    
+            <section class="hero__container container">
+                <h1 class="hero__title">Encontra ese jugador que te falta al instante </h1>
+                <p class="hero__paragraph">Te cancelo un jugador a ultimo momento y no queres cancelar el partido? nosotros
+                    estamos para solucionar ese problema</p>
+                <a href="encontrarjugadores.html" class="cta">Encontrar jugadores ahora</a>
+            </section>
+        </header>
+        <main>
+            <section class="container about">
+                <h2 class="subtitle">Que lograras usandonos?</h2>
+                <p class="about__paragraph">Todo lo que se necesita , desde equipos de futbol , delanteros , defensores y mas ;D</p>
+                <div class="about__main">
+                    <article class="about__icons">
+                     <img src="imagenes/pelota.svg" class="pelota__icon" >
+                     <h3 class="about__title">JUGADORES</h3>
+                     <p class="about__paragraph">Jugadores de todas las edades y con diferentes niveles de control de pelota</p>
+                    </article>
+                    <article class="about__icons">
+                        <img src="imagenes/soccer-arena-svgrepo-com.svg" class="pelota__icon" >
+                        <h3 class="about__title">Canchas</h3>
+                        <p class="about__paragraph">Jugadores de todas las edades y con diferentes niveles de control de pelota</p>
+                       </article>
+                       <article class="about__icons">
+                        <img src="imagenes/group-svgrepo-com.svg" class="pelota__icon" >
+                        <h3 class="about__title">Nuevo equipo</h3>
+                        <p class="about__paragraph">Jugadores de todas las edades y con diferentes niveles de control de pelota</p>
+                       </article>
+                </div>
             
-            <h1> BUSCATE UN PARTIDO</h1>
-
-            <p>Hola, nosotros somos buscate un partido, somos un sitio web que ayuda a la gente a buscar jugadores para
-                partidos, ya sea amistosos con amigos, o por ligas como  liga nuñez, tifa, o demas.</p>
-
-
-        </div>
-
-    </main>
-    <footer class="footer">
-        <div class="container">
-            <p> pagina hecha por los papus</p>
-        </div>
-
-    </footer>
-</body>
-
+            </section>
+            <section class="question container">
+                <h2 class="subtitle">Preguntas frecuentes</h2>
+                <p class="questions__paragraph">aaaaaaaaaa</p>
+                <section class="questions__container">
+                    <article class="question__padding">
+                        <div class="questions__answers"> 
+                            <h3 class="question__title"> Que pasa si vivo lejos?
+                                <span class="question__arrow">
+                                    <img src="imagenes/arrow.svg" class="testimony__img" >
+                                </span>
+                            </h3>
+                            <p class="question__show">Facil, nuestro sistema esta programado paramostrarte jugadores y partidos cerca tuyo con nuestro sistema de busquedas</p>
+                        </div>
+                    </article>
+                </section>
+            </section>
+        </main>
+    </body>
 </html>
