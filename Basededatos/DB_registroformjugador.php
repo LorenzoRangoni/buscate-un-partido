@@ -25,7 +25,7 @@ $telefono = $_POST["telefono"];
 $habilidad = $_POST["habilidad"];
 
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO jugadores (nombre, altura, peso, edad, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad) VALUES ('$nombre', '$altura', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad')";
+$sql = "INSERT INTO jugadores (nombre, altura, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad) VALUES ('$nombre', '$altura', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Datos insertados exitosamente";
