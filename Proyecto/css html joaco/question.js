@@ -1,5 +1,5 @@
 (function(){
-    const titleQuestions = [...document.querySelectorAll('.questions__title')];
+    const titleQuestions = [...document.querySelectorAll('.question__title')];
     console.log(titleQuestions)
 
     titleQuestions.forEach(question =>{
