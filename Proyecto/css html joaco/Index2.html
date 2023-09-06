@@ -43,28 +43,44 @@
                 errors.push("La mejor habilidad debe ser detallada");
             }
 
-            if (errors.length < 0) {
+            if (errors.length > 0) {
                 var errorContainer = document.getElementById("errorMessages");
                 errorContainer.innerHTML = errors.join("<br>");
                 errorContainer.style.color = "red";
                 return false;
             }
+            var formData = {
+        nombre: document.getElementById("nombre").value,
+        altura: document.getElementById("altura").value,
+        peso: document.getElementById("peso").value,
+        edad: document.getElementById("edad").value,
+        sub: document.getElementById("sub").value,
+        disponibilidad: document.getElementById("disponibilidad").value,
+        posicion: document.getElementById("posicion").value,
+        telefono: document.getElementById("telefono").value,
+        habilidad: document.getElementById("habilidad").value
+    };
 
-            // Si no hay errores, redirige al usuario a la página de éxito
+    fetch("aws.connect.psdb.cloud", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (response.ok) {
             window.location.href = "envio_exitoso.html";
-            return true;
+        } else {
+            console.error("Error en la solicitud HTTP");
         }
+    })
+    .catch(error => {
+        console.error("Error en la solicitud HTTP:", error);
+    });
 
-        document.addEventListener("DOMContentLoaded", function() {
-            var submitButton = document.querySelector("#customSubmitButton");
-
-            submitButton.addEventListener("click", function(event) {
-                event.preventDefault(); // Prevenir el envío estándar del formulario
-                if (validarFormulario()) {
-                    document.querySelector("form").submit(); // Enviar el formulario
-                }
-            });
-        });
+    return true;
+}
     </script>
 </head>
 <body>
@@ -72,7 +88,7 @@
 
     <div id="errorMessages"></div>
 
-    <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data">
+    <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
         <label>Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
 
@@ -103,6 +119,7 @@
 
         <label>Disponibilidad horaria:</label>
         <select id="disponibilidad" name="disponibilidad" required>
+            <option value="">Selecciona una opción</option>
             <option value="Desde las 00h hasta las 02h">Desde las 00h hasta las 02h</option>
             <option value="Desde las 02h hasta las 04h">Desde las 02h hasta las 04h</option>
             <option value="Desde las 04h hasta las 06h">Desde las 04h hasta las 06h</option>
@@ -138,8 +155,9 @@
         <label>Mejor habilidad:</label>
         <input type="text" id="habilidad" name="habilidad" required><br>
         
-        <button type="button" id="customSubmitButton">Enviar</button>
+        
+        <button type="submit">Enviar</button>
+        
     </form>
-    <script type="text/javascript" src="custom submit.js"></script>
 </body>
 </html>
