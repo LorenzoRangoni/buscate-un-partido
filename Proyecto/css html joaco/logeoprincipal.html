@@ -20,6 +20,14 @@
         <input type="submit" value="Log In">
         <a href="Registrarte.html">Don't have An account?</a>
 
+        <?php
+        session_start();
+        if (isset($_SESSION["login_exitoso"]) && $_SESSION["login_exitoso"] === false) {
+            echo "<p style='color: red;'>Credenciales incorrectas. Por favor, intenta nuevamente.</p>";
+            unset($_SESSION["login_exitoso"]); // Limpia la variable de sesión
+        }
+        ?>
+
       </form>
     </div>
   </body>
