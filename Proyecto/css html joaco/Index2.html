@@ -43,7 +43,7 @@
                 errors.push("La mejor habilidad debe ser detallada");
             }
 
-            if (errors.length > 0) {
+            if (errors.length < 0) {
                 var errorContainer = document.getElementById("errorMessages");
                 errorContainer.innerHTML = errors.join("<br>");
                 errorContainer.style.color = "red";
@@ -72,7 +72,7 @@
 
     <div id="errorMessages"></div>
 
-    <form id="formulario" action="envio_exitoso.html" method="POST" enctype="multipart/form-data">
+    <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data">
         <label>Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
 
