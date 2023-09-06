@@ -49,9 +49,22 @@
                 errorContainer.style.color = "red";
                 return false;
             }
+
+            // Si no hay errores, redirige al usuario a la página de éxito
             window.location.href = "envio_exitoso.html";
-        return true;
+            return true;
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var submitButton = document.querySelector("#customSubmitButton");
+
+            submitButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevenir el envío estándar del formulario
+                if (validarFormulario()) {
+                    document.querySelector("form").submit(); // Enviar el formulario
+                }
+            });
+        });
     </script>
 </head>
 <body>
@@ -59,7 +72,7 @@
 
     <div id="errorMessages"></div>
 
-    <form id="formulario" action="envio_exitoso.html" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+    <form id="formulario" action="envio_exitoso.html" method="POST" enctype="multipart/form-data">
         <label>Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
 
@@ -90,7 +103,6 @@
 
         <label>Disponibilidad horaria:</label>
         <select id="disponibilidad" name="disponibilidad" required>
-            <option value="">Selecciona una opción</option>
             <option value="Desde las 00h hasta las 02h">Desde las 00h hasta las 02h</option>
             <option value="Desde las 02h hasta las 04h">Desde las 02h hasta las 04h</option>
             <option value="Desde las 04h hasta las 06h">Desde las 04h hasta las 06h</option>
@@ -126,9 +138,9 @@
         <label>Mejor habilidad:</label>
         <input type="text" id="habilidad" name="habilidad" required><br>
         
-        
-        <button type="submit">Enviar</button>
-        
+        <!-- Botón de envío personalizado -->
+        <button type="button" id="customSubmitButton">Enviar</button>
     </form>
+    <script type="text/javascript" src="custom submit.js"></script>
 </body>
 </html>
