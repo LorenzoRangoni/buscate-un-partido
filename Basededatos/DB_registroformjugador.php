@@ -1,4 +1,6 @@
 <?php
+header("location:  http://127.0.0.1:5500/Proyecto/css%20html%20joaco/envio_exitoso.html");
+exit(); 
 // Datos de conexión
 $hostname = "aws.connect.psdb.cloud";
 $username = "jia4hgeiw0xrsz4kpjpm";
@@ -17,7 +19,8 @@ if ($conn->connect_error) {
 $nombre = $_POST["nombre"];
 $altura = $_POST["altura"];
 $peso = $_POST["peso"];
-$edad = $_POST["edad"];
+$edad = $_POST["edad"}
+
 $sub = $_POST["sub"];
 $disponibilidad = $_POST["disponibilidad"];
 $posicion = $_POST["posicion"];

@@ -1,9 +1,10 @@
 
 
 if(true){
-    let ritmo = document.getElementById(ritmo).value; 
+    let habilidad  = document.getElementById(habilidad).value; 
+    let peso = document.getElementById(peso).value;
 }
 constVariablesFormulario={
- ritmo:ritmoValue,
- 
+ habilidad:habilidadValue,
+
 }
