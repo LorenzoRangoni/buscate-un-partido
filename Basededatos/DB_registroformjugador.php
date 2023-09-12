@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 $nombre = $_POST["nombre"];
 $altura = $_POST["altura"];
 $peso = $_POST["peso"];
-$edad = $_POST["edad"}
+$edad = $_POST["edad"];
 
 $sub = $_POST["sub"];
 $disponibilidad = $_POST["disponibilidad"];
