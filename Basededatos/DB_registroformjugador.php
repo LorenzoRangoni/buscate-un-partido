@@ -1,5 +1,5 @@
 <?php
-header("location:  http://127.0.0.1:5500/Proyecto/css%20html%20joaco/envio_exitoso.html");
+header("location:  http://localhost/Proyecto/css%20html%20joaco/envio_exitoso.html");
 exit(); 
 
 require 'conexion_db.php';
