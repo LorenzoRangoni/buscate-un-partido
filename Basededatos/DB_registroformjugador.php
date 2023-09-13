@@ -1,14 +1,8 @@
 <?php
 header("location:  http://127.0.0.1:5500/Proyecto/css%20html%20joaco/envio_exitoso.html");
 exit(); 
-// Datos de conexión
-$hostname = "aws.connect.psdb.cloud";
-$username = "jia4hgeiw0xrsz4kpjpm";
-$password = "pscale_pw_9OrPORrnYforaotmp602Ala7vUOAir2qj8oVHto6WZS";
-$database = "buscateunpartido";
 
-// Conexión a la base de datos
-$conn = new mysqli($hostname, $username, $password, $database);
+require 'conexion_db.php';
 
 // Verificar la conexión
 if ($conn->connect_error) {
@@ -36,6 +30,5 @@ if ($conn->query($sql) === TRUE) {
     echo "Error al insertar datos: " . $conn->error;
 }
 
-// Cerrar la conexión
-$conn->close();
+
 ?>
