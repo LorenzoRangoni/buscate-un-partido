@@ -1,6 +1,6 @@
 <?php
 
-requiere 'conexion_db.php';
+include ("conexion_db.php");
 
 if(isset($_POST['Registrarte'])) {
 
@@ -10,7 +10,7 @@ if(isset($_POST['Registrarte'])) {
     $contrasena= $_POST['password'];
 
     // Insertamos los datos en la base de datos
-    $sql= "INSERT INTO jugadores (mail_registrado, nombre_registrado, contrasena_jugador) VALUES ('$mail', ' $nombre', '$contrasena')"; 
+    $sql= "INSERT INTO jugadores (mail_registrado_login, nombre_registrado_login, contrasena_jugador) VALUES ('$mail', ' $nombre', '$contrasena')"; 
     $resultado= mysqli_query ($conexion, $sql);
 
     //inserccion correcta
