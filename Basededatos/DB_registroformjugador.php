@@ -1,8 +1,11 @@
 <?php
+
+include("conexion_db.php");
+
 header("location:  http://localhost/Proyecto/css%20html%20joaco/envio_exitoso.html");
 exit(); 
 
-require 'conexion_db.php';
+
 
 // Verificar la conexión
 if ($conn->connect_error) {
