@@ -2,10 +2,6 @@
 
 include("conexion_db.php");
 
-header("location:  http://localhost/Proyecto/css%20html%20joaco/envio_exitoso.html");
-exit(); 
-
-
 
 // Verificar la conexión
 if ($conn->connect_error) {
@@ -28,7 +24,9 @@ $habilidad = $_POST["habilidad"];
 $sql = "INSERT INTO jugadores (nombre, altura, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad) VALUES ('$nombre', '$altura', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Datos insertados exitosamente";
+    // Redirigir después de la inserción exitosa
+    header("Location: http://localhost:5500/Proyecto/css%20html%20joaco/envio_exitoso.htmll");
+    exit();  // Asegura que el script se detenga después de la redirección
 } else {
     echo "Error al insertar datos: " . $conn->error;
 }
