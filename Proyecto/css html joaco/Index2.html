@@ -1,87 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <meta http-equiv="refresh" content="0;url=http://127.0.0.1:5500/Proyecto/css%20html%20joaco/envio_exitoso.html">
+    <meta charset="UTF-8">
     <title>Formulario de Postulación</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript">
         function validarFormulario() {
             var errors = [];
 
+            // Validación del campo Nombre
             var nombre = document.getElementById("nombre").value;
             if (nombre.length < 10) {
-                errors.push("El nombre tiene que ser mayor a 10 caracteres");
+                errors.push("El nombre debe ser mayor a 10 letras .");
             }
 
+            // Validación del campo Altura
             var altura = parseFloat(document.getElementById("altura").value);
             if (isNaN(altura) || altura < 1.5) {
-                errors.push("La altura no puede ser menor a 1.5 m ni negativa");
+                errors.push("La altura no puede ser menor a 1.5 m ni negativa.");
             }
 
+            // Validación del campo Peso
             var peso = parseFloat(document.getElementById("peso").value);
             if (isNaN(peso) || peso < 0) {
-                errors.push("El peso no puede ser negativo");
+                errors.push("El peso no puede ser negativo.");
             }
 
+            // Validación del campo Edad
             var edad = parseInt(document.getElementById("edad").value);
             if (isNaN(edad) || edad < 13) {
-                errors.push("Debes ser menor a 13 años");
+                errors.push("Debes ser mayor de 13 años.");
             }
-
-            var telefono = document.getElementById("telefono").value;
-            if (telefono.length < 10) {
-                errors.push("El número de teléfono debe tener al menos 10 dígitos");
-            }
-
+            // Validacion del campo de sub 
             var sub = document.getElementById("sub").value;
             var subAge = parseInt(sub.split(" ")[1]);
             if (edad > subAge) {
                 errors.push("La opción Sub seleccionada no coincide con la edad");
             }
 
-            var mejorHabilidad = document.getElementById("habilidad").value;
-            if (mejorHabilidad.length < 5) {
-                errors.push("La mejor habilidad debe ser detallada");
+            // Validación del campo Teléfono
+            var telefono = document.getElementById("telefono").value;
+            if (telefono.length < 10) {
+                errors.push("El número de teléfono debe tener al menos 10 dígitos.");
             }
 
+            
+             // Se fija si hay errores 
             if (errors.length > 0) {
                 var errorContainer = document.getElementById("errorMessages");
                 errorContainer.innerHTML = errors.join("<br>");
                 errorContainer.style.color = "red";
                 return false;
             }
+
+            // Recopila los datos del formulario en un objeto
             var formData = {
-        nombre: document.getElementById("nombre").value,
-        altura: document.getElementById("altura").value,
-        peso: document.getElementById("peso").value,
-        edad: document.getElementById("edad").value,
-        sub: document.getElementById("sub").value,
-        disponibilidad: document.getElementById("disponibilidad").value,
-        posicion: document.getElementById("posicion").value,
-        telefono: document.getElementById("telefono").value,
-        habilidad: document.getElementById("habilidad").value
-    };
+                nombre: document.getElementById("nombre").value,
+                altura: parseFloat(document.getElementById("altura").value),
+                peso: parseFloat(document.getElementById("peso").value),
+                edad: parseInt(document.getElementById("edad").value),
+                sub: document.getElementById("sub").value,
+                disponibilidad: document.getElementById("disponibilidad").value,
+                posicion: document.getElementById("posicion").value,
+                telefono: document.getElementById("telefono").value,
+                habilidad: document.getElementById("habilidad").value
+            };
 
-    fetch("aws.connect.psdb.cloud", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = "envio_exitoso.html";
-        } else {
-            console.error("Error en la solicitud HTTP");
+            // Realiza la solicitud fetch y envía los datos del formulario como JSON
+            fetch("../../Basededatos/DB_registroformjugador.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData) 
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Los datos se enviaron con éxito, puedes redirigir al usuario a la página de éxito
+                    window.location.href = "envio_exitoso.html"; // Redirección aquí
+                } else {
+                    // Hubo un error en el servidor, puedes mostrar un mensaje de error al usuario
+                    console.error("Error en la solicitud HTTP");
+                }
+            })
+            .catch(error => {
+                console.error("Error en la solicitud HTTP:", error);
+            });
+
+            return true;
         }
-    })
-    .catch(error => {
-        console.error("Error en la solicitud HTTP:", error);
-    });
-
-    return true;
-}
     </script>
 </head>
 <body>
@@ -89,7 +96,7 @@
 
     <div id="errorMessages"></div>
 
-    <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+    <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data" target="_blank" onsubmit="return validarFormulario()">
         <label>Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
 
@@ -154,12 +161,9 @@
         <input type="tel" id="telefono" name="telefono" required><br>
 
         <label>Mejor habilidad:</label>
-        <input type="text" id="habilidad" name="habilidad" required><br>
-        
+        <input type="text" id="habilidad" name="Mejor habilidar" required><br>
         
         <button type="submit">Enviar</button>
-        <form id="formulario" action="/Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()"> 
     </form>
-    <meta http-equiv="refresh" content="0;url=http://127.0.0.1:5500/Proyecto/css%20html%20joaco/envio_exitoso.html">
 </body>
 </html>
