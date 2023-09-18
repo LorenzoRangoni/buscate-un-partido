@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #00ffdd;
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255);
+}
+
+h2 {
+    color: navy;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: salmon;
+}
+
+.agradecer_envio{
+    color: crimson;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 60px;
+    background-color: darksalmon;
+
+}
