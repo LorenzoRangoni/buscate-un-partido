@@ -1,5 +1,5 @@
 <!-- <?php 
-$conex= mysqli_connect ("aws.connect.psdb.cloud","e9ff7fs65sx5x0h58x7m","pscale_pw_245TpZ9MBPZ9zmzAlZtLI9AcaxOMJ9yls9ZOBAq9XbG","buscateunpartido");
+$conex= mysqli_connect ("aws.connect.psdb.cloud","o5nkaorqytxib25y6s56","pscale_pw_zNY18iinLkTj7ATcIA6miVuV8XSYe8wjFZdPThSvnPK","buscateunpartido");
 
 if ($mysqli->connect_error) {
     die("Error de conexión: " . $mysqli->connect_error);
