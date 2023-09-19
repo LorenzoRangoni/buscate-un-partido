@@ -1,6 +1,6 @@
 <?php
 
-$conex= mysqli_connect ("aws.connect.psdb.cloud","7266ehtqfeviglw6qbt1","pscale_pw_PJtdOr8JmWgzNztx5o7xOriTfkmVoVHhe1zhvofdCjl","buscateunpartido");
+include("conexion_db.php");
 
 
 // Verificar la conexión
