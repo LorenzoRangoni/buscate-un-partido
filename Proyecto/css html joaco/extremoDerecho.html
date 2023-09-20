@@ -1,0 +1,31 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jugadores de ExtremoDerecho</title>
+    <!-- Incluye jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Jugadores de ExtremoDerecho</h2>
+
+    <!-- Contenedor donde se mostrarán los jugadores -->
+    <div id="jugadores-extremoDerecho"></div>
+
+    <!-- Script JavaScript para cargar jugadores de arquero -->
+    <script>
+        $(document).ready(function() {
+            // Realiza una solicitud AJAX al archivo PHP de arqueros
+            $.ajax({
+                url: 'extremoDerecho.php', // Nombre del archivo PHP correspondiente a la posición de arquero
+                success: function(data) {
+                    $('#jugadores-extremoderecho').html(data); // Actualiza el contenido del contenedor
+                },
+                error: function() {
+                    $('#jugadores-extremoderecho').html('Error al cargar jugadores de arquero.'); // Maneja errores
+                }
+            });
+        });
+    </script>
+</body>

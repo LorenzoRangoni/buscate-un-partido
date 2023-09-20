@@ -1,0 +1,31 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jugadores de delantero</title>
+    <!-- Incluye jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Jugadores de delantero</h2>
+
+    <!-- Contenedor donde se mostrarán los jugadores -->
+    <div id="jugadores-delantero"></div>
+
+    <!-- Script JavaScript para cargar -->
+    <script>
+        $(document).ready(function() {
+            // Realiza una solicitud AJAX al archivo PHP 
+            $.ajax({
+                url: 'delantero.php', // Nombre del archivo PHP correspondiente 
+                success: function(data) {
+                    $('#jugadores-delanterocentro').html(data); // Actualiza el contenido del contenedor
+                },
+                error: function() {
+                    $('#jugadores-delanterocentro').html('Error al cargar jugadores de arquero.'); // Maneja errores
+                }
+            });
+        });
+    </script>
+</body>
