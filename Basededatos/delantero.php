@@ -1,4 +1,4 @@
-$sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub FROM jugadores WHERE posicion_jugador = 'Delantero Centro'";
+$sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub FROM jugadores WHERE posicion_jugador = 'delantero centro'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
