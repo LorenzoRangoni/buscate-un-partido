@@ -20,7 +20,7 @@ $sql = "INSERT INTO jugadores (nombre, altura, peso, edad, sub, disponibilidad_h
 
 if ($mysqli->query($sql) === TRUE) {
     // Redirigir después de la inserción exitosa
-    header("Location: http://localhost:5500/Proyecto/css%20html%20joaco/envio_exitoso.htmll");
+    header("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/");
     exit();  // Asegura que el script se detenga después de la redirección
 } else {
     echo "Error al insertar datos: " . $mysqli->error;

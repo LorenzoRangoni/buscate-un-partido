@@ -1,31 +1,12 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Jugadores de defensaCentral</title>
-    <!-- Incluye jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Jugadores de la posición de Defensor Central</title>
+    
 </head>
 <body>
-    <h2>Jugadores de defensaCentral</h2>
-
-    <!-- Contenedor donde se mostrarán los jugadores -->
-    <div id="jugadores-defensacentral"></div>
-
-    <!-- Script JavaScript para cargar jugadores -->
-    <script>
-        $(document).ready(function() {
-            // Realiza una solicitud AJAX al archivo PHP 
-            $.ajax({
-                url: 'defensaCentral.php', // Nombre del archivo PHP 
-                success: function(data) {
-                    $('#jugadores-defensacentral').html(data); // Actualiza el contenido del contenedor
-                },
-                error: function() {
-                    $('#jugadores-defensacentral').html('Error al cargar jugadores de defensa central.'); // Maneja errores
-                }
-            });
-        });
-    </script>
+    <h1>Jugadores de la posición de Defensor Central</h1>
+    <?php include("../../Basededatos/defensorCentra.php"); ?> 
 </body>
+</html>
