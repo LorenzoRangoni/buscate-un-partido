@@ -5,7 +5,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Mostrar los jugadores encontrados
-    echo "<table>
+    $salida= "<table>
     <tr>
         <th>Nombre</th>
         <th>Apellido</th>
@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
         
     </tr>";
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>
+        $salida.= "<tr>
             <td>" . $row["nombre"] . "</td>
             <td>" . $row["apellido"] . "</td>
             <td>" . $row["disponibilidad_horaria_jugador"] . "</td>
@@ -34,7 +34,8 @@ if ($result->num_rows > 0) {
  
         </tr>";
     }
-    echo "</table>";
+    $salida.="</table>";
+    echo $salida;
 } else {
     echo "No se encontraron jugadores de Arquero.";
 }
