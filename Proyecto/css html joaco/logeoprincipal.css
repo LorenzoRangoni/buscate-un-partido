@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(../img/bg.jpeg) no-repeat center top;
+  background: url(.//imagenes/pasto.jpg) no-repeat center top;
   background-size: cover;
   font-family: sans-serif;
   height: 100vh;
@@ -86,4 +86,13 @@ body {
 
 .login-box a:hover {
   color: #fff;
+}
+
+.avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: calc(50% - 50px);
 }
