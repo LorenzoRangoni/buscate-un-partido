@@ -10,17 +10,53 @@
 <body>
   <form class="form-register" action="../../Basededatos/DB_registroformjugador.php" method="POST">
     <h4>Formulario Registro</h4>
-    <input class="controls" type="text" name="nombre" id="nombres" placeholder="Ingrese su Nombre">
-    <input class="controls" type="number" name="altura" id="altura" placeholder="Altura">
-    <input class="controls" type="number" name="peso" id="peso" placeholder="Peso">
-    <input class="controls" type="number" name="edad" id="edad" placeholder="Edad">
-    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-    <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña">
-    <input class="controls" type="number" name="telefono" id="telefono" placeholder=" Numero telefonico">
-    <input class="controls" type="text" name="habilidad" id="habilidad" placeholder="Mejor habilidad">
-    <label>Disponibilidad horaria:</label>
-        <select name="disponibilidad" required>
-            <option value="">Selecciona una opción</option>
+    
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre">
+    </div>
+    
+    <div class="form-group">
+      <label for="altura">Altura:</label>
+      <input class="controls" type="number" name="altura" id="altura" placeholder="Altura">
+    </div>
+    
+    <div class="form-group">
+      <label for="peso">Peso:</label>
+      <input class="controls" type="number" name="peso" id="peso" placeholder="Peso">
+    </div>
+    
+    <div class="form-group">
+      <label for="edad">Edad:</label>
+      <input class="controls" type="number" name="edad" id="edad" placeholder="Edad">
+    </div>
+    
+    <div class="form-group">
+      <label for="correo">Correo:</label>
+      <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+    </div>
+    
+    <div class="form-group">
+      <label for="contrasena">Contraseña:</label>
+      <input class="controls" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su Contraseña">
+    </div>
+    
+    <div class="form-group">
+      <label for="telefono">Número telefónico:</label>
+      <input class="controls" type="number" name="telefono" id="telefono" placeholder="Número telefónico">
+    </div>
+    
+    <div class="form-group">
+      <label for="habilidad">Mejor habilidad:</label>
+      <input class="controls" type="text" name="habilidad" id="habilidad" placeholder="Mejor habilidad">
+    </div>
+    
+    <div class="form-group">
+      <label for="disponibilidad">Disponibilidad horaria:</label>
+      <select class="controls" name="disponibilidad" id="disponibilidad" required>
+        <option value="">Selecciona una opción</option>
+        <!-- Opciones de disponibilidad horaria aquí -->
+        <option value="">Selecciona una opción</option>
             <option value="Desde las 00h hasta las 02h">Desde las 00h hasta las 02h</option>
             <option value="Desde las 02h hasta las 04h">Desde las 02h hasta las 04h</option>
             <option value="Desde las 04h hasta las 06h">Desde las 04h hasta las 06h</option>
@@ -33,10 +69,15 @@
             <option value="Desde las 18h hasta las 20h">Desde las 18h hasta las 20h</option>
             <option value="Desde las 20h hasta las 22h">Desde las 20h hasta las 22h</option>
             <option value="Desde las 22h hasta las 00h">Desde las 22h hasta las 00h</option>
-        </select>
-        <label>Posición:</label>
-        <select name="posicion" required>
-            <option value="">Selecciona una opción</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="posicion">Posición:</label>
+      <select class="controls" name="posicion" id="posicion" required>
+        <option value="">Selecciona una opción</option>
+        <!-- Opciones de posición aquí -->
+<option value="">Selecciona una opción</option>
             <option value="extremo derecho ">Extremo Derecho</option>
             <option value="delantero centro">Delantero Centro</option>
             <option value="extremo Izquierdo">Extremo Izquierdo</option>
@@ -47,10 +88,14 @@
             <option value="defensor central">Defensor Central </option>
             <option value="defensor derecho">Defensor Derecho </option>
             <option value="arquero">Arquero</option>
-
-        </select>
-        <label>Sub :</label>
-        <select id="sub" name="sub" required>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="sub">Sub:</label>
+      <select class="controls" name="sub" id="sub" required>
+        <option value="">Selecciona una opción</option>
+        <!-- Opciones de Sub aquí -->
             <option value="">Selecciona una opción</option>
             <option value="sub 15">Sub 15</option>
             <option value="sub 17">Sub 17</option>
@@ -63,10 +108,12 @@
             <option value="sub 31">Sub 31</option>
             <option value="sub 33">Sub 33</option>
             <option value="sub 35">Sub 35</option>
-        </select>
+      </select>
+    </div>
+    
     <input class="botons" type="submit" value="Registrar">
-    <p><a href="#">¿Ya tengo Cuenta?</a></p>
+    
+    <p><a href="logeoprincipal.html">¿Ya tengo Cuenta?</a></p>
   </form>
-
 </body>
 </html>
