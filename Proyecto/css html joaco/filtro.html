@@ -1,57 +1,61 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jugadores</title>
-    <link rel="stylesheet" href="filtro.css">
-    <script src="jquery.js"></script>
-    <script src="filtro.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Filtrando elementos por categorias</title>
+
+	<link rel="stylesheet" href="filtro.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="filtro2.js"></script>
+    
 </head>
 <body>
-    <div class="wrap">
-        <h1>Jugadores</h1>
-        <div class="store_wrapper">
-            <div class="category_list">
-                <a href="" #="" id="categoryItem" category="all">Todos</a>
-                <a href="" #="" id="categoryItem" category="Arquero">Arquero</a>
-                <a href="" #="" id="categoryItem" category="Defensa_central">Defensa central</a>
-                <a href="" #="" id="categoryItem" category="defensa">defensa</a>
-                <a href="" #="" id="categoryItem" category="Mediocentro">Mediocentro</a>
-                <a href="" #="" id="categoryItem" category="Centrocampista">centrocampista</a>
-                <a href="" #="" id="categoryItem" category="Delantero">Delantero</a>
-            
-            </div>
-            <section class="product-list">
-                <div class="product-item" category="Arquero">
-                    <img src="jugadoresimg/klipartz.com (1).png" alt="">
-                    <a href="" #="">Arquero</a>
-                </div>
-                <div class="product-item" category="Defensa_central">
-                    <img src="jugadoresimg/pngwing.com (1) (1).png" alt="">
-                    <a href="" #="Virjil    "></a>
-                </div>
-                <div class="product-item" category="defensa">
-                    <img src="jugadoresimg/sergio.png.png" alt="">
-                    <a href="" #="">Sergio Ramos</a>
-                </div>
-                <div class="product-item" category="Mediocentro">
-                    <img src="jugadoresimg/pngwing.com (2) (1).png" alt="">
-                    <a href="" #="">Kevin</a>
-                </div>
-                <div class="product-item" category="centrocampista">
-                    <img src="jugadoresimg/pngwing.com (3) (2).png" alt="">
-                    <a href="" #="">Messi</a>
-                </div>
-                <div class="product-item" category="Delantero">
-                    <img src="jugadoresimg/messi.png (1).png" alt="">
-                    <a href="" #="">Messi</a>
-                </div>
-               
-                </div>
+	
+	<div class="wrap">
+		<h1>Escoge un producto</h1>
+		<div class="store-wrapper">
+			<div class="category_list">
+				<a href="#" class="category_item" category="all">Todo</a>
+				<a href="#" class="category_item" category="Arqueros">Arqueros</a>
+				<a href="#" class="category_item" category="laptops">Defensa central</a>
+				<a href="#" class="category_item" category="smartphones">Defensa</a>
+				<a href="#" class="category_item" category="monitores">Centrocampista</a>
+				<a href="#" class="category_item" category="audifonos">Delantero</a>
+			</div>
+			<section class="products-list">
+				<div class="product-item" category="Arqueros">
+					<img src="jugadoresimg/klipartz.com (1).png" alt="" >
+					<a href="#">Laptop Hp</a>
+				</div>
+				<div class="product-item" category="laptops">
+					<img src="jugadoresimg/pngwing.com (1) (1).png" alt="" >
+					<a href="#">Laptop Toshiba</a>
+				</div>
+				<div class="product-item" category="smartphones">
+					<img src="jugadoresimg/pngwing.com (2) (1).png" alt="" >
+					<a href="#">Samsung Galaxy</a>
+				</div>
+				<div class="product-item" category="smartphones">
+					<img src="jugadoresimg/pngwing.com (3) (2).png" alt="" >
+					<a href="#">Iphone 7</a>
+				</div>
+				<div class="product-item" category="ordenadores">
+					<img src="jugadoresimg/sergio.png.png" alt="" >
+					<a href="#">PC Hp</a>
+				</div>
+				<div class="product-item" category="ordenadores">
+					<img src="jugadoresimg/messi.png (1).png" alt="" >
+					<a href="#">PC Lenovo</a>
+				</div>
+				
+				</div>
+			</section>
+		</div>
+	</div>
 
-            </section>
-        </div>
-    </div>
 </body>
 </html>
