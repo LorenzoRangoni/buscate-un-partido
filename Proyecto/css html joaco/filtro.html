@@ -1,61 +1,56 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Filtrando elementos por categorias</title>
-
-	<link rel="stylesheet" href="filtro.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-
-	<script src="js/jquery-3.2.1.js"></script>
-	<script src="filtro2.js"></script>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="filtro.css">
+    <title>Fútbol App</title>
 </head>
 <body>
-	
-	<div class="wrap">
-		<h1>Escoge un producto</h1>
-		<div class="store-wrapper">
-			<div class="category_list">
-				<a href="#" class="category_item" category="all">Todo</a>
-				<a href="#" class="category_item" category="Arqueros">Arqueros</a>
-				<a href="#" class="category_item" category="laptops">Defensa central</a>
-				<a href="#" class="category_item" category="smartphones">Defensa</a>
-				<a href="#" class="category_item" category="monitores">Centrocampista</a>
-				<a href="#" class="category_item" category="audifonos">Delantero</a>
-			</div>
-			<section class="products-list">
-				<div class="product-item" category="Arqueros">
-					<img src="jugadoresimg/klipartz.com (1).png" alt="" >
-					<a href="#">Laptop Hp</a>
-				</div>
-				<div class="product-item" category="laptops">
-					<img src="jugadoresimg/pngwing.com (1) (1).png" alt="" >
-					<a href="#">Laptop Toshiba</a>
-				</div>
-				<div class="product-item" category="smartphones">
-					<img src="jugadoresimg/pngwing.com (2) (1).png" alt="" >
-					<a href="#">Samsung Galaxy</a>
-				</div>
-				<div class="product-item" category="smartphones">
-					<img src="jugadoresimg/pngwing.com (3) (2).png" alt="" >
-					<a href="#">Iphone 7</a>
-				</div>
-				<div class="product-item" category="ordenadores">
-					<img src="jugadoresimg/sergio.png.png" alt="" >
-					<a href="#">PC Hp</a>
-				</div>
-				<div class="product-item" category="ordenadores">
-					<img src="jugadoresimg/messi.png (1).png" alt="" >
-					<a href="#">PC Lenovo</a>
-				</div>
-				
-				</div>
-			</section>
-		</div>
-	</div>
-
+    <div class="header">
+        <h1>Encontrar jugadores</h1>
+    </div>
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="searchInput">Buscar por nombre:</label>
+                <input type="text" id="searchInput" placeholder="Nombre del jugador">
+            </div>
+            <div class="filter-group">
+                <label for="positionFilter">Posición:</label>
+                <select id="positionFilter">
+                    <option value="">Mostrar Todos</option>
+                    <option value="Delantero">Delantero</option>
+                    <option value="Centrocampista">Centrocampista</option>
+                    <option value="Defensa">Defensa</option>
+                    <option value="Portero">Portero</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="ageFilter">Edad:</label>
+                <input type="number" id="ageFilter" placeholder="Edad mínima">
+            </div>
+            <div class="filter-group">
+                <label for="residenceFilter">Zona de Residencia:</label>
+                <input type="text" id="residenceFilter" placeholder="Zona de residencia">
+            </div>
+            <button onclick="applyFilters()">Filtrar</button>
+        </div>
+        <div class="player-list-container">
+            <h2>Lista de Jugadores</h2>
+            <ul id="playerList"></ul>
+        </div>
+    </div>
+    <div id="playerDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalPlayerName"></h2>
+            <img src="" alt="" id="modalPlayerImage">
+            <p><strong>Posición:</strong> <span id="modalPlayerPosition"></span></p>
+            <p><strong>Edad:</strong> <span id="modalPlayerAge"></span> años</p>
+            <p><strong>Zona de Residencia:</strong> <span id="modalPlayerResidence"></span></p>
+        </div>
+    </div>
+    <script src="filtro.js"></script>
 </body>
 </html>
