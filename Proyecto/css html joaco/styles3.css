@@ -1,25 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #df6969;
+/* Estilos generales */
+* {
     margin: 0;
     padding: 0;
-    color: rgb(255, 255, 255);
+    box-sizing: border-box;
 }
 
-h2 {
-    text-align: center;
-    color: black;
-    margin-top: 20px;
+body {
+    background-color: #000;
 }
 
-.button {
-    background-color: black;
-    border: none;
+/* Estilos para el formulario de registro */
+#registroForm {
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
     color: white;
-    padding: 10px 20px;
+    box-shadow: 7px 13px 37px #000;
+}
+
+#registroForm h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+#registroForm label {
+    /* Anula el borde para las etiquetas */
+    border: none;
+}
+
+#registroForm input {
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+}
+
+#registroForm p {
+    height: 40px;
     text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+#registroForm a {
+    color: white;
     text-decoration: none;
-    display: inline-block;
+}
+
+#registroForm a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#registroForm input[type="submit"] {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
     font-size: 16px;
-    border-radius: 200px;
+}
+
+select option:checked {
+    background-color: #007bff;
+    color: #fff;
 }

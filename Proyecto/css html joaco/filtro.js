@@ -32,7 +32,7 @@ const players = [
         position: "Portero", 
         age: 29,
         residence: "Liverpool",
-        image: "jugadoresimg/alisson.png" 
+        image: "jugadoresig" 
     }
     // Agrega más jugadores aquí si es necesario
 ];
