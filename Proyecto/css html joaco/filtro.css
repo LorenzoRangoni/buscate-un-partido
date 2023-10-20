@@ -2,92 +2,126 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.header {
-    width: 100%;
-    background-color: #4CAF50;
+    background-color: #222;
     color: white;
-    padding: 20px;
-    text-align: center;
 }
 
 .container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin-top: 20px;
-    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
+.hero {
+    background-color: #111;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.nav {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav__title {
+    margin: 0;
+    font-size: 28px;
+    color: #fff;
+}
+
+.nav__links {
+    display: flex;
+}
+
+.button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2ecc71;
+}
+
+/* Estilos para el contenido de la página */
+
 .filters {
-    flex: 1;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .filter-group {
     margin-bottom: 15px;
 }
 
-.filter-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.filter-group input, .filter-group select {
+input[type="text"],
+input[type="number"],
+select {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
-.filter-group button {
-    background-color: #4CAF50;
+.button-primary {
+    background-color: #3498db;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-.filter-group button:hover {
-    background-color: #45a049;
+.button-primary:hover {
+    background-color: #2980b9;
 }
 
 .player-list-container {
-    flex: 1;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-#playerList {
+.player-list-container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.player-list-container ul {
     list-style: none;
     padding: 0;
-    text-align: center;
 }
 
-#playerList li {
-    margin: 10px;
-    font-size: 18px;
+.player-list-container li {
+    margin-bottom: 15px;
     cursor: pointer;
-    transition: color 0.3s;
+}
+.player-list-container li:hover {
+    color: #3498db; /* Cambiar color de texto al hacer hover */
 }
 
-#playerList li:hover {
-    color: #4CAF50;
-    text-decoration: underline;
-}
 
 .modal {
     display: none;
@@ -98,27 +132,48 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #f2f2f2; /* Fondo claro */
+    color: #333; /* Texto negro */
     margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 80%;
 }
 
 .close {
-    color: #aaa;
-    float: right;
+    color: black;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
+.close:hover {
+    color: #e74c3c;
+}
+
+.filter-group select {
     color: black;
-    text-decoration: none;
+}
+.close-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: #c0392b;
 }
