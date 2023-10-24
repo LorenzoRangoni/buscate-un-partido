@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cuenta.css">
+    <!-- Agregar la fuente de icono de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Datos de la Cuenta</title>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Mis Datos de Cuenta</h1>
+        <div class="datos-cuenta">
+            <p><strong>Nombre:</strong> Juan Pérez</p>
+            <p><strong>Correo Electrónico:</strong> juan.perez@example.com</p>
+            <p><strong>Número de Cuenta:</strong> 1234567890</p>
+
+            <button id="mostrarContrasena" style="background-color: transparent; border: none; color: black; cursor: pointer;">
+                <i class="fas fa-eye"></i> Mostrar Contraseña
+            </button>
+            <p id="contrasena" style="display: none;"><strong>Contraseña:</strong> ********</p>
+        </div>
+    </div>
+
+    <script>
+        const mostrarContrasenaBtn = document.getElementById("mostrarContrasena");
+        const contrasena = document.getElementById("contrasena");
+
+        let contrasenaVisible = false;
+
+        mostrarContrasenaBtn.addEventListener("click", () => {
+            contrasenaVisible = !contrasenaVisible;
+            contrasena.style.display = contrasenaVisible ? "block" : "none";
+            mostrarContrasenaBtn.textContent = contrasenaVisible ? "Ocultar Contraseña" : "Mostrar Contraseña";
+        });
+    </script>
+</body>
+</html>
