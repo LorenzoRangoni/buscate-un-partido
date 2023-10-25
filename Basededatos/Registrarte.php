@@ -17,14 +17,15 @@ if(isset($_POST['Registrarte'])) {
 
     if ($resultado) 
     {
-        echo "datos enviados con exito";
+        
+        header ("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/index.html");
+        exit();
     }
    
     // inserccion fallida
      else {
         echo "No se puede insertar la informacion"."<br>";
-        echo "Error: " .$sql."<br>" mysqli_error($conexion); I
-
+        echo "Error: " .$sql. mysqli_error($conexion);
      }
     
     
