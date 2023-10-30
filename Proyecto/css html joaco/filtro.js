@@ -1,41 +1,20 @@
-const players = [
-    { 
-        name: "Lionel Messi", 
-        position: "Delantero", 
-        age: 34,
-        residence: "Barcelona",
-        image: "jugadores/messi.png" 
-    },
-    { 
-        name: "Cristiano Ronaldo", 
-        position: "Delantero", 
-        age: 36,
-        residence: "Turín",
-        image: "jugadoresimg/ronaldo.png" 
-    },
-    { 
-        name: "Luka Modric", 
-        position: "Centrocampista", 
-        age: 35,
-        residence: "Madrid",
-        image: "jugadoresimg/modric.png" 
-    },
-    { 
-        name: "Sergio Ramos", 
-        position: "Defensa", 
-        age: 35,
-        residence: "Madrid",
-        image: "jugadoresimg/ramos.png" 
-    },
-    { 
-        name: "Alisson Becker", 
-        position: "Portero", 
-        age: 29,
-        residence: "Liverpool",
-        image: "jugadoresig" 
-    }
-    // Agrega más jugadores aquí si es necesario
-];
+
+include("conexion_db.php");
+let players = [];
+const apiUrl = "../../Basededatos/filro.php";
+
+function loadPlayersFromDatabase() {
+   fetch(apiUrl)
+       .then((response) => response.json())
+       .then((data) => {
+           players = data; // Asigna los datos de la base de datos a la variable players
+           displayPlayers(players);
+       })
+       .catch((error) => console.error("Error al cargar jugadores: " + error));
+}
+
+// Llama a esta función para cargar jugadores al cargar la página
+loadPlayersFromDatabase();
 
 const playerList = document.getElementById("playerList");
 const modal = document.getElementById("playerDetailsModal");
