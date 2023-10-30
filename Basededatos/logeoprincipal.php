@@ -6,7 +6,7 @@ if (isset($_POST['mail_del_jugador']) && isset($_POST['contrasena_jugador'])) {
     $contrasena = $_POST['contrasena_jugador'];
 
     // Verificar si las credenciales son válidas en la base de datos
-    $sql = "SELECT * FROM jugadores WHERE mail_del_jugador = '$mail' AND contrasena_jugador = '$contrasena'";
+    $sql = "SELECT * FROM jugadores WHERE mail_registrado_login = '$mail' AND contrasena_jugador = '$contrasena'";
     $resultado = mysqli_query($mysqli, $sql);
 
     if (mysqli_num_rows($resultado) >0) {
