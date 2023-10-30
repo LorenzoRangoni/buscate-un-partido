@@ -129,3 +129,8 @@ form button.save-button {
 form button.save-button:hover {
     background-color: #45a049;
 }
+
+#userAvatar img {
+    width: 100px;
+    height: auto; /* Esto mantiene la proporción original de la imagen */
+}
