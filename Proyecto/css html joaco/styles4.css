@@ -6,11 +6,11 @@
 }
 
 body {
-    background-color: salmon;
+    background-color: blue;
 }
 
 /* Estilos para el formulario de registro */
-.registroForm {
+#registroForm {
     width: 400px;
     background: black;
     padding: 30px;
@@ -22,17 +22,17 @@ body {
     box-shadow: 7px 13px 37px #000;
 }
 
-.registroForm h2 {
+#registroForm h2 {
     font-size: 22px;
     margin-bottom: 20px;
 }
 
-.registroForm label {
+#registroForm label {
     /* Anula el borde para las etiquetas */
     border: none;
 }
 
-.registroForm input {
+#registroForm input {
     width: 100%;
     background: #24303c;
     padding: 10px;
@@ -44,24 +44,24 @@ body {
     color: white;
 }
 
-.registroForm p {
+#registroForm p {
     height: 40px;
     text-align: center;
     font-size: 18px;
     line-height: 40px;
 }
 
-.registroForm a {
+#registroForm a {
     color: white;
     text-decoration: none;
 }
 
-.registroForm a:hover {
+#registroForm a:hover {
     color: white;
     text-decoration: underline;
 }
 
-.registroForm input[type="submit"] {
+#registroForm input[type="submit"] {
     width: 100%;
     background: #1f53c5;
     border: none;
@@ -71,7 +71,7 @@ body {
     font-size: 16px;
 }
 
-.registroForm select option:checked {
+select option:checked {
     background-color: #007bff;
     color: #fff;
 }

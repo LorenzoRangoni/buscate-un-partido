@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: salmon
+    background-color: blue;
 }
 
 /* Estilos para el formulario de registro */
@@ -26,7 +26,7 @@ body {
     font-size: 22px;
     margin-bottom: 20px;
 }
-
+    
 #registroForm label {
     /* Anula el borde para las etiquetas */
     border: none;
