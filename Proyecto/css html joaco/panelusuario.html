@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="panelusuario.css">
+    <title>Fútbol App - Perfil de Usuario</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Fútbol App</h1>
+            </div>
+            <a href="#">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="user-profile">
+            <h2>Mi Perfil</h2>
+            <div id="userData">
+                <div class="data-item">
+                    <span class="data-label">Nombre de Usuario:</span>
+                    <span id="username">Nombre de Usuario</span>
+                    <a href="#" class="edit-button" id="editUsernameButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Correo Electrónico:</span>
+                    <span id="email">correo@example.com</span>
+                    <a href="#" class="edit-button" id="editEmailButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Contraseña:</span>
+                    <span id="password">********</span>
+                    <a href="#" class="edit-button" id="editPasswordButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Zona de Residencia:</span>
+                    <span id="residence">Ciudad</span>
+                    <a href="#" class="edit-button" id="editResidenceButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Nivel de Juego:</span>
+                    <span id="level">Intermedio</span>
+                    <a href="#" class="edit-button" id="editLevelButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Posición:</span>
+                    <span id="position">Delantero</span>
+                    <a href="#" class="edit-button" id="editPositionButton">Editar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="newData">Nuevo Dato:</label>
+                    <input type="text" id="newData" name="newData" required>
+                </div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

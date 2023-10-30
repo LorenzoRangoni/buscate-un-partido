@@ -1,19 +1,18 @@
 
 include("conexion_db.php");
 let players = [];
-const apiUrl = "../../Basededatos/filro.php";
+const apiUrl = "../../Basededatos/filtro.php";
 
 function loadPlayersFromDatabase() {
    fetch(apiUrl)
-       .then((response) => response.json())
        .then((data) => {
-           players = data; // Asigna los datos de la base de datos a la variable players
+           players = data; 
            displayPlayers(players);
        })
        .catch((error) => console.error("Error al cargar jugadores: " + error));
 }
 
-// Llama a esta función para cargar jugadores al cargar la página
+
 loadPlayersFromDatabase();
 
 const playerList = document.getElementById("playerList");
