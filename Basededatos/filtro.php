@@ -1,7 +1,7 @@
 <?php
 include("conexion_db.php"); 
 $sql = "SELECT * FROM jugadores"; 
-$result = $conn->query($sql);
+$result = $mysqli->query($sql);
 
 $players = array();
 if ($result->num_rows > 0) {

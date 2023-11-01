@@ -1,14 +1,19 @@
 
-include("conexion_db.php");
+
 let players = [];
 const apiUrl = "../../Basededatos/filtro.php";
 
 function loadPlayersFromDatabase() {
    fetch(apiUrl)
+       .then((response) => response.json())
        .then((data) => {
+           console.log(data)
            players = data; 
+           console.log(players);
            displayPlayers(players);
        })
+       //.then(response => response.json())
+       //.then(response => console.log(JSON.stringify(response)))
        .catch((error) => console.error("Error al cargar jugadores: " + error));
 }
 
@@ -22,7 +27,8 @@ function displayPlayers(playersArray) {
     playerList.innerHTML = "";
     playersArray.forEach(player => {
         const listItem = document.createElement("li");
-        listItem.textContent = player.name;
+        console.log(player.nombre);
+        listItem.textContent = player.nombre;
         listItem.addEventListener("click", () => {
             displayPlayerDetails(player);
         });
@@ -37,12 +43,12 @@ function displayPlayerDetails(player) {
     const modalPlayerResidence = document.getElementById("modalPlayerResidence");
     const modalPlayerImage = document.getElementById("modalPlayerImage");
 
-    modalPlayerName.textContent = player.name;
-    modalPlayerPosition.textContent = `Posición: ${player.position}`;
-    modalPlayerAge.textContent = `Edad: ${player.age}`;
-    modalPlayerResidence.textContent = `Zona de Residencia: ${player.residence}`;
-    modalPlayerImage.src = player.image;
-    modalPlayerImage.alt = player.name;
+    modalPlayerName.textContent = player.nombre;
+    modalPlayerPosition.textContent = ` ${player.posicion_jugador}`;
+    modalPlayerAge.textContent = ` ${player.edad}`;
+    modalPlayerResidence.textContent = `Zona de Residencia: ${player.habilidad}`;
+    //modalPlayerImage.src = player.image;
+    modalPlayerImage.alt = player.nombre;
 
     modal.style.display = "block";
 }
@@ -58,10 +64,10 @@ function applyFilters() {
     const residenceFilter = document.getElementById("residenceFilter").value.toLowerCase();
 
     const filteredPlayers = players.filter(player => 
-        player.name.toLowerCase().includes(searchTerm) &&
-        (selectedPosition === "" || player.position.toLowerCase() === selectedPosition) &&
-        player.age >= minAge &&
-        (residenceFilter === "" || player.residence.toLowerCase().includes(residenceFilter))
+        player.nombre.toLowerCase().includes(searchTerm) &&
+        (selectedPosition === "" || player.posicion_jugador.toLowerCase() === selectedPosition) &&
+        player.edad >= minAge &&
+        (residenceFilter === "" || player.habilidad.toLowerCase().includes(residenceFilter))
     );
 
     displayPlayers(filteredPlayers);
