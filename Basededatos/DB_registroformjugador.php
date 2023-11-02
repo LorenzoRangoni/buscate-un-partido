@@ -16,8 +16,10 @@ $posicion = $_POST["posicion"];
 $telefono = $_POST["telefono"];
 $habilidad = $_POST["habilidad"];
 
+
+
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO jugadores (nombre, apellido, altura, zona_residencial, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad) VALUES ('$nombre','$apellido',$altura,'$zona', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad')";
+$sql = "INSERT INTO jugadores (nombre, apellido, altura, zona_residencial, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad) VALUES ('$nombre','$apellido','$altura','$zona', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad')";
 
 if ($mysqli->query($sql) === TRUE) {
     header("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/");
