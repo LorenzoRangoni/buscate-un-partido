@@ -107,7 +107,9 @@ header {
     margin-bottom: 20px;
 }
 
-form input[type="text"] {
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
     width: calc(100% - 20px);
     padding: 10px;
     font-size: 16px;
@@ -132,5 +134,5 @@ form button.save-button:hover {
 
 #userAvatar img {
     width: 100px;
-    height: auto; /* Esto mantiene la proporción original de la imagen */
+    height: auto;
 }
