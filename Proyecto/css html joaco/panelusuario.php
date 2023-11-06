@@ -1,0 +1,172 @@
+<?php
+include("../../Basededatos/conexion_db.php");
+session_start();
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM jugadores WHERE id_jugador = $user_id";
+    $resultado = mysqli_query($mysqli, $sql);
+    $usuario = mysqli_fetch_assoc($resultado);
+    $nombre = $usuario["nombre_registrado_login"];
+    $mail = $usuario["mail_registrado_login"];
+    $contrasena= $usuario["contrasena_jugador"];
+
+ } else {
+     $user_id = "";
+     $username = "";
+ }
+ 
+?> 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="panelusuario.css">
+    <title>Buscate un partido</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Fútbol App</h1>
+            </div>
+            <a href="#">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="user-profile">
+            <h2>Mi Perfil</h2>
+            <div id="userData">
+                <div class="data-item">
+                    <span class="data-label">Nombre de Usuario:</span>
+                    <span id="username"><?php echo $nombre ?></span>
+                    <a href="#" class="edit-button" id="editUsernameButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Correo Electrónico:</span>
+                    <span id="email"><?php echo $mail ?></span>
+                    <a href="#" class="edit-button" id="editEmailButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Contraseña:</span>
+                    <span id="password">********</span>
+                    <a href="#" class="edit-button" id="editPasswordButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Zona de Residencia:</span>
+                    <span id="residence">Ciudad</span>
+                    <a href="#" class="edit-button" id="editResidenceButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Nivel de Juego:</span>
+                    <span id="level">Intermedio</span>
+                    <a href="#" class="edit-button" id="editLevelButton">Editar</a>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Posición:</span>
+                    <span id="position">Delantero</span>
+                    <a href="#" class="edit-button" id="editPositionButton">Editar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="newData">Nuevo Dato:</label>
+                    <input type="text" id="newData" name="newData" required>
+                </div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editEmailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEmailModal">&times;</span>
+            <h2>Editar Correo Electrónico</h2>
+            <form id="editEmailForm">
+                <div class="form-group">
+                    <label for="newEmail">Nuevo Correo Electrónico:</label>
+                    <input type="email" id="newEmail" name="newEmail" required>
+                </div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closePasswordModal">&times;</span>
+            <h2>Editar Contraseña</h2>
+            <form id="editPasswordForm">
+                <div class="form-group">
+                    <label for="newPassword">Nueva Contraseña:</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editResidenceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeResidenceModal">&times;</span>
+            <h2>Editar Zona de Residencia</h2>
+            <form id="editResidenceForm">
+                <div class="form-group">
+                    <label for="newResidence">Nueva Zona de Residencia:</label>
+                    <input type="text" id="newResidence" name="newResidence" required>
+                </div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editLevelModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLevelModal">&times;</span>
+            <h2>Editar Nivel de Juego</h2>
+            <form id="editLevelForm">
+                <div class="form-group">
+                    <label for="newLevel">Nuevo Nivel de Juego:</label>
+                    <select id="newLevel" name="newLevel" required>
+                        <option value="Principiante">Principiante</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Avanzado">Avanzado</option>
+                    </select>
+                </div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editPositionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closePositionModal">&times;</span>
+            <h2>Editar Posición</h2>
+            <form id="editPositionForm">
+                <div class="form-group">
+                    <label for="newPosition">Nueva Posición:</label>
+                    <select id="newPosition" name="newPosition" required>
+                        <option value="Portero">Portero</option>
+                        <option value="Defensa">Defensa</option>
+                        <option value="Centrocampista">Centrocampista</option>
+                        <option value="Delantero">Delantero</option>
+                    </select>
+                </div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="panelusuario.js"></script>
+</body>
+</html>
