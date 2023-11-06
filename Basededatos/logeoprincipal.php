@@ -5,6 +5,10 @@ if (isset($_POST['mail_del_jugador']) && isset($_POST['contrasena_jugador'])) {
     $mail = $_POST['mail_del_jugador'];
     $contrasena = $_POST['contrasena_jugador'];
 
+    $fecha_registro_jugador = date("Y-m-d H:i:s");
+
+    $sql = "INSERT INTO jugadores (fecha_registro_jugador) VALUES ('$fecha_registro_jugador')";
+
     // Verificar si las credenciales son válidas en la base de datos
     $sql = "SELECT * FROM jugadores WHERE mail_registrado_login = '$mail' AND contrasena_jugador = '$contrasena'";
     $resultado = mysqli_query($mysqli, $sql);

@@ -68,7 +68,7 @@ if (isset($_SESSION['user_id'])) {
 
         <section class="hero__container container">
             <h1 class="hero__title">Encontra ese jugador que te falta al instante </h1>
-            <p class="hero__paragraph">Te falta un jugador a ultimo momento y no encuentras por ninguna parte? Este es
+            <p class="hero__paragraph">Te falta un jugador a último momento y no encuentras por ninguna parte? Este es
                 el sitio indicado, aqui podras encontrar jugadores.</p>
             <a href="filtro.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
         </section>
