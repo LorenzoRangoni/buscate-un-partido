@@ -123,7 +123,7 @@ body {
   background-color: #2ecc71;
 }
 
-/* Estilos para el contenido de la página */
+
 
 .filters {
   margin-bottom: 20px;
@@ -190,7 +190,7 @@ select {
 }
 
 .player-list-container li:hover {
-  color: #3498db; /* Cambiar color de texto al hacer hover */
+  color: #3498db; 
 }
 
 .modal {
@@ -206,8 +206,8 @@ select {
 }
 
 .modal-content {
-  background-color: #f2f2f2; /* Fondo claro */
-  color: #333; /* Texto negro */
+  background-color: #f2f2f2;
+  color: #333; 
   margin: 10% auto;
   padding: 20px;
   border-radius: 5px;

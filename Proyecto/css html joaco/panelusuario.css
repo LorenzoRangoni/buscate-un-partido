@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #333;
     color: #333;
 }
 
@@ -22,6 +22,22 @@ header {
 .logo h1 {
     margin: 0;
     font-size: 24px;
+}
+.nav__links .button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav__links .button:hover {
+    background-color: #45a049;
 }
 
 .user-panel {
@@ -135,4 +151,20 @@ form button.save-button:hover {
 #userAvatar img {
     width: 100px;
     height: auto;
+}
+
+.logout-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
 }
