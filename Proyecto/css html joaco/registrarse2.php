@@ -1,3 +1,22 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+   $user_id = $_SESSION['user_id'];
+   $username = $_SESSION['username'];
+} else {
+    $user_id = "";
+    $username = "";
+}
+
+
+ if ($username <> "") 
+    { header ("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/registrarse2.html");
+                } else { 
+                    header ("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/logeoprincipal.html");
+                 }  ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +26,10 @@
   <link rel="stylesheet" href="registrarse2.css">
   <title>Formulario Registro</title>
   <script type="text/javascript">
+    
     function validarFormulario() {
         var errors = [];
+
 
         // Validación del campo Nombre
         var nombre = document.getElementById("nombre").value;

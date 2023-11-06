@@ -9,9 +9,12 @@ var_dump($_POST);
     $mail=  $_POST['Mail'];
     $nombre= $_POST['Nombre'];
     $contrasena= $_POST['password'];
+    $fecha_registro_jugador = date("Y-m-d H:i:s");
+
+    
 
     // Insertamos los datos en la base de datos
-    $sql= "INSERT INTO jugadores (mail_registrado_login, nombre_registrado_login, contrasena_jugador) VALUES ('$mail', ' $nombre', '$contrasena')"; 
+    $sql= "INSERT INTO jugadores (mail_registrado_login, nombre_registrado_login, contrasena_jugador, fecha_registro_jugador) VALUES ('$mail', ' $nombre', '$contrasena','$fecha_registro_jugador')"; 
     $resultado= $mysqli->query($sql);
 
     //inserccion correcta

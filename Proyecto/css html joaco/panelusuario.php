@@ -1,3 +1,23 @@
+<?php
+include("../../Basededatos/conexion_db.php");
+session_start();
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM jugadores WHERE id_jugador = $user_id";
+    $resultado = mysqli_query($mysqli, $sql);
+    $usuario = mysqli_fetch_assoc($resultado);
+    $nombre = $usuario["nombre_registrado_login"];
+    $mail = $usuario["mail_registrado_login"];
+    $contrasena= $usuario["contrasena_jugador"];
+
+ } else {
+     $user_id = "";
+     $username = "";
+ }
+ 
+?> 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,12 +42,12 @@
             <div id="userData">
                 <div class="data-item">
                     <span class="data-label">Nombre de Usuario:</span>
-                    <span id="username">Nombre de Usuario</span>
+                    <span id="username"><?php echo $nombre ?></span>
                     <a href="#" class="edit-button" id="editUsernameButton">Editar</a>
                 </div>
                 <div class="data-item">
                     <span class="data-label">Correo Electrónico:</span>
-                    <span id="email">correo@example.com</span>
+                    <span id="email"><?php echo $mail ?></span>
                     <a href="#" class="edit-button" id="editEmailButton">Editar</a>
                 </div>
                 <div class="data-item">
