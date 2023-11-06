@@ -49,11 +49,15 @@ if (isset($_SESSION['user_id'])) {
                 <?php }  ?>
                 </li>
                 <li class="nav__items">
-                    <a href="registrarse2.html" class="nav__links"> Formulario </a>
+                    <a href="registrarse2.php" class="nav__links"> Formulario </a>
                 </li>
                 <li>
-                    <a href="panelusuario.php" class="nav__links user-link">Cuenta</a>
-                </li>
+             <?php if ($username <> "") { ?>
+             <a href="panelusuario.php" class="nav__links user-link">Cuenta</a>
+           <?php } else { ?>
+           <a href="panelusuario.php" ></a>
+         <?php } ?>
+          </li>
 
                 <img src="imagenes/close.svg" alt="" class="nav__close">
             </ul>
