@@ -9,8 +9,8 @@ body {
     background-color: blue;
 }
 
-/* Estilos para el formulario de registro */
-#registroForm {
+/* Estilos para el formulario de búsqueda de jugadores */
+#searchForm {
     width: 400px;
     background: black;
     padding: 30px;
@@ -22,17 +22,16 @@ body {
     box-shadow: 7px 13px 37px #000;
 }
 
-#registroForm h2 {
+#searchForm h2 {
     font-size: 22px;
     margin-bottom: 20px;
 }
-    
-#registroForm label {
-    /* Anula el borde para las etiquetas */
-    border: none;
+
+#searchForm label {
+    color: white;
 }
 
-#registroForm input {
+.controls {
     width: 100%;
     background: #24303c;
     padding: 10px;
@@ -44,34 +43,11 @@ body {
     color: white;
 }
 
-#registroForm p {
-    height: 40px;
-    text-align: center;
-    font-size: 18px;
-    line-height: 40px;
-}
-
-#registroForm a {
-    color: white;
-    text-decoration: none;
-}
-
-#registroForm a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-#registroForm input[type="submit"] {
+.botons {
     width: 100%;
     background: #1f53c5;
     border: none;
     padding: 12px;
     color: white;
-    margin: 16px 0;
     font-size: 16px;
-}
-
-select option:checked {
-    background-color: #007bff;
-    color: #fff;
 }
