@@ -14,17 +14,28 @@
         <input type="email" name="Mail" required><br>
         <label>Nombre y Apellido:</label>
         <input type="text" name="Nombre" required><br>
-        <label>Contraseña:</label>
-        <input type="password" name="password" required><br>
-        <label>Confirmar contraseña:</label>
-        <input type="password" name="confirm_password" required>
-        <p>Ya tienes una cuenta? <a href="logeoprincipal.html">Iniciar sesión</a></p>
-
+        <label>Contrasena:</label>
+        <input type="password" name="password" id="password" required><br>
+        <label>Confirmar contrasena:</label>
+        <input type="password" name="confirm_password" id="confirm_password" required>
+        <p>Ya tienes una cuenta? <a href="logeoprincipal.html">Iniciar sesion</a></p>
 
         <input type="submit" value="Registrarte">
     </form>
+
     <script type="text/javascript">
-       
+        document.getElementById("registroForm").addEventListener("submit", function (event) {
+            const password = document.getElementById("password").value;
+            const confirm_password = document.getElementById("confirm_password").value;
+
+            if (password.length < 6) {
+                alert("La contrasena debe tener al menos 6 caracteres.");
+                event.preventDefault();
+            } else if (password !== confirm_password) {
+                alert("Las contrasenas no coinciden.");
+                event.preventDefault();
+            }
+        });
     </script>
 </body>
 

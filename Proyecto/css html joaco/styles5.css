@@ -9,8 +9,8 @@ body {
     background-color: blue;
 }
 
-/* Estilos para el formulario de búsqueda de jugadores */
-#searchForm {
+/* Estilos para el formulario de selección de tipo de cuenta */
+#tipoCuentaForm {
     width: 400px;
     background: black;
     padding: 30px;
@@ -22,16 +22,16 @@ body {
     box-shadow: 7px 13px 37px #000;
 }
 
-#searchForm h2 {
+#tipoCuentaForm h2 {
     font-size: 22px;
     margin-bottom: 20px;
 }
 
-#searchForm label {
+#tipoCuentaForm label {
     color: white;
 }
 
-.controls {
+#tipoCuentaForm select {
     width: 100%;
     background: #24303c;
     padding: 10px;
@@ -43,11 +43,12 @@ body {
     color: white;
 }
 
-.botons {
+#tipoCuentaForm button {
     width: 100%;
     background: #1f53c5;
     border: none;
     padding: 12px;
     color: white;
+    margin: 16px 0;
     font-size: 16px;
 }
