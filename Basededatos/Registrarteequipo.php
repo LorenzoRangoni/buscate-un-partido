@@ -9,12 +9,12 @@ var_dump($_POST);
     $mail=  $_POST['Mail'];
     $nombre= $_POST['Nombre'];
     $contrasena= $_POST['password'];
-    $fecha_registro_jugador = date("Y-m-d H:i:s");
+    $fecha_reg_equipo = date("Y-m-d H:i:s");
 
     
 
     // Insertamos los datos en la base de datos
-    $sql= "INSERT INTO jugadores (mail_registrado_login, nombre_registrado_login, contrasena_jugador, fecha_registro_jugador) VALUES ('$mail', ' $nombre', '$contrasena','$fecha_registro_jugador')"; 
+    $sql= "INSERT INTO equipo (email_equipo_login, nombre_equipo_login, contraseña_equipo, fecha_reg_equipo) VALUES ('$mail', ' $nombre', '$contrasena','$fecha_reg_equipo')"; 
     $resultado= $mysqli->query($sql);
 
     //inserccion correcta
@@ -24,9 +24,7 @@ var_dump($_POST);
     if ($resultado) 
     {
         
-        session_start();
-        $_SESSION['user_id'] = $usuario['id_jugador'];
-        $_SESSION['username'] = $usuario['nombre_registrado_login']; 
+        
         header("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/index.php");
         exit();
     }
