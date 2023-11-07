@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Tipo de Cuenta</title>
-    <link rel="stylesheet" type="text/css" href="styles4.css">
+    <link rel="stylesheet" type="text/css" href="styles5.css">
 </head>
+
 <body>
     <h2>Selecciona tu tipo de cuenta</h2>
-    
-    <form action="#" method="POST">
+
+    <form action="#" method="POST" id="tipoCuentaForm">
         <label>Selecciona tu tipo de cuenta:</label>
         <select id="tipoCuenta" name="tipoCuenta" required>
             <option value="">Selecciona una opción</option>
             <option value="Jugador">Jugador</option>
             <option value="Club">Club</option>
         </select><br>
-        
+
         <button type="button" onclick="redireccionar()">Continuar</button>
     </form>
 
@@ -22,11 +24,12 @@
         function redireccionar() {
             var tipoCuenta = document.getElementById("tipoCuenta").value;
             if (tipoCuenta === "Jugador") {
-                window.location.href = "Registrarte.html";  
+                window.location.href = "Registrarte.html";
             } else if (tipoCuenta === "Club") {
                 window.location.href = "formulario_club.html";
             }
         }
     </script>
 </body>
+
 </html>
