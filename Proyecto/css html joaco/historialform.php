@@ -10,17 +10,19 @@
     <h1>Historial de Formularios Enviados</h1>
 
     <?php
-    include ("conexion_db.php")
+   include("../../Basededatos/conexion_db.php");
+   
+   
     
 
     
-    $sql = "SELECT * FROM jugadores WHERE nombre_registrado_login = '$user_id'";
+    $sql= "SELECT * FROM jugadores WHERE nombre_registrado_login = '$user_id'";
     $resultado = $mysqli->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($resultado->num_rows > 0) {
         echo '<table>';
         echo '<tr><th>Fecha de Envío</th><th>Nombre</th><th>Altura</th><th>Teléfono</th><th>Correo</th></tr>';
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $resultado->fetch_assoc()) {
             echo '<tr>';
             echo '<td>' . $row["fecha_registro_formulario_jugador"] . '</td>';
             echo '<td>' . $row["nombre"] . ' ' . $row["apellido"] . '</td>';
