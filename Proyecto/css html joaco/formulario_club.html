@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sistema de Búsqueda de Jugadores</title>
+    <title>Sistema de Busqueda de Jugadores</title>
     <link rel="stylesheet" type="text/css" href="styles3.css">
 </head>
 <body>
-    <h2>Sistema de Búsqueda de Jugadores</h2>
+    <h2>Sistema de Busqueda de Jugadores</h2>
     
     <form id="searchForm" class="form-register">
-        <label>Posición:</label>
+        <label>Posicion:</label>
         <select id="posicion" class="controls">
-            <option value="">Selecciona una opción</option>
+            <option value="">Selecciona una opcion</option>
         </select><br>
         
         <label>Edad:</label>
@@ -62,7 +62,7 @@
             var peso = document.getElementById("peso").value;
 
             var resultadosDiv = document.getElementById("resultadoBusqueda");
-            resultadosDiv.innerHTML = "<h3>Resultados de búsqueda:</h3>";
+            resultadosDiv.innerHTML = "<h3>Resultados de busqueda:</h3>";
             jugadores.forEach(function(jugador) {
                 var coincide = true;
 
