@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,19 +8,15 @@
   <title>Formulario Registro</title>
   <script type="text/javascript">
     function validarFormulario() {
-     
-        var errors = [];
-         <div id="errorMessages" class="error-messages"></div>
-
-        var errorContainer = document.getElementById("errorMessages");
-
-        // Validación del campo Nombre
+          var errors = [];    
+      
+          // Validación del campo Nombre
         var nombre = document.getElementById("nombre").value;
-        if (nombre.length < 10) {
-    errors.push("El nombre debe ser mayor a 10 letras .");
-    errorContainer.innerHTML = errors.join("<br>");
-    errorContainer.style.color = "red";
-}
+        var nombre = document.getElementById("nombre").value;
+            if (nombre.length < 10) {
+                errors.push("El nombre debe ser mayor a 10 letras .");
+            }
+
 
         // Validación del campo Altura
         var altura = parseFloat(document.getElementById("altura").value);
@@ -88,9 +83,12 @@ console.error("Error en la solicitud HTTP:", error);
 </script>
 </head>
 <body>
+   <h4>Formulario Registro</h4>
   <form class="form-register" action="../../Basededatos/DB_registroformjugador.php" method="POST">
-    <h4>Formulario Registro</h4>
-    
+    <div id="errorMessages"></div>
+
+    <form id="formulario" action="envio_exitoso.html" method="POST" enctype="multipart/form-data"  onsubmit="return validarFormulario()">
+      <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data"  target="_blank" onsubmit="return validarFormulario()">
     <div class="form-group">
       <label for="nombre">Nombre Apellido:</label>
       <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre">
