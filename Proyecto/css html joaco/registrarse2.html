@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,13 +9,19 @@
   <title>Formulario Registro</title>
   <script type="text/javascript">
     function validarFormulario() {
+     
         var errors = [];
+         <div id="errorMessages" class="error-messages"></div>
+
+        var errorContainer = document.getElementById("errorMessages");
 
         // Validación del campo Nombre
         var nombre = document.getElementById("nombre").value;
         if (nombre.length < 10) {
-            errors.push("El nombre debe ser mayor a 10 letras .");
-        }
+    errors.push("El nombre debe ser mayor a 10 letras .");
+    errorContainer.innerHTML = errors.join("<br>");
+    errorContainer.style.color = "red";
+}
 
         // Validación del campo Altura
         var altura = parseFloat(document.getElementById("altura").value);
@@ -36,7 +43,7 @@
         // Validacion del campo de Sub
         var sub = document.getElementById("sub").value;
             var subAge = parseInt(sub.split(" ")[1]);
-            if (edad > subAge) {
+            if (edad < subAge) {
                 errors.push("La opción Sub seleccionada no coincide con la edad");
             }
 
