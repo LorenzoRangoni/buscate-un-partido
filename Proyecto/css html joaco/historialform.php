@@ -1,6 +1,14 @@
-<?php 
-    session_start();
-?>
+<?php session_start();
+   if (isset($_SESSION['user_id'])) {
+      $user_id = $_SESSION['user_id'];
+      $username = $_SESSION['username'];
+    
+   } else {
+       $user_id = "";
+       $username = "";
+   }
+   ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -16,12 +24,8 @@
     <?php
    include("../../Basededatos/conexion_db.php");
    
-   
     
-
-   $user_id = $_SESSION['user_id']; 
-
-    $sql= "SELECT * FROM jugadores WHERE id_jugador = $user_id";
+    $sql= "SELECT * FROM jugadores WHERE id_jugador = '$user_id'";
     $resultado = $mysqli->query($sql);
 
     if ($resultado->num_rows > 0) {
