@@ -85,14 +85,13 @@ console.error("Error en la solicitud HTTP:", error);
 <body>
    <h4>Formulario Registro</h4>
   <form class="form-register" action="../../Basededatos/DB_registroformjugador.php" method="POST">
-    <div id="errorMessages"></div>
-
-    <form id="formulario" action="envio_exitoso.html" method="POST" enctype="multipart/form-data"  onsubmit="return validarFormulario()">
-      <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data"  target="_blank" onsubmit="return validarFormulario()">
-      
-      
+   
+     <form id="formulario" action="envio_exitoso.html" method="POST" enctype="multipart/form-data"  onsubmit="return validarFormulario()">
+    <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data"  target="_blank" onsubmit="return validarFormulario()">
+    <div class="form-group">
       <label for="nombre">Nombre Apellido:</label>
       <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre">
+    </div>
 
     <div class="form-group">
       <label for="altura">Altura:</label>
