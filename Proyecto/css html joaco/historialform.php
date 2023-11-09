@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,8 +19,9 @@
    
     
 
-    
-    $sql= "SELECT * FROM jugadores WHERE nombre_registrado_login = '$user_id'";
+   $user_id = $_SESSION['user_id']; 
+
+    $sql= "SELECT * FROM jugadores WHERE id_jugador = $user_id";
     $resultado = $mysqli->query($sql);
 
     if ($resultado->num_rows > 0) {
