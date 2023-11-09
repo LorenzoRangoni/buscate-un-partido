@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Equipo de Fútbol</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Selecciona tu Formación</h1>
+
+    <form action="guardar_equipo.php" method="post">
+        <label for="formacion">Selecciona la formación:</label>
+        <select name="formacion" id="formacion">
+            <option value="4-4-2">4-4-2</option>
+            <option value="4-3-3">4-3-3</option>
+            <option value="3-5-2">3-5-2</option>
+            <!-- Agrega más opciones de formación aquí -->
+        </select>
+
+        <h2>Asigna Jugadores a Posiciones</h2>
+        <ul>
+            <li>Posición: Arquero
+                <input type="text" name="arquero" required>
+            </li>
+            <li>Posición: Defensor
+                <input type="text" name="defensor" required>
+            </li>
+            <li>Posición: Defensor
+                <input type="text" name="defensor" required>
+            </li>
+            <li>Posición: Defensor
+                <input type="text" name="defensor" required>
+            </li>
+            <li>Posición: Defensor
+                <input type="text" name="defensor" required>
+            </li>
+            <li>Posición: Mediocampista
+                <input type="text" name="mediocampista" required>
+            </li>
+            <li>Posición: Mediocampista
+                <input type="text" name "mediocampista" required>
+            </li>
+            <li>Posición: Mediocampista
+                <input type="text" name="mediocampista" required>
+            </li>
+            <li>Posición: Delantero
+                <input type="text" name="delantero" required>
+            </li>
+            <li>Posición: Delantero
+                <input type="text" name="delantero" required>
+            </li>
+            <li>Posición: Delantero
+                <input type="text" name="delantero" required>
+            </li>
+        </ul>
+
+        <input type="submit" value="Guardar Equipo">
+    </form>
+</body>
+</html>
