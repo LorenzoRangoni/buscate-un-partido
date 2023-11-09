@@ -14,7 +14,7 @@ var_dump($_POST);
     
 
     // Insertamos los datos en la base de datos
-    $sql= "INSERT INTO equipo (email_equipo_login, nombre_equipo_login, contraseña_equipo, fecha_reg_equipo) VALUES ('$mail', ' $nombre', '$contrasena','$fecha_reg_equipo')"; 
+    $sql= "INSERT INTO equipo (email_equipo_login, nombre_equipo_login, password_equipo, fecha_reg_equipo) VALUES ('$mail', '$nombre', '$contrasena','$fecha_reg_equipo')"; 
     $resultado= $mysqli->query($sql);
 
     //inserccion correcta
@@ -30,7 +30,7 @@ var_dump($_POST);
     }
         else {
         echo "No se puede insertar la informacion"."<br>";
-        echo "Error: " .$sql. mysqli_error($conexion);
+        echo "Error: " .$sql. mysqli_error($mysqli);
      }
     
     

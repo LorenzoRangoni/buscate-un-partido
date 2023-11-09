@@ -14,12 +14,12 @@
 <body>
 <?php 
 session_start();
-if (isset($_SESSION['user_id'])) {
-   $user_id = $_SESSION['user_id'];
-   $username = $_SESSION['username'];
+if (isset($_SESSION['team_id'])) {
+   $team_id = $_SESSION['team_id'];
+   $team = $_SESSION['team'];
 } else {
-    $user_id = "";
-    $username = "";
+    $team_id = "";
+    $team = "";
 }
 ?>
     <header class="hero">
@@ -28,17 +28,17 @@ if (isset($_SESSION['user_id'])) {
                 <h2 class="nav__title">Partido</h2>
             </div>
             <ul class="nav__link nav__link--menu">
-            <?php if ($username <> "") { ?>
+            <?php if ($team <> "") { ?>
                 <li class="nav__items">
-                    <a href="index.php" class="nav__links"> <?php echo $username ?> </a>
+                    <a href="indexequippo.php" class="nav__links"> <?php echo $team ?> </a>
                 </li>
                 <?php } else { ?>
                 <li class="nav__items">
-                    <a href="index.php" class="nav__links">Inicio</a>
+                    <a href="indexequippo.php" class="nav__links">Inicio</a>
                 </li>
                 <?php }  ?>
 
-                <?php if ($username <> "") { ?>
+                <?php if ($team <> "") { ?>
                 <li class="nav__items">
                     <a href="../../Basededatos/CerrarSesion.php" class="nav__links">Logout </a>
                 </li>
@@ -49,15 +49,11 @@ if (isset($_SESSION['user_id'])) {
                 <?php }  ?>
                 </li>
                 <li class="nav__items">
-                <?php if ($username <> "") { ?>
-                <a href="historialform.php" class="nav__links">Historial</a>
-                <?php } else { ?>
                     <a href="registrarse2.php" class="nav__links"> Formulario </a>
-                    <?php } ?>
                 </li>
                 <li>
-             <?php if ($username <> "") { ?>
-             <a href="panelusuario.php" class="nav__links user-link">Cuenta</a>
+             <?php if ($team <> "") { ?>
+             <a href="historialform.php" class="nav__links user-link">Cuenta</a>
            <?php } else { ?>
            <a href="panelusuario.php" ></a>
          <?php } ?>
@@ -74,11 +70,7 @@ if (isset($_SESSION['user_id'])) {
             <h1 class="hero__title">Encontra ese jugador que te falta al instante </h1>
             <p class="hero__paragraph">Te falta un jugador a último momento y no encuentras por ninguna parte? Este es
                 el sitio indicado, aqui podras encontrar jugadores.</p>
-
-                <?php if ($username <> "") { ?>
-             <a href="registrarse2.html" class="cta">Enviar formulario</a>
-           <?php } else { ?> <a href="filtro.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
-            <?php } ?>
+            <a href="filtro.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
         </section>
     </header>
     <main>
