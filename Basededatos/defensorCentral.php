@@ -3,7 +3,7 @@
 include("conexion_db.php");
 
 
-$sql = "SELECT nombre, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub FROM jugadores WHERE posicion_jugador = 'defensor central'";
+$sql = "SELECT nombre, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM jugadores WHERE posicion_jugador = 'defensor central'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -20,6 +20,8 @@ if ($result->num_rows > 0) {
         <th>Altura</th>
         <th>Peso</th>
         <th>Habilidad</th>
+        <th>Zona</th>
+
         
     </tr>";
     while ($row = $result->fetch_assoc()) {
@@ -32,6 +34,7 @@ if ($result->num_rows > 0) {
             <td>" . $row["altura"] . "</td>
             <td>" . $row["peso"] . "</td>
             <td>" . $row["habilidad"] . "</td>
+            <td>" . $row["zona_residencial"] . "</td>
  
         </tr>";
     }

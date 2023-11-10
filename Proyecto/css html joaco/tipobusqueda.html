@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tipo de búsqueda</title>
+    <link rel="stylesheet" type="text/css" href="styles5.css">
+</head>
+
+<body>
+    <h2>Selecciona tu tipo de búsqueda</h2>
+
+    <form action="#" method="POST" id="tipoBusquedaForm">
+        <label>Selecciona tu tipo de búsqueda:</label>
+        <select id="tipoBusqueda" name="tipoBusqueda" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Nuevo filtro">Nuevo filtro</option>
+            <option value="Posicion">Posición</option>
+        </select><br>
+
+        <button type="button" onclick="redireccionar()">Continuar</button>
+    </form>
+
+    <script type="text/javascript">
+        function redireccionar() {
+            var tipoBusqueda = document.getElementById("tipoBusqueda").value;
+            if (tipoBusqueda === "Nuevo filtro") {
+                window.location.href = "filtro.html";
+            } else if (tipoBusqueda === "Posicion") {
+                window.location.href = "encontrarjugadores.html";
+            }
+        }
+    </script>
+</body>
+
+</html>

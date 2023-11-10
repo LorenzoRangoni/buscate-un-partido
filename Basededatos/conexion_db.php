@@ -6,5 +6,5 @@
 
 $mysqli=new mysqli("localhost","root","","buscateunpartido");
 
-
+$conn = $mysqli;
 ?>

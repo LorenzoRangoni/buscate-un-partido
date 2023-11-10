@@ -49,11 +49,11 @@ if (isset($_SESSION['team_id'])) {
                 <?php }  ?>
                 </li>
                 <li class="nav__items">
-                    <a href="registrarse2.php" class="nav__links"> Formulario </a>
+                    <a href="formacion.html" class="nav__links"> Mi equipo </a>
                 </li>
                 <li>
              <?php if ($team <> "") { ?>
-             <a href="historialform.php" class="nav__links user-link">Cuenta</a>
+             <a href="panelusuario.php" class="nav__links user-link">Cuenta</a>
            <?php } else { ?>
            <a href="panelusuario.php" ></a>
          <?php } ?>
@@ -70,7 +70,7 @@ if (isset($_SESSION['team_id'])) {
             <h1 class="hero__title">Encontra ese jugador que te falta al instante </h1>
             <p class="hero__paragraph">Te falta un jugador a último momento y no encuentras por ninguna parte? Este es
                 el sitio indicado, aqui podras encontrar jugadores.</p>
-            <a href="filtro.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
+            <a href="tipobusqueda.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
         </section>
     </header>
     <main>

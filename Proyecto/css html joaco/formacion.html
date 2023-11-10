@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -183,31 +185,40 @@
 <body>
 
 
-
     <div class="board">
         <div class="inicio"><a href="indexequippo.php"><button>Volver al inicio</button></a></div>
 
+        <div class="position arquero">Arquero</div>
+        <div class="position lateralDerecho">Lateral Derecho</div>
+        <div class="position defensaCentral1">Defensa Central 1</div>
+        <div class="position defensaCentral2">Defensa Central 2</div>
+        <div class="position lateralIzquierdo">Lateral Izquierdo</div>
+        <div class="position mediocampista1">Mediocampista 1</div>
+        <div class="position mediocampistaOfensivo">Mediocampista Ofensivo</div>
+        <div class="position mediocampista2">Mediocampista 2</div>
+        <div class="position extremoIzquierdo">Extremo Izquierdo</div>
+        <div class="position delantero">Delantero</div>
+        <div class="position extremoDerecho">Extremo Derecho</div>
 
-
-        <div class="arquero"><a href="../../Basededatos/arquero.php"><button>Arquero</button></a></div>
-        <div class="lateralDerecho"><a href="../../Basededatos/lateralDerecho.php"><button>Lateral derecho</button></a></div>
-        <div class="defensaCentral1"><a href="../../Basededatos/defensorCentral.php"><button>Defensa Central</button></a></div>
-        <div class="defensaCentral2"><a href="../../Basededatos/defensorCentral.php"><button>Defensa Central</button></a></div>
-        <div class="lateralIzquierdo"><a href="../../Basededatos/lateralIzquiero.php"><button>Lateral Izquierdo</button></a>
-        </div>
-        <div class="mediocampista1"><a href="../../Basededatos/mediocampista.php"><button>Mediocampista</button></a></div>
-        <div class="mediocampistaOfensivo"><a href="../../Basededatos/mediocampistaOfensivo.php"><button>Mediocampista
-                    ofensivo</button></a></div>
-
-        <div class="mediocampista2"><a href="../../Basededatos/mediocampista.php"><button>Mediocampista</button></a></div>
-        <div class="extremoIzquierdo"><a href="../../Basededatos/extremoIzquierdo.php"><button>Extremo Izquierdo</button></a></div>
-        <div class="delantero"><a href="../../Basededatos/delantero.php"><button>Delantero</button></a></div>
-        <div class="extremoDerecho"><a href="../../Basededatos/extremoDerecho.php"><button>Extremo Derecho</button></a></div>
 
 
     </div>
 
 
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <script>
+         // Selecciona todas las posiciones y agrega un evento de clic a cada una
+        const positions = document.querySelectorAll('.position');
+        positions.forEach(position => {
+            position.addEventListener('click', function () {
+                // Permite la edición directa en lugar de usar un cuadro de diálogo de alerta
+                position.setAttribute('contenteditable', 'true');
+            });
+        });
+        
+    </script>
 
 
 

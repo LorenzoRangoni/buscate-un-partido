@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armar Equipo</title>
+    <style>
+        /* Estilos para el fondo y botón de volver al inicio */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('cancha2.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: red;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        /* Estilos para la cuadrícula del equipo */
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            justify-content: center;
+            align-content: center;
+            height: 100vh;
+        }
+
+        /* Estilos para las posiciones */
+        .position {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Estilos específicos para cada posición */
+        .arquero { grid-area: 1 / 2; }
+        .defensaCentral1 { grid-area: 2 / 1; }
+        .defensaCentral2 { grid-area: 2 / 3; }
+        .lateralDerecho { grid-area: 3 / 1; }
+        .lateralIzquierdo { grid-area: 3 / 3; }
+        .mediocampista1 { grid-area: 2 / 2; }
+        .mediocampistaOfensivo { grid-area: 1 / 1; }
+        .mediocampista2 { grid-area: 1 / 3; }
+        .extremoIzquierdo { grid-area: 4 / 1; }
+        .delantero { grid-area: 4 / 2; }
+        .extremoDerecho { grid-area: 4 / 3; }
+    </style>
+</head>
+<body>
+
+    <div class="board">
+        <div class="inicio"><a href="index.html"><button>Volver al inicio</button></a></div>
+        
+        <!-- Posiciones del equipo -->
+        <div class="position arquero">Arquero</div>
+        <div class="position defensaCentral1">Defensa Central</div>
+        <div class="position defensaCentral2">Defensa Central</div>
+        <div class="position lateralDerecho">Lateral Derecho</div>
+        <div class="position lateralIzquierdo">Lateral Izquierdo</div>
+        <div class="position mediocampista1">Mediocampista</div>
+        <div class="position mediocampistaOfensivo">Mediocampista Ofensivo</div>
+        <div class="position mediocampista2">Mediocampista</div>
+        <div class="position extremoIzquierdo">Extremo Izquierdo</div>
+        <div class="position delantero">Delantero</div>
+        <div class="position extremoDerecho">Extremo Derecho</div>
+    </div>
+
+</body>
+</html>
