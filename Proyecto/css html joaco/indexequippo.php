@@ -70,7 +70,7 @@ if (isset($_SESSION['team_id'])) {
             <h1 class="hero__title">Encontra ese jugador que te falta al instante </h1>
             <p class="hero__paragraph">Te falta un jugador a último momento y no encuentras por ninguna parte? Este es
                 el sitio indicado, aqui podras encontrar jugadores.</p>
-            <a href="tipobusqueda.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
+            <a href="tipobusqueda.html" class="cta">Encontrar jugadores</a>
         </section>
     </header>
     <main>
