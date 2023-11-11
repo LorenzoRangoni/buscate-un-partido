@@ -8,7 +8,7 @@ $contrasena = $_POST['password'];
 $fecha_reg_equipo = date("Y-m-d H:i:s");
 
 // Insertamos los datos en la base de datos
-$sql = "INSERT INTO equipo (email_equipo_login, nombre_equipo_login, password_equipo, fecha_reg_equipo) VALUES ('$mail', '$nombre', '$contrasena','$fecha_reg_equipo')";
+$sql = "INSERT INTO equipo (email_equipo_login, nombre_equipo_login, password_equipo, fecha_registro_equipo) VALUES ('$mail', '$nombre', '$contrasena','$fecha_reg_equipo')";
 $resultado = $mysqli->query($sql);
 
 // Verificar si la inserción fue exitosa

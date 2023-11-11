@@ -116,7 +116,7 @@ console.error("Error en la solicitud HTTP:", error);
     </div>
 
     <div class="form-group">
-      <label for="altura">Altura:</label>
+      <label for="altura">h:</label>
       <input class="controls" type="number" name="altura" id="altura" placeholder="Altura">
     </div>
     

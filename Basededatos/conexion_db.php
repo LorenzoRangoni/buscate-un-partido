@@ -7,4 +7,8 @@
 $mysqli=new mysqli("localhost","root","","buscateunpartido");
 
 $conn = $mysqli;
+
+if ($mysqli->connect_error) {
+  die("Error de conexión a la base de datos: " . $mysqli->connect_error);
+}
 ?>
