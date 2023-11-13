@@ -25,7 +25,7 @@
    include("../../Basededatos/conexion_db.php");
    
     
-    $sql= "SELECT * FROM jugadores WHERE id_jugador = '$user_id'";
+    $sql= "SELECT * FROM jugadores WHERE nombre_registrado_login = '$username'";
     $resultado = $mysqli->query($sql);
 
     if ($resultado->num_rows > 0) {
