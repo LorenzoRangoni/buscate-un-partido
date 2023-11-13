@@ -152,10 +152,12 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <script src="editUsername.js"></script>
+<script src="editUsername.js"></script>
 <script src="editEmail.js"></script>
 <script src="panelusuario.js"></script>
 
-    >
+
+
+    
 </body>
 </html>
