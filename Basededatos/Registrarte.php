@@ -34,4 +34,5 @@ if ($resultado) {
     echo "No se puede insertar la información" . "<br>";
     echo "Error: " . $sql . mysqli_error($conexion);
 }
+
 ?>

@@ -209,7 +209,7 @@ console.error("Error en la solicitud HTTP:", error);
             <option value="sub 35">Sub 35</option>
       </select>
     </div>
-    
+    <input type="hidden" name="identificador_formulario" value="<?php echo uniqid(); ?>">
     <input class="botons" type="submit" value="Registrar">
     
     <p><a href="logeoprincipal.html">¿Ya tengo Cuenta?</a></p>

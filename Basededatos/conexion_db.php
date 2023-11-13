@@ -11,4 +11,6 @@ $conn = $mysqli;
 if ($mysqli->connect_error) {
   die("Error de conexión a la base de datos: " . $mysqli->connect_error);
 }
+date_default_timezone_set('America/Argentina/Buenos_Aires');
+
 ?>

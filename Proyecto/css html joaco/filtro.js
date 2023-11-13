@@ -70,6 +70,8 @@ function applyFilters() {
         (residenceFilter === "" || player.habilidad.toLowerCase().includes(residenceFilter))
     );
 
+    
+
     displayPlayers(filteredPlayers);
 }
 
