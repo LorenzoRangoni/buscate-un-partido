@@ -32,6 +32,7 @@ $resultado = $mysqli->query($sql);
 
 if ($resultado) {
     $usuario = $resultado->fetch_assoc(); // Obtener el array asociativo de los resultados
+    $user_id=$usuario["id_jugador"];
     $nombrelogin = $usuario["nombre_registrado_login"];
     $maillogin = $usuario["mail_registrado_login"];
     $contrasena = $usuario["contrasena_jugador"];
@@ -41,9 +42,9 @@ if ($resultado) {
 }
 
 // Escapa las variables y corrige la sintaxis de la consulta
-$sql = "INSERT INTO jugadores 
-        (nombre, apellido, altura, zona_residencial, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad, fecha_registro_formulario_jugador, mail_del_jugador, nombre_registrado_login, mail_registrado_login, contrasena_jugador, fecha_registro_jugador) 
-        VALUES ('$nombre', '$apellido', '$altura', '$zona', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad', '$fecha_registro_formulario', '$correo', '$nombrelogin', '$maillogin', '$contrasena', '$fecha')";
+$sql = "INSERT INTO formulario_jugadores 
+        (nombre, apellido, altura, zona_residencial, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad, fecha_registro_formulario_jugador, id_jugador, mail_del_jugador, nombre_registrado_login, mail_registrado_login, contrasena_jugador) 
+        VALUES ('$nombre', '$apellido', '$altura', '$zona', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad', '$fecha_registro_formulario','$user_id', '$correo', '$nombrelogin', '$maillogin', '$contrasena')";
 
 if ($mysqli->query($sql) === TRUE) {
     header("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/index.php");
