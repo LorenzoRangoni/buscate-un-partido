@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
   const teamsContainer = document.getElementById("teams");
-  const searchInput = document.getElementById("searchInput");
   const goalsFilterInput = document.getElementById("goalsFilter");
   const positionFilterSelect = document.getElementById("positionFilter");
-  const frequencyFilterSelect = document.getElementById("frequencyFilter");
-  const skillLevelFilterSelect = document.getElementById("skillLevelFilter");
+  const trainingFrequencyFilterSelect = document.getElementById("trainingFrequencyFilter");
+  const levelFilterSelect = document.getElementById("levelFilter");
 
   let teamsData = [];
 
+  // Simulación de API y datos de equipos
   const api = {
     getTeams: () => {
       return new Promise((resolve) => {
+        // Simula una llamada a una API
         setTimeout(() => {
           resolve([
-            {
+            { 
               name: "Real Madrid",
               logo: "real_madrid_logo.png",
               goals: 60,
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
               skillLevel: "Alto",
               trainingTime: "19:00"
             },
-            {
+            { 
               name: "FC Barcelona",
               logo: "barcelona_logo.png",
               goals: 55,
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
               skillLevel: "Alto",
               trainingTime: "18:30"
             },
-            {
+            { 
               name: "Manchester United",
               logo: "manchester_united_logo.png",
               goals: 50,
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   };
 
+  // Función para renderizar equipos en la página
   async function renderTeams(teamsData) {
     teamsContainer.innerHTML = "";
 
@@ -82,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
       teamsContainer.appendChild(teamCard);
     });
 
+    // Mostrar equipo más buscado
     const mostSearchedTeam = getMostSearchedTeam(teamsData);
     if (mostSearchedTeam) {
       const mostSearchedTeamCard = document.createElement("div");
@@ -96,11 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Función para mostrar detalles del equipo
   function showTeamDetails(team) {
-    const modal = document.createElement("div");
-    modal.id = "teamDetailsModal";
-    modal.classList.add("modal-content");
-    modal.innerHTML = `
+    const modal = document.getElementById("teamDetailsModal");
+    const modalContent = document.getElementById("teamDetailsContent");
+    modalContent.innerHTML = `
       <img src="${team.logo}" alt="${team.name} Logo">
       <h2>${team.name}</h2>
       <p>Posición: ${team.position}</p>
@@ -116,45 +119,47 @@ document.addEventListener("DOMContentLoaded", function () {
       <button onclick="requestToJoin('${team.name}')">Solicitar unirse</button>
       <button onclick="closeModal()">Cerrar</button>
     `;
-    document.body.appendChild(modal);
+    modal.style.display = "flex";
   }
 
+  // Función para cerrar el modal
   function closeModal() {
     const modal = document.getElementById("teamDetailsModal");
-    if (modal) {
-      modal.remove();
-    }
+    modal.style.display = "none";
   }
 
+  // Función para solicitar unirse al equipo
   function requestToJoin(teamName) {
     alert(`Solicitud enviada para unirse al equipo ${teamName}`);
     closeModal();
   }
 
+  // Función para obtener el equipo más buscado (simulación)
   function getMostSearchedTeam(teams) {
+    // Simulación: Devolver el equipo con más goles (puedes ajustar esta lógica según tus criterios)
     return teams.reduce((mostSearched, currentTeam) => {
       return currentTeam.goals > mostSearched.goals ? currentTeam : mostSearched;
     }, teams[0]);
   }
 
+  // Función para aplicar filtros
   window.applyFilters = function () {
-    const searchTerm = searchInput.value.toLowerCase();
     const minGoals = parseInt(goalsFilterInput.value) || 0;
     const selectedPosition = positionFilterSelect.value;
-    const selectedFrequency = frequencyFilterSelect.value;
-    const selectedSkillLevel = skillLevelFilterSelect.value;
+    const selectedTrainingFrequency = trainingFrequencyFilterSelect.value;
+    const selectedLevel = levelFilterSelect.value;
 
     const filteredTeams = teamsData.filter((team) =>
-      team.name.toLowerCase().includes(searchTerm) &&
       team.goals >= minGoals &&
-      (selectedPosition === "all" || team.position === selectedPosition) &&
-      (selectedFrequency === "all" || team.trainingFrequency === selectedFrequency) &&
-      (selectedSkillLevel === "all" || team.skillLevel === selectedSkillLevel)
+      (selectedPosition === "" || team.position === selectedPosition) &&
+      (selectedTrainingFrequency === "" || team.trainingFrequency === selectedTrainingFrequency) &&
+      (selectedLevel === "" || team.skillLevel === selectedLevel)
     );
 
     renderTeams(filteredTeams);
   };
 
+  // Llamada inicial para obtener y renderizar equipos
   api.getTeams().then((data) => {
     teamsData = data;
     renderTeams(teamsData);

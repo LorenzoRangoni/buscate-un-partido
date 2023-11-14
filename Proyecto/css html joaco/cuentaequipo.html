@@ -20,26 +20,25 @@
 
     <label for="positionFilter">Posición:</label>
     <select id="positionFilter">
-      <option value="all">Todos</option>
-      <option value="delantero">Delantero</option>
-      <option value="mediocampista">Mediocampista</option>
+      <option value="">Selecciona posición</option>
+      <option value="Delantero">Delantero</option>
+      <option value="Mediocampista">Mediocampista</option>
       <!-- Agrega más opciones según sea necesario -->
     </select>
 
-    <label for="frequencyFilter">Frecuencia de entrenamiento:</label>
-    <select id="frequencyFilter">
-      <option value="all">Todos</option>
-      <option value="2 veces por semana">2 veces por semana</option>
-      <option value="3 veces por semana">3 veces por semana</option>
+    <label for="trainingFrequencyFilter">Frecuencia de entrenamiento:</label>
+    <select id="trainingFrequencyFilter">
+      <option value="">Selecciona frecuencia</option>
+      <option value="1">1 vez por semana</option>
+      <option value="2">2 veces por semana</option>
       <!-- Agrega más opciones según sea necesario -->
     </select>
 
-    <label for="skillLevelFilter">Nivel de juego:</label>
-    <select id="skillLevelFilter">
-      <option value="all">Todos</option>
-      <option value="bajo">Bajo</option>
-      <option value="medio">Medio</option>
-      <option value="alto">Alto</option>
+    <label for="levelFilter">Nivel de juego:</label>
+    <select id="levelFilter">
+      <option value="">Selecciona nivel</option>
+      <option value="Alto">Alto</option>
+      <option value="Medio">Medio</option>
       <!-- Agrega más opciones según sea necesario -->
     </select>
 
@@ -49,6 +48,11 @@
   <section id="teams">
     <!-- Aquí irán los escudos de los equipos con sus estadísticas -->
   </section>
+
+  <div id="teamDetailsModal" class="modal-content">
+    <button id="closeButton" onclick="closeModal()">Cerrar</button>
+    <div id="teamDetailsContent"></div>
+  </div>
 
   <script src="cuentaequipo.js"></script>
 </body>
