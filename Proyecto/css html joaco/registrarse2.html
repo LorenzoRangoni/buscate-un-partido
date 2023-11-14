@@ -46,7 +46,7 @@
         if (telefono.length < 10) {
             errors.push("El número de teléfono debe tener al menos 10 dígitos.");
         }
-
+        
         // Validación del campo Mejor Habilidad
         var mejorHabilidad = document.getElementById("habilidad").value;
         if (mejorHabilidad.trim() === "") {
@@ -72,14 +72,10 @@
      
     <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data"  target="_blank" onsubmit="return validarFormulario()">
     <div class="form-group">
-      <label for="nombre">Nombre:</label>
+      <label for="nombre">Nombre y Apellido:</label>
       <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
     </div>
 
-    <div class="form-group">
-      <label for="apellido">Apellido:</label>
-      <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido">
-    </div>
 
 
 
@@ -143,7 +139,6 @@
       <select class="controls" name="posicion" id="posicion" required>
         <option value="">Selecciona una opción</option>
         <!-- Opciones de posición aquí -->
-<option value="">Selecciona una opción</option>
             <option value="extremo derecho ">Extremo Derecho</option>
             <option value="delantero centro">Delantero Centro</option>
             <option value="extremo Izquierdo">Extremo Izquierdo</option>
@@ -162,7 +157,6 @@
       <select class="controls" name="sub" id="sub" required>
         <option value="">Selecciona una opción</option>
         <!-- Opciones de Sub aquí -->
-            <option value="">Selecciona una opción</option>
             <option value="sub 15">Sub 15</option>
             <option value="sub 17">Sub 17</option>
             <option value="sub 19">Sub 19</option>
