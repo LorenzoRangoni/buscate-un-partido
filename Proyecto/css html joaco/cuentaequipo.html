@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cuentaequipo.css">
+  <title>Estadísticas de Equipos</title>
+</head>
+<body>
+  <header>
+    <h1>Estadísticas de Equipos</h1>
+  </header>
+
+  <div id="filters">
+    <label for="searchInput">Buscar equipo:</label>
+    <input type="text" id="searchInput" placeholder="Nombre del equipo">
+
+    <label for="goalsFilter">Más goles en la temporada:</label>
+    <input type="number" id="goalsFilter" min="0" placeholder="Número de goles">
+
+    <label for="positionFilter">Posición:</label>
+    <select id="positionFilter">
+      <option value="all">Todos</option>
+      <option value="delantero">Delantero</option>
+      <option value="mediocampista">Mediocampista</option>
+      <!-- Agrega más opciones según sea necesario -->
+    </select>
+
+    <label for="frequencyFilter">Frecuencia de entrenamiento:</label>
+    <select id="frequencyFilter">
+      <option value="all">Todos</option>
+      <option value="2 veces por semana">2 veces por semana</option>
+      <option value="3 veces por semana">3 veces por semana</option>
+      <!-- Agrega más opciones según sea necesario -->
+    </select>
+
+    <label for="skillLevelFilter">Nivel de juego:</label>
+    <select id="skillLevelFilter">
+      <option value="all">Todos</option>
+      <option value="bajo">Bajo</option>
+      <option value="medio">Medio</option>
+      <option value="alto">Alto</option>
+      <!-- Agrega más opciones según sea necesario -->
+    </select>
+
+    <button onclick="applyFilters()">Filtrar</button>
+  </div>
+
+  <section id="teams">
+    <!-- Aquí irán los escudos de los equipos con sus estadísticas -->
+  </section>
+
+  <script src="cuentaequipo.js"></script>
+</body>
+</html>
