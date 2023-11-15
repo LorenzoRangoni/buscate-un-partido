@@ -8,6 +8,48 @@ body {
   background-color: #000;
 }
 
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav__links .button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: -24px;
+}
+
+/* Ajustar márgenes para que los botones estén juntos */
+.nav__links .button:first-child {
+  margin-left: 850px;
+}
+
+/* Añadir diseño adicional para hacerlo más agradable */
+.nav__links .button:hover {
+  background-color: #45a049;
+}
+
 .form-register {
   width: 400px;
   background: #24303c;
@@ -63,7 +105,8 @@ body {
   margin: 16px 0;
   font-size: 16px;
 }
+
 select option:checked {
   background-color: #007bff;
-  color: #fff; 
+  color: #fff;
 }
