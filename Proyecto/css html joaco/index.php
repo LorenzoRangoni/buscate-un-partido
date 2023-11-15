@@ -79,6 +79,10 @@ if (isset($_SESSION['user_id'])) {
              <a href="registrarse2.html" class="cta">Enviar formulario</a>
            <?php } else { ?> <a href="filtro.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
             <?php } ?>
+            <?php if ($username <> "") { ?>
+             <a href="cuentaequipo.html" class="cta">Encontrar equipo (nuevo filtro)</a>
+           <?php }  ?>
+
         </section>
     </header>
     <main>

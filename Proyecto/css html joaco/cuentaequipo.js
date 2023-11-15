@@ -8,63 +8,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const positionChoiceSelect = document.getElementById("positionChoice");
   const closeButton = document.getElementById("closeButton");
 
-  let teamsData = [];
-
-  // Simulación de API y datos de equipos
   const api = {
     getTeams: () => {
-      return new Promise((resolve) => {
-        // Simula una llamada a una API
-        setTimeout(() => {
-          resolve([
-            { 
-              name: "Real Madrid",
-              logo: "real_madrid_logo.png",
-              goals: 60,
-              position: "Delantero",
-              missingPlayers: ["Jugador1", "Jugador2"],
-              captain: { name: "Sergio Ramos", phone: "+34 123 456 789" },
-              location: "Madrid",
-              trainingFrequency: "3 veces por semana",
-              league: "La Liga",
-              skillLevel: "Alto",
-              trainingTime: "19:00",
-              availablePositions: ["Delantero", "Portero", "Lateral Derecho"]
-            },
-            { 
-              name: "FC Barcelona",
-              logo: "barcelona_logo.png",
-              goals: 55,
-              position: "Mediocampista Ofensivo",
-              missingPlayers: ["Jugador3", "Jugador4"],
-              captain: { name: "Lionel Messi", phone: "+34 987 654 321" },
-              location: "Barcelona",
-              trainingFrequency: "4 veces por semana",
-              league: "La Liga",
-              skillLevel: "Alto",
-              trainingTime: "18:30",
-              availablePositions: ["Mediocampista Ofensivo", "Extremo Izquierdo", "Portero"]
-            },
-            { 
-              name: "Manchester United",
-              logo: "manchester_united_logo.png",
-              goals: 50,
-              position: "Defensa Central",
-              missingPlayers: ["Jugador5", "Jugador6"],
-              captain: { name: "Harry Maguire", phone: "+44 7890 123456" },
-              location: "Manchester",
-              trainingFrequency: "2 veces por semana",
-              league: "Premier League",
-              skillLevel: "Medio",
-              trainingTime: "20:00",
-              availablePositions: ["Defensa Central", "Extremo Derecho", "Portero"]
-            },
-            // Agrega más equipos según sea necesario
-          ]);
-        }, 500);
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              const teamsData = JSON.parse(xhr.responseText);
+              resolve(teamsData);
+            } else {
+              reject(new Error(`Error en la solicitud AJAX: ${xhr.status}`));
+            }
+          }
+        };
+        xhr.open("GET", "filtroequipo.php", true);
+        xhr.send();
       });
     },
-  };
+  };;
+  
+  
+  
+  // Resto del código...
+  
 
   function closeModal() {
     teamDetailsModal.style.display = "none";
