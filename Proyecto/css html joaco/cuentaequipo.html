@@ -15,43 +15,69 @@
     <label for="searchInput">Buscar equipo:</label>
     <input type="text" id="searchInput" placeholder="Nombre del equipo">
 
-    <label for="goalsFilter">Más goles en la temporada:</label>
-    <input type="number" id="goalsFilter" min="0" placeholder="Número de goles">
-
     <label for="positionFilter">Posición:</label>
     <select id="positionFilter">
       <option value="">Selecciona posición</option>
-      <option value="Delantero">Delantero</option>
-      <option value="Mediocampista">Mediocampista</option>
-      <!-- Agrega más opciones según sea necesario -->
+      <option value="Portero">Portero</option>
+      <option value="LateralDerecho">Lateral Derecho</option>
+      <option value="DefensaCentral">Defensa Central</option>
+      <option value="LateralIzquierdo">Lateral Izquierdo</option>
+      <option value="MediocampistaDefensivo">Mediocampista Defensivo</option>
+      <option value="MediocampistaCentral">Mediocampista Central</option>
+      <option value="MediocampistaOfensivo">Mediocampista Ofensivo</option>
+      <option value="ExtremoDerecho">Extremo Derecho</option>
+      <option value="DelanteroCentro">Delantero Centro</option>
+      <option value="ExtremoIzquierdo">Extremo Izquierdo</option>
     </select>
 
-    <label for="trainingFrequencyFilter">Frecuencia de entrenamiento:</label>
-    <select id="trainingFrequencyFilter">
-      <option value="">Selecciona frecuencia</option>
-      <option value="1">1 vez por semana</option>
-      <option value="2">2 veces por semana</option>
-      <!-- Agrega más opciones según sea necesario -->
-    </select>
+    <label for="goalsFilter">Más goles en la temporada:</label>
+    <input type="number" id="goalsFilter" min="0" placeholder="Número de goles">
 
     <label for="levelFilter">Nivel de juego:</label>
     <select id="levelFilter">
       <option value="">Selecciona nivel</option>
       <option value="Alto">Alto</option>
       <option value="Medio">Medio</option>
-      <!-- Agrega más opciones según sea necesario -->
+      <option value="Bajo">Bajo</option>
+    </select>
+
+    <label for="trainingFrequencyFilter">Frecuencia de entrenamiento:</label>
+    <select id="trainingFrequencyFilter">
+      <option value="">Selecciona frecuencia</option>
+      <option value="1">1 vez a la semana</option>
+      <option value="2">2 veces a la semana</option>
+      <option value="3">3 veces a la semana</option>
+      <option value="4">4 veces a la semana</option>
     </select>
 
     <button onclick="applyFilters()">Filtrar</button>
   </div>
 
   <section id="teams">
-    <!-- Aquí irán los escudos de los equipos con sus estadísticas -->
+    
   </section>
 
-  <div id="teamDetailsModal" class="modal-content">
-    <button id="closeButton" onclick="closeModal()">Cerrar</button>
-    <div id="teamDetailsContent"></div>
+  <div id="teamDetailsModal">
+    <div class="modal-content">
+      <span class="close" id="closeButton" onclick="closeModal()">&times;</span>
+      <img id="teamLogo" alt="Logo del equipo">
+      <h2 id="teamName"></h2>
+      <p id="teamPosition"></p>
+      <p id="teamGoals"></p>
+      <p id="teamMissingPlayers"></p>
+      <p id="teamCaptain"></p>
+      <p id="teamLocation"></p>
+      <p id="teamTrainingFrequency"></p>
+      <p id="teamLeague"></p>
+      <p id="teamSkillLevel"></p>
+      <p id="teamTrainingTime"></p>
+      <div id="positionOptions">
+        <label for="positionChoice">Selecciona tu posición:</label>
+        <select id="positionChoice"></select>
+        <button onclick="requestToJoin()">Solicitar unirse</button>
+      </div>
+      <button onclick="closeModal()">Cerrar</button>
+    </div>
   </div>
 
   <script src="cuentaequipo.js"></script>

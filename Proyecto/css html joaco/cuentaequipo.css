@@ -2,7 +2,10 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-image: url('imagenes/fonto.jpg'); /* Reemplaza 'football_background.jpg' con la ruta de tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 
 header {
@@ -13,7 +16,7 @@ header {
 }
 
 #filters {
-  background-color: #3498db;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -46,7 +49,7 @@ header {
 }
 
 .team-card {
-  background-color: #ecf0f1;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
@@ -73,15 +76,16 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 1;
 }
 
 .modal-content {
-  display: none;
   background-color: #fff;
+  color: #333;  
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -102,14 +106,41 @@ header {
   cursor: pointer;
 }
 
-#teamDetailsContent {
-  margin-top: 20px;
-  text-align: left;
+#positionOptions {
+  display: none;
+  margin-top: 10px;
 }
 
-#closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #e74c3c;
+#positionOptions label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
 }
+
+#positionOptions select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#slider-container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+.slider-card {
+  display: inline-block;
+  margin-right: 20px;
+}
+.team-info {
+  text-align: center;
+}
+
+.team-logo {
+  width: 80px; 
+  height: auto;
+  cursor: pointer;
+}
+
