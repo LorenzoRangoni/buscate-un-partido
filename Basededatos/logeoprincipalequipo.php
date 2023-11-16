@@ -22,7 +22,7 @@ if (isset($_POST['mail_del_equipo']) && isset($_POST['contrasena_equipo'])) {
         exit();
     } else {
 
-        echo "Mail o contraseña incorrecta. Intente de nuevo.";
+        header("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/logeoprincipallequipo.html");
     }
 }
 ?>

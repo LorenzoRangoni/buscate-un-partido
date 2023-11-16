@@ -22,7 +22,10 @@ if (isset($_POST['mail_del_jugador']) && isset($_POST['contrasena_jugador'])) {
         exit();
     } else {
 
-        echo "Mail o contraseña incorrecta. Intente de nuevo.";
+        header("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/logeoprincipall.html");
+        
     }
-}
+
+    }
+
 ?>

@@ -101,59 +101,10 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <div id="editResidenceModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeResidenceModal">&times;</span>
-            <h2>Editar Zona de Residencia</h2>
-            <form id="editResidenceForm">
-                <div class="form-group">
-                    <label for="newResidence">Nueva Zona de Residencia:</label>
-                    <input type="text" id="newResidence" name="newResidence" required>
-                </div>
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
-    </div>
+  
 
-    <div id="editLevelModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeLevelModal">&times;</span>
-            <h2>Editar Nivel de Juego</h2>
-            <form id="editLevelForm">
-                <div class="form-group">
-                    <label for="newLevel">Nuevo Nivel de Juego:</label>
-                    <select id="newLevel" name="newLevel" required>
-                        <option value="Principiante">Principiante</option>
-                        <option value="Intermedio">Intermedio</option>
-                        <option value="Avanzado">Avanzado</option>
-                    </select>
-                </div>
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
-    </div>
 
-    <div id="editPositionModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closePositionModal">&times;</span>
-            <h2>Editar Posición</h2>
-            <form id="editPositionForm">
-                <div class="form-group">
-                    <label for="newPosition">Nueva Posición:</label>
-                    <select id="newPosition" name="newPosition" required>
-                        <option value="Portero">Portero</option>
-                        <option value="Defensa">Defensa</option>
-                        <option value="Centrocampista">Centrocampista</option>
-                        <option value="Delantero">Delantero</option>
-                    </select>
-                </div>
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
-    </div>
-
-<script src="editUsername.js"></script>
-<script src="editEmail.js"></script>
+<script src="editeemail.js"></script>
 <script src="panelusuario.js"></script>
 
 

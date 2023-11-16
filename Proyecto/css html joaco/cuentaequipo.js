@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  let teamsData; // Declare teamsData
+
   const teamsContainer = document.getElementById("teams");
   const goalsFilterInput = document.getElementById("goalsFilter");
   const positionFilterSelect = document.getElementById("positionFilter");
@@ -22,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         };
-        xhr.open("GET", "filtroequipo.php", true);
+        xhr.open("GET", "../../Basededatos/filtroequipo.php", true);
         xhr.send();
       });
     },
@@ -44,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <h2>${team.name}</h2>
       <p>Posición: ${team.position}</p>
       <p>Goles en la temporada: ${team.goals}</p>
-      <p>Jugadores faltantes: ${team.missingPlayers.join(", ")}</p>
+      <p>Jugadores faltantes: ${team.missingPlayers ? team.missingPlayers.join(", ") : 'No hay información'}</p>
       <p>Capitán: ${team.captain.name}</p>
       <p>Teléfono del Capitán: ${team.captain.phone}</p>
       <p>Ubicación: ${team.location}</p>
@@ -66,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.applyFilters = function () {
+      if (!teamsData) {
+        console.error('Error: teamsData is not defined.');
+        return;
+      }
+    
     const searchInputValue = document.getElementById("searchInput").value.toLowerCase();
     const minGoals = parseInt(document.getElementById("goalsFilter").value) || 0;
     const selectedPosition = document.getElementById("positionFilter").value;
@@ -88,29 +96,24 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
   
-
   async function renderTeams(teamsData) {
     teamsContainer.innerHTML = "";
-
+  
     teamsData.forEach((team) => {
       const teamCard = document.createElement("div");
       teamCard.classList.add("team-card");
-
-      const logo = document.createElement("img");
-      logo.src = team.logo;
-      logo.alt = `${team.name} Logo`;
-      logo.classList.add("team-logo");
-      logo.addEventListener("click", () => showTeamDetails(team));
-
+  
       const teamStats = document.createElement("div");
       teamStats.classList.add("team-stats");
       teamStats.textContent = `Goles: ${team.goals}`;
-
-      teamCard.appendChild(logo);
+  
       teamCard.appendChild(teamStats);
-
+  
+      teamCard.addEventListener("click", () => showTeamDetails(team));
+  
       teamsContainer.appendChild(teamCard);
     });
+  
 
     const mostSearchedTeam = getMostSearchedTeam(teamsData);
     if (mostSearchedTeam) {
@@ -118,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
       mostSearchedTeamCard.classList.add("most-searched-team-card");
       mostSearchedTeamCard.innerHTML = `
         <h2>Equipo Más Buscado</h2>
-        <img src="${mostSearchedTeam.logo}" alt="${mostSearchedTeam.name} Logo">
         <p>${mostSearchedTeam.name}</p>
         <p>Goles: ${mostSearchedTeam.goals}</p>
       `;
@@ -131,6 +133,16 @@ document.addEventListener("DOMContentLoaded", function () {
       return currentTeam.goals > mostSearched.goals ? currentTeam : mostSearched;
     }, teams[0]);
   }
+
+  // Aplicar el evento de clic a cada tarjeta del equipo
+  const teamCards = document.querySelectorAll(".team-card");
+  teamCards.forEach((card) => {
+      card.addEventListener("click", () => {
+          const teamIndex = Array.from(teamCards).indexOf(card);
+          showTeamDetails(teamsData[teamIndex]);
+      });
+  });
+
 
   api.getTeams().then((data) => {
     teamsData = data;

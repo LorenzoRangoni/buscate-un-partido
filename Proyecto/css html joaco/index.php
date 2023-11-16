@@ -21,6 +21,9 @@ if (isset($_SESSION['user_id'])) {
     $user_id = "";
     $username = "";
 }
+
+
+
 ?>
     <header class="hero">
         <nav class="nav container">
