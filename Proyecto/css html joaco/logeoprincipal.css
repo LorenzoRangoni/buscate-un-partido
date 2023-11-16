@@ -3,9 +3,9 @@ body {
   padding: 0;
   background: url(./imagenes/pasto.jpg) no-repeat center top;
   background-size: cover;
-  font-family: sans-serif;
+  font-family: 'calibri';
   height: 100vh;
-  background-color: gray;
+  background-color: blue;
 }
 
 .login-container {
@@ -20,66 +20,60 @@ body {
 }
 
 .login-box {
-  width: 320px; /* Establece el ancho deseado */
-  background: #000;
-  color: #fff;
+  width: 400px;
+  background: black;
+  color: white;
   box-sizing: border-box;
-  padding: 70px 30px;
+  padding: 30px;
   border-radius: 40px;
-  margin: 0 auto; /* Centra horizontalmente */
+  margin: auto;
+  margin-top: 100px;
+  font-family: 'calibri';
+  box-shadow: 7px 13px 37px #000;
 }
 
 .login-box h1 {
-  margin: 0;
-  padding: 0 0 20px;
-  text-align: center;
   font-size: 22px;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .login-box label {
+  color: white;
   margin: 0;
-  padding: 0;
-  font-weight: bold;
-  display: block;
 }
 
 .login-box input {
   width: 100%;
-  margin-bottom: 20px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
-  outline: none;
-  height: 40px;
-  color: #fff;
-  font-size: 16px;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 0px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: white;
+  margin-left: -10px;
 }
 
 .login-box input[type="submit"] {
+  width: 100%;
+  background: #1f53c5;
   border: none;
-  outline: none;
-  height: 40px;
-  background: #07da2a;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 20px;
-}
-
-.login-box input[type="submit"]:hover {
-  cursor: pointer;
-  background: #ffc107;
-  color: #000;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
 }
 
 .login-box a {
+  color: #1f53c5;
   text-decoration: none;
-  font-size: 12px;
-  line-height: 20px;
-  color: darkgrey;
 }
 
 .login-box a:hover {
-  color: #fff;
+  text-decoration: underline;
 }
 
 .avatar {
@@ -87,8 +81,9 @@ body {
   height: 100px;
   border-radius: 50%;
   display: block;
-  margin: 0 auto; /* Centra horizontalmente la imagen */
+  margin: 0 auto;
 }
+
 .nav {
   background-color: #000;
   display: flex;
@@ -103,12 +98,8 @@ body {
   color: #fff;
 }
 
-.nav__links {
-  display: flex;
-}
-
 .button {
-  background-color: #27ae60;
+  background-color: blue;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -122,8 +113,6 @@ body {
 .button:hover {
   background-color: #2ecc71;
 }
-
-
 
 .filters {
   margin-bottom: 20px;
@@ -247,8 +236,6 @@ select {
 
 .close-button:hover {
   background-color: #c0392b;
-
-
 }
 
 .error-message {
@@ -257,3 +244,11 @@ select {
   text-align: center;
   margin-bottom: 10px;
 }
+
+body h2 {
+  font: oblique;
+  color: black;
+  font-size: 50px;
+  text-align: center;
+}
+
