@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Formularios de Fútbol</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #3498db;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      color: #fff;
+      transform-origin: top left;
+      transform: scale(1);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      margin: 20px;
+    }
+
+    li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    button {
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    .filter-container {
+      text-align: center;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      background-color: #34495e;
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    select, input {
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      width: 150px;
+    }
+
+    #applyFilter {
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      width: 150px;
+    }
+
+    #applyFilter:hover {
+      background-color: #c0392b;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formularios de Fútbol</h1>
+
+  <ul id="formList">
+    <li>
+      <button onclick="openPopup('Formulario 1', 'Datos del Formulario 1', '2023-01-15')" data-date="2023-01-15">Formulario 1</button>
+    </li>
+    <li>
+      <button onclick="openPopup('Formulario 2', 'Datos del Formulario 2', '2023-02-05')" data-date="2023-02-05">Formulario 2</button>
+      <!-- Agrega más botones según tus necesidades -->
+    </li>
+  </ul>
+
+  <div class="filter-container">
+    <label for="order">Ordenar por:</label>
+    <select id="order">
+      <option value="desc">Más reciente primero</option>
+      <option value="asc">Más antiguo primero</option>
+    </select>
+    <br>
+    <label for="dateFilter">Filtrar por fecha:</label>
+    <input type="date" id="dateFilter">
+    <br>
+    <button id="applyFilter" onclick="applyFilters()">Aplicar Filtros</button>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="popup">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2 id="popupTitle"></h2>
+      <p id="popupContent"></p>
+      <p id="popupDate"></p>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(title, content, date) {
+      document.getElementById('popupTitle').innerText = title;
+      document.getElementById('popupContent').innerText = content;
+      document.getElementById('popupDate').innerText = 'Enviado el ' + formatDate(date);
+      document.getElementById('overlay').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function sortForms() {
+      var order = document.getElementById('order').value;
+      var formList = document.getElementById('formList');
+      var forms = Array.from(formList.getElementsByTagName('li'));
+
+      forms.sort(function (a, b) {
+        var dateA = new Date(a.querySelector('button').getAttribute('data-date'));
+        var dateB = new Date(b.querySelector('button').getAttribute('data-date'));
+
+        if (order === 'asc') {
+          return dateA - dateB;
+        } else {
+          return dateB - dateA;
+        }
+      });
+
+      formList.innerHTML = '';
+      forms.forEach(function (form) {
+        formList.appendChild(form);
+      });
+    }
+
+    function applyFilters() {
+      sortForms();
+
+      var dateFilter = document.getElementById('dateFilter').value;
+      var formList = document.getElementById('formList');
+      var forms = Array.from(formList.getElementsByTagName('li'));
+
+      forms.forEach(function (form) {
+        var button = form.querySelector('button');
+        var formDate = new Date(button.getAttribute('data-date'));
+        var filterDate = dateFilter ? new Date(dateFilter) : null;
+
+        if (filterDate && formDate.toDateString() !== filterDate.toDateString()) {
+          form.style.display = 'none';
+        } else {
+          form.style.display = 'flex'; // Cambiado a 'flex' en lugar de 'block'
+        }
+      });
+    }
+
+    function formatDate(dateString) {
+      var options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateString).toLocaleDateString('es-ES', options);
+    }
+
+    // Escalar la página al tamaño de la ventana
+    function scalePage() {
+      var scale = Math.min(window.innerWidth / document.body.scrollWidth, window.innerHeight / document.body.scrollHeight);
+      document.body.style.transform = 'scale(' + scale + ')';
+    }
+
+    // Escalar la página al cargar y al cambiar el tamaño de la ventana
+    window.onload = scalePage;
+    window.onresize = scalePage;
+  </script>
+
+</body>
+</html>
