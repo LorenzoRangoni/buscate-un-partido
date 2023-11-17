@@ -28,6 +28,7 @@ function displayPlayers(playersArray) {
     playersArray.forEach(player => {
         const listItem = document.createElement("li");
         console.log(player.nombre);
+        console.log(player.posicion_jugador);
         listItem.textContent = player.nombre;
         listItem.addEventListener("click", () => {
             displayPlayerDetails(player);
@@ -41,14 +42,15 @@ function displayPlayerDetails(player) {
     const modalPlayerPosition = document.getElementById("modalPlayerPosition");
     const modalPlayerAge = document.getElementById("modalPlayerAge");
     const modalPlayerResidence = document.getElementById("modalPlayerResidence");
-    const modalPlayerImage = document.getElementById("modalPlayerImage");
+    
+   
 
     modalPlayerName.textContent = player.nombre;
     modalPlayerPosition.textContent = ` ${player.posicion_jugador}`;
     modalPlayerAge.textContent = ` ${player.edad}`;
-    modalPlayerResidence.textContent = `Zona de Residencia: ${player.habilidad}`;
+    modalPlayerResidence.textContent = `${player.zona_residencial}`;
     //modalPlayerImage.src = player.image;
-    modalPlayerImage.alt = player.nombre;
+   
 
     modal.style.display = "block";
 }
@@ -63,12 +65,14 @@ function applyFilters() {
     const minAge = parseInt(document.getElementById("ageFilter").value) || 0;
     const residenceFilter = document.getElementById("residenceFilter").value.toLowerCase();
 
-    const filteredPlayers = players.filter(player => 
-        player.nombre.toLowerCase().includes(searchTerm) &&
-        (selectedPosition === "" || player.posicion_jugador.toLowerCase() === selectedPosition) &&
-        player.edad >= minAge &&
-        (residenceFilter === "" || player.habilidad.toLowerCase().includes(residenceFilter))
-    );
+    const filteredPlayers = players.filter((player) => { 
+        const xnombre  = player.nombre.toLowerCase().includes(searchTerm);
+        const xposici = (selectedPosition === "" || player.posicion_jugador.toLowerCase() === selectedPosition);
+        //const xedad = (player.edad >= minAge) ;
+        const xresi = (residenceFilter === "" || player.zona_residencial.toLowerCase().includes(residenceFilter));
+        console.log('Filtro:' +  player.nombre.toLowerCase() + ':' + player.edad + ':' + player.zona_residencial.toLowerCase());
+        return xnombre && xposici && xresi ;
+   });
 
     
 

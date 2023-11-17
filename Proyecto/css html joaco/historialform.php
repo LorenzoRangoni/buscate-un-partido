@@ -30,14 +30,25 @@
 
     if ($resultado->num_rows > 0) {
         echo '<table>';
-        echo '<tr><th>Fecha de Envío</th><th>Nombre</th><th>Altura</th><th>Teléfono</th><th>Correo</th></tr>';
+        echo '<tr><th>Fecha de Envío</th><th>Nombre</th><th>Altura</th><th>Peso</th><th>Posicion</th><th>Teléfono</th><th>Disponibilidad horaria</th><th>Correo</th><th>Edad</th><th>sub</th><th>Habilidad</th><th>Zona residencial</th>';
+
         while ($row = $resultado->fetch_assoc()) {
             echo '<tr>';
             echo '<td>' . $row["fecha_registro_formulario_jugador"] . '</td>';
             echo '<td>' . $row["nombre"] . ' ' . $row["apellido"] . '</td>';
             echo '<td>' . $row["altura"] . '</td>';
+            echo '<td>' . $row["peso"] . '</td>';
+            echo '<td>' . $row["posicion_jugador"] . '</td>';
             echo '<td>' . $row["numero_de_telefono_jugador"] . '</td>';
+            echo '<td>' . $row["disponibilidad_horaria_jugador"] . '</td>';
             echo '<td>' . $row["mail_del_jugador"] . '</td>';
+            echo '<td>' . $row["edad"] . '</td>';
+            echo '<td>' . $row["sub"] . '</td>';
+            echo '<td>' . $row["habilidad"] . '</td>';
+            echo '<td>' . $row["zona_residencial"] . '</td>';
+            echo '<td><a href="registrarse2_edicion.html" id=' . $row["id_formulario"] . '">Editar</a></td>';
+            echo '<td><button onclick="eliminarFormulario(' . $row["id_formulario"] . ')">Eliminar</button></td>';
+            echo '</tr>';
             
             echo '</tr>';
         }

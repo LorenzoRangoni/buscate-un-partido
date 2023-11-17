@@ -81,12 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedLevel = document.getElementById("levelFilter").value;
   
     const filteredTeams = teamsData.filter((team) => {
-      const teamNameLower = team.name.toLowerCase();
+      const teamNameLower = team.nombre_equipo.toLowerCase();
+      console.log(teamNameLower);
       const isNameMatch = teamNameLower.includes(searchInputValue);
-      const isPositionMatch = selectedPosition === "" || team.position === selectedPosition;
-      const isGoalsMatch = team.goals >= minGoals;
-      const isTrainingFrequencyMatch = selectedTrainingFrequency === "" || team.trainingFrequency.includes(selectedTrainingFrequency);
-      const isLevelMatch = selectedLevel === "" || team.skillLevel === selectedLevel;
+      const isPositionMatch = selectedPosition === "" || team.posicion_requerida === selectedPosition;
+      const isGoalsMatch = team.goles >= minGoals;
+      const isTrainingFrequencyMatch = selectedTrainingFrequency === "" || team.frecuencia_entrenamiento.includes(selectedTrainingFrequency);
+      const isLevelMatch = selectedLevel === "";
   
       return isNameMatch && isPositionMatch && isGoalsMatch && isTrainingFrequencyMatch && isLevelMatch;
     });
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       const teamStats = document.createElement("div");
       teamStats.classList.add("team-stats");
-      teamStats.textContent = `Goles: ${team.goals}`;
+      teamStats.textContent = `Nombre de Equipo:  ${team.nombre_equipo} Goles: ${team.goles}`;
   
       teamCard.appendChild(teamStats);
   
@@ -121,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
       mostSearchedTeamCard.classList.add("most-searched-team-card");
       mostSearchedTeamCard.innerHTML = `
         <h2>Equipo Más Buscado</h2>
-        <p>${mostSearchedTeam.name}</p>
-        <p>Goles: ${mostSearchedTeam.goals}</p>
+        <p>${mostSearchedTeam.nombre_equipo}</p>
+        <p>Goles: ${mostSearchedTeam.goles}</p>
       `;
       teamsContainer.appendChild(mostSearchedTeamCard);
     }
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getMostSearchedTeam(teams) {
     return teams.reduce((mostSearched, currentTeam) => {
-      return currentTeam.goals > mostSearched.goals ? currentTeam : mostSearched;
+      return currentTeam.goles > mostSearched.goles ? currentTeam : mostSearched;
     }, teams[0]);
   }
 
@@ -146,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   api.getTeams().then((data) => {
     teamsData = data;
+    console.log(data);
     renderTeams(teamsData);
   });
 });
