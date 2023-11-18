@@ -33,7 +33,7 @@ if (isset($_SESSION['team_id'])) {
                 <h1>Fútbol App</h1>
             </div>
             <a href="indexequippo.php">Volver al inicio</a>
-            <a href="#">Cerrar Sesión</a>
+            <a href="http://localhost/buscate_un_partido/buscate-un-partido/Basededatos/CerrarSesion.php">Cerrar Sesión</a>
         </nav>
     </header>
 
