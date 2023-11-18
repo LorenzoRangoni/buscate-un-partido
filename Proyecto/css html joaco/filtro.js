@@ -67,11 +67,11 @@ function applyFilters() {
 
     const filteredPlayers = players.filter((player) => { 
         const xnombre  = player.nombre.toLowerCase().includes(searchTerm);
-        const xposici = (selectedPosition === "" || player.posicion_jugador.toLowerCase() === selectedPosition);
-        //const xedad = (player.edad >= minAge) ;
+        const xposici = (selectedPosition === "" || player.posicion_jugador.trim().toLowerCase() === selectedPosition);
+        const xedad = (player.edad >= minAge) ;
         const xresi = (residenceFilter === "" || player.zona_residencial.toLowerCase().includes(residenceFilter));
-        console.log('Filtro:' +  player.nombre.toLowerCase() + ':' + player.edad + ':' + player.zona_residencial.toLowerCase());
-        return xnombre && xposici && xresi ;
+        console.log('Filtro:' +  player.nombre.toLowerCase() + ':' + player.posicion_jugador.trim().toLowerCase() + ':'+ xposici + ':' + selectedPosition+ ':' + player.zona_residencial.toLowerCase());
+        return xnombre && xposici && xresi && xedad ;
    });
 
     

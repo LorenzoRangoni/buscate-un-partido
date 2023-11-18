@@ -107,6 +107,7 @@ if (isset($_SESSION['user_id'])) {
 
 <script src="editeemail.js"></script>
 <script src="panelusuario.js"></script>
+<script src="editepassword.js"></script>
 
 
 
