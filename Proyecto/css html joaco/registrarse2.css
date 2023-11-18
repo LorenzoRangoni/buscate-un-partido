@@ -38,6 +38,7 @@ header {
   align-items: flex-end;
   justify-content: flex-end;
   margin-top: -24px;
+  scale: 0.5;
 }
 
 /* Ajustar márgenes para que los botones estén juntos */
