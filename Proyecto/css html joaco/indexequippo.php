@@ -53,7 +53,7 @@ if (isset($_SESSION['team_id'])) {
                 </li>
                 <li>
              <?php if ($team <> "") { ?>
-             <a href="panelusuario.php" class="nav__links user-link">Cuenta</a>
+             <a href="panelusuarioequipo.php" class="nav__links user-link">Cuenta</a>
            <?php } else { ?>
            <a href="panelusuario.php" ></a>
          <?php } ?>

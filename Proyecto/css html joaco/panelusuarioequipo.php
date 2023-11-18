@@ -1,19 +1,19 @@
 <?php
 include("../../Basededatos/conexion_db.php");
 session_start();
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $username = $_SESSION['username'];
-    $sql = "SELECT * FROM jugadores WHERE id_jugador = $user_id";
+if (isset($_SESSION['team_id'])) {
+   $team_id = $_SESSION['team_id'];
+   $team = $_SESSION['team'];
+    $sql = "SELECT * FROM jugadores WHERE id_equipo = $team_id";
     $resultado = mysqli_query($mysqli, $sql);
     $usuario = mysqli_fetch_assoc($resultado);
-    $nombre = $usuario["nombre_registrado_login"];
-    $mail = $usuario["mail_registrado_login"];
-    $contrasena= $usuario["contrasena_jugador"];
+    $nombre = $usuario["nombre_equipo_login"];
+    $mail = $usuario["email_equipo_login"];
+    $contrasena= $usuario["password_equipo"];
 
  } else {
-     $user_id = "";
-     $username = "";
+     $team_id = "";
+     $team = "";
  }
  
 ?> 
@@ -32,6 +32,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="logo">
                 <h1>Fútbol App</h1>
             </div>
+            <a href="indexequippo.php">Volver al inicio</a>
             <a href="#">Cerrar Sesión</a>
         </nav>
     </header>
@@ -63,7 +64,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
             <h2 id="modalTitle"></h2>
-            <form id="editForm" action="micuenta.php" method="post">
+            <form id="editForm" action="micuenta_equipo.php" method="post">
                 <div class="form-group">
                     <label for="newData">Nuevo Dato:</label>
                     <input type="text" id="newData" name="newData" required>
@@ -77,7 +78,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="modal-content">
         <span class="close" id="closeEmailModal">&times;</span>
         <h2>Editar Correo Electrónico</h2>
-        <form id="editEmailForm" action="micuentaemail.php" method="post">
+        <form id="editEmailForm" action="micuentaemail_equipo.php" method="post">
          <!-- Agrega el atributo 'action' -->
             <div class="form-group">
                 <label for="newEmail">Nuevo Correo Electrónico:</label>
@@ -87,75 +88,30 @@ if (isset($_SESSION['user_id'])) {
         </form>
     </div>
 </div>
-    <div id="editPasswordModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closePasswordModal">&times;</span>
-            <h2>Editar Contraseña</h2>
-            <form id="editPasswordForm">
-                <div class="form-group">
-                    <label for="newPassword">Nueva Contraseña:</label>
-                    <input type="password" id="newPassword" name="newPassword" required>
-                </div>
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
+<form id="editPasswordForm">
+    <div class="form-group">
+        <a href="#" class="edit-button" id="editPasswordButton">Editar</a>
     </div>
-
-    <div id="editResidenceModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeResidenceModal">&times;</span>
-            <h2>Editar Zona de Residencia</h2>
-            <form id="editResidenceForm">
-                <div class="form-group">
-                    <label for="newResidence">Nueva Zona de Residencia:</label>
-                    <input type="text" id="newResidence" name="newResidence" required>
-                </div>
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
+    <div class="form-group">
+        <label for="currentPassword">Contraseña Actual:</label>
+        <input type="password" id="currentPassword" name="currentPassword" required>
     </div>
-
-    <div id="editLevelModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeLevelModal">&times;</span>
-            <h2>Editar Nivel de Juego</h2>
-            <form id="editLevelForm">
-                <div class="form-group">
-                    <label for="newLevel">Nuevo Nivel de Juego:</label>
-                    <select id="newLevel" name="newLevel" required>
-                        <option value="Principiante">Principiante</option>
-                        <option value="Intermedio">Intermedio</option>
-                        <option value="Avanzado">Avanzado</option>
-                    </select>
-                </div>
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
+    <div class="form-group">
+        <label for="newPassword">Nueva Contraseña:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
     </div>
+    <button type="submit" class="save-button">Guardar Cambios</button>
+</form>
 
-    <div id="editPositionModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closePositionModal">&times;</span>
-            <h2>Editar Posición</h2>
-            <form id="editPositionForm">
-                <div class="form-group">
-                    <label for="newPosition">Nueva Posición:</label>
-                    <select id="newPosition" name="newPosition" required>
-                        <option value="Portero">Portero</option>
-                        <option value="Defensa">Defensa</option>
-                        <option value="Centrocampista">Centrocampista</option>
-                        <option value="Delantero">Delantero</option>
-                    </select>
-                </div>
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
-    </div>
+  
 
-    <script src="editUsername.js"></script>
-<script src="editEmail.js"></script>
-<script src="panelusuario.js"></script>
 
-    >
+<script src="editeemail_equipo.js"></script>
+<script src="panelusuario_equipo.js"></script>
+<script src="editepassword_equipo.js"></script>
+
+
+
+    
 </body>
 </html>

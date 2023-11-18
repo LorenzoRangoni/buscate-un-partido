@@ -32,7 +32,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="logo">
                 <h1>Fútbol App</h1>
             </div>
-            <a href="index.html">Volver al inicio</a>
+            <a href="index.php">Volver al inicio</a>
             <a href="#">Cerrar Sesión</a>
         </nav>
     </header>
