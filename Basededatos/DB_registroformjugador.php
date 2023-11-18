@@ -43,11 +43,12 @@ if ($resultado) {
 
 // Escapa las variables y corrige la sintaxis de la consulta
 $sql = "INSERT INTO formulario_jugadores 
-        (nombre, apellido, altura, zona_residencial, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad, fecha_registro_formulario_jugador, id_jugador, mail_del_jugador, nombre_registrado_login, mail_registrado_login, contrasena_jugador) 
-        VALUES ('$nombre', '$apellido', '$altura', '$zona', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad', '$fecha_registro_formulario','$user_id', '$correo', '$nombrelogin', '$maillogin', '$contrasena')";
+        (nombre, apellido, altura, zona_residencial, peso, edad, sub, disponibilidad_horaria_jugador, posicion_jugador, numero_de_telefono_jugador, habilidad, mail_del_jugador, fecha_registro_formulario_jugador, id_jugador) 
+        VALUES ('$nombre', '$apellido', '$altura', '$zona', '$peso', '$edad', '$sub', '$disponibilidad', '$posicion', '$telefono', '$habilidad', '$correo','$fecha_registro_formulario','$user_id')";
 
 if ($mysqli->query($sql) === TRUE) {
     header("Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/index.php");
+    
 } else {
     echo "Error al insertar datos: " . $mysqli->error;
 }

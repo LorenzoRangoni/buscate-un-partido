@@ -49,7 +49,7 @@ if (isset($_SESSION['team_id'])) {
                 <?php }  ?>
                 </li>
                 <li class="nav__items">
-                    <a href="formacion.html" class="nav__links"> Mi equipo </a>
+                    <a href="formularioequipo.html" class="nav__links"> Formulario </a>
                 </li>
                 <li>
              <?php if ($team <> "") { ?>
