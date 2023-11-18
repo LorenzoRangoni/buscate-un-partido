@@ -19,7 +19,7 @@ if (isset($_SESSION['team_id'])) {
             $updatePasswordResult = mysqli_query($mysqli, $updatePasswordQuery);
 
             if ($updatePasswordResult) {
-                echo "contraseña cambiada con exito";
+                echo "success";
             } else {
                 echo "Error al actualizar la contraseña: " . mysqli_error($mysqli);
             }

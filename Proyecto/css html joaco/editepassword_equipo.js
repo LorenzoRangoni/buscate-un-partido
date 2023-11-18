@@ -46,7 +46,8 @@ editPasswordForm.addEventListener("submit", function (event) {
             // Puedes agregar más acciones después de cambiar la contraseña si es necesario
         } else {
             // Muestra el mensaje de error al usuario
-            alert(data);
+            document.getElementById('mensajealerta').innerHTML='<p style="color: red;"> La contraseña actual incorrecta </p>';
+            //alert(data);
         }
     })
     .catch(error => {

@@ -30,6 +30,7 @@
         <input type="password" name="password" id="password" required><br>
         <label>Confirmar contrasena:</label>
         <input type="password" name="confirm_password" id="confirm_password" required>
+        <div id="mensajealerta"> </div>
         <p>Ya tienes una cuenta? <a href="logeoprincipal.html">Iniciar sesion</a></p>
 
         <input type="submit" value="Registrarte">
@@ -41,7 +42,7 @@
             const confirm_password = document.getElementById("confirm_password").value;
 
             if (password.length < 6) {
-                alert("La contrasena debe tener al menos 6 caracteres.");
+                document.getElementById('mensajealerta').innerHTML='<p style="color: red;"> La contraseña debe tener almenos 6 caracteres </p>';
                 event.preventDefault();
             } else if (password !== confirm_password) {
                 alert("Las contrasenas no coinciden.");

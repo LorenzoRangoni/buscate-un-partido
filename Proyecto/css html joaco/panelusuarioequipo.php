@@ -1,10 +1,11 @@
 <?php
 include("../../Basededatos/conexion_db.php");
 session_start();
+$nombre="boludo";
 if (isset($_SESSION['team_id'])) {
    $team_id = $_SESSION['team_id'];
    $team = $_SESSION['team'];
-    $sql = "SELECT * FROM jugadores WHERE id_equipo = $team_id";
+    $sql = "SELECT * FROM equipo WHERE id_equipo = $team_id";
     $resultado = mysqli_query($mysqli, $sql);
     $usuario = mysqli_fetch_assoc($resultado);
     $nombre = $usuario["nombre_equipo_login"];
@@ -88,10 +89,13 @@ if (isset($_SESSION['team_id'])) {
         </form>
     </div>
 </div>
-<form id="editPasswordForm">
-    <div class="form-group">
-        <a href="#" class="edit-button" id="editPasswordButton">Editar</a>
-    </div>
+
+
+<div id="editPasswordModal"  class="modal">
+    <div class="modal-content">
+         <span class="close" id="closePasswordModal">&times;</span>
+    <h2>Editar Contrasena</h2>
+        <form id="editPasswordForm" action="micuentapassword_equipo.php" method="post">
     <div class="form-group">
         <label for="currentPassword">Contraseña Actual:</label>
         <input type="password" id="currentPassword" name="currentPassword" required>
@@ -100,10 +104,14 @@ if (isset($_SESSION['team_id'])) {
         <label for="newPassword">Nueva Contraseña:</label>
         <input type="password" id="newPassword" name="newPassword" required>
     </div>
+    <div id="mensajealerta"> </div>
     <button type="submit" class="save-button">Guardar Cambios</button>
 </form>
+    </div>
+</div>
 
-  
+
+
 
 
 <script src="editeemail_equipo.js"></script>
