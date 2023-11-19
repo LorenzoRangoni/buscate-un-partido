@@ -42,13 +42,29 @@ function displayPlayerDetails(player) {
     const modalPlayerPosition = document.getElementById("modalPlayerPosition");
     const modalPlayerAge = document.getElementById("modalPlayerAge");
     const modalPlayerResidence = document.getElementById("modalPlayerResidence");
-    
+    const modalPlayerPhone= document.getElementById("modalPlayerPhone");
+    const modalPlayerSkill= document.getElementById("modalPlayerSkill");
+    const modalPlayerHour= document.getElementById("modalPlayerHour");
+    const modalPlayerMail= document.getElementById("modalPlayerMail");
+    const modalPlayerAltura= document.getElementById("modalPlayerAltura");
+    const modalPlayerPeso= document.getElementById("modalPlayerPeso");
    
 
     modalPlayerName.textContent = player.nombre;
     modalPlayerPosition.textContent = ` ${player.posicion_jugador}`;
     modalPlayerAge.textContent = ` ${player.edad}`;
     modalPlayerResidence.textContent = `${player.zona_residencial}`;
+    modalPlayerPhone.textContent = `${player.numero_de_telefono_jugador}`;
+    modalPlayerSkill.textContent = `${player.habilidad}`;
+    modalPlayerHour.textContent = `${player.disponibilidad_horaria_jugador}`;
+    modalPlayerMail.textContent = `${player.mail_del_jugador}`;
+    modalPlayerAltura.textContent = `${player.altura}`;
+    modalPlayerPeso.textContent = `${player.peso}`;
+
+
+
+
+    
     //modalPlayerImage.src = player.image;
    
 
@@ -64,6 +80,7 @@ function applyFilters() {
     const selectedPosition = document.getElementById("positionFilter").value.toLowerCase();
     const minAge = parseInt(document.getElementById("ageFilter").value) || 0;
     const residenceFilter = document.getElementById("residenceFilter").value.toLowerCase();
+    
 
     const filteredPlayers = players.filter((player) => { 
         const xnombre  = player.nombre.toLowerCase().includes(searchTerm);

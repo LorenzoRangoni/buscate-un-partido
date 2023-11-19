@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("email").textContent = newEmail;
             } else {
                 // Muestra el mensaje de error al usuario
-                alert(data);
+                document.getElementById('mensajealerta').innerHTML='<p style="color: red;"> Correo electronico ya registrado </p>';
+
             }
         })
         .catch(error => {

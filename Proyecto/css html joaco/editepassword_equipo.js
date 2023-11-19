@@ -14,6 +14,7 @@ editPasswordButton.addEventListener("click", function (event) {
 
 closePasswordModal.addEventListener("click", function () {
     editPasswordModal.style.display = "none";
+    
 });
 
 editPasswordForm.addEventListener("submit", function (event) {
@@ -46,7 +47,7 @@ editPasswordForm.addEventListener("submit", function (event) {
             // Puedes agregar más acciones después de cambiar la contraseña si es necesario
         } else {
             // Muestra el mensaje de error al usuario
-            document.getElementById('mensajealerta').innerHTML='<p style="color: red;"> La contraseña actual incorrecta </p>';
+            document.getElementById('mensajealerta').innerHTML='<p style="color: red;"> La contraseña actual es incorrecta </p>';
             //alert(data);
         }
     })

@@ -43,7 +43,7 @@ if (isset($_SESSION['user_id'])) {
 
                 <?php if ($username <> "") { ?>
                 <li class="nav__items">
-                    <a href="../../Basededatos/CerrarSesion.php" class="nav__links">Logout </a>
+                    <a href="historialform.php" class="nav__links">Historial</a>
                 </li>
                 <?php } else { ?>
                 <li class="nav__items">
@@ -53,14 +53,14 @@ if (isset($_SESSION['user_id'])) {
                 </li>
                 <li class="nav__items">
                 <?php if ($username <> "") { ?>
-                <a href="historialform.php" class="nav__links">Historial</a>
+                <a href="panelusuario.php" class="nav__links">Mi cuenta</a>
                 <?php } else { ?>
                     <a href="registrarse2.php" class="nav__links"> Formulario </a>
                     <?php } ?>
                 </li>
                 <li>
              <?php if ($username <> "") { ?>
-             <a href="panelusuario.php" class="nav__links user-link">Cuenta</a>
+             <a href="../../Basededatos/CerrarSesion.php" class="nav__links">Cerrar sesion</a>
            <?php } else { ?>
            <a href="panelusuario.php" ></a>
          <?php } ?>

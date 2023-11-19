@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       const teamStats = document.createElement("div");
       teamStats.classList.add("team-stats");
-      teamStats.textContent = `Nombre de Equipo:  ${team.nombre_equipo} Goles: ${team.goles}`;
+      teamStats.textContent = `Nombre de Equipo:  ${team.nombre_equipo} Goles: ${team.goles} liga: ${team.li} ` ;
   
       teamCard.appendChild(teamStats);
   

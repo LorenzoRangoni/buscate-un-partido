@@ -11,6 +11,11 @@ $conn = $mysqli;
 if ($mysqli->connect_error) {
   die("Error de conexión a la base de datos: " . $mysqli->connect_error);
 }
+$mysqli->set_charset("utf8");
+
+
 date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+
 
 ?>

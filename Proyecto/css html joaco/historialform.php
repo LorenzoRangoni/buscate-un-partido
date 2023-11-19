@@ -46,8 +46,8 @@
             echo '<td>' . $row["sub"] . '</td>';
             echo '<td>' . $row["habilidad"] . '</td>';
             echo '<td>' . $row["zona_residencial"] . '</td>';
-            echo '<td><a href="registrarse2_edicion.html" id=' . $row["id_formulario"] . '">Editar</a></td>';
-            echo '<td><button onclick="eliminarFormulario(' . $row["id_formulario"] . ')">Eliminar</button></td>';
+            echo '<td><a href="registrarse2_edicion.php" id=' . $row["id_formulario"] . '">Editar</a></td>';
+            echo '<td><a href="eliminarformulario.php" id=' . $row["id_formulario"] . ')">Eliminar</button></td>';
             echo '</tr>';
             
             echo '</tr>';

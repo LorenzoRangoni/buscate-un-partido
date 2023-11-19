@@ -27,7 +27,7 @@
   <label for="capitan">Capitán:</label>
   <input type="text" id="capitan" name="capitan" required><br>
 
-  <label for="telefonoCapitan">Teléfono del Capitán:</label>
+  <label for="telefonoCapitan">Teléfono del Equipo/Capitán:</label>
   <input type="tel" id="telefonoCapitan" name="telefonoCapitan" required><br>
 
   <label for="mailCapitan">Mail del Capitán:</label>
@@ -37,7 +37,7 @@
   <input type="text" id="ubicacion" name="ubicacion" required><br>
 
   <label for="frecuenciaEntrenamiento">Frecuencia de Entrenamiento:</label>
-  <input type="text" id="frecuenciaEntrenamiento" name="frecuenciaEntrenamiento" required><br>
+  <select id="frecuenciaEntrenamiento" name="frecuenciaEntrenamiento" required><br>
   <option value="1">1 día</option>
   <option value="2">2 días</option>
   <option value="3">3 días</option>
@@ -55,6 +55,13 @@
 
   <label for="horaEntrenamiento">Hora de Entrenamiento:</label>
   <input type="time" id="horaEntrenamiento" name="horaEntrenamiento" required><br>
+
+  <label for="nivelDejuego">Nivel de juego:</label>
+  <select id="nivelDejuego" name="nivelDejuego" required><br>
+    <option value="Bajo">Bajo</option>
+    <option value="Medio"> Medio </option>
+    <option value="Alto"> Alto</option>
+  </select><br>
 
   <input type="submit" value="Enviar">
 </form>

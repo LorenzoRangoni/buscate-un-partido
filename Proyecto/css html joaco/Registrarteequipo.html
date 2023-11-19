@@ -30,6 +30,7 @@
         <input type="password" name="password" required><br>
         <label>Confirmar contrasena:</label>
         <input type="password" name="confirm_password" required>
+        <div id="mensajealerta"> </div>
         <p>Ya tienes una cuenta? <a href="logeoprincipalequipo.html">Iniciar sesion</a></p>
 
         <input type="submit" value="Registrarte">
@@ -37,15 +38,21 @@
 
     <script type="text/javascript">
         document.getElementById("registroForm").addEventListener("submit", function (event) {
-            const password = document.getElementById("password").value;
-            const confirm_password = document.getElementById("confirm_password").value;
-
+            const password = document.getElementById("password").value;  // Cambiado a "contrasena"
+            const confirm_password = document.getElementById("confirm_password").value;  // Cambiado a "confirm_password"
+            const mensajeAlerta = document.getElementById('mensajealerta');
+        
             if (password.length < 6) {
-                alert("La contrasena debe tener al menos 6 caracteres.");
+                // Muestra el mensaje de error si la longitud es insuficiente
+                mensajeAlerta.innerHTML = '<p style="color: red;">La contraseña debe tener al menos 6 caracteres</p>';
                 event.preventDefault();
             } else if (password !== confirm_password) {
-                alert("Las contrasenas no coinciden.");
+                // Muestra el mensaje de error si las contraseñas no coinciden
+                mensajeAlerta.innerHTML = '<p style="color: red;">Las contraseñas no coinciden</p>';
                 event.preventDefault();
+            } else {
+                // Limpia el mensaje de error si la validación es exitosa
+                mensajeAlerta.innerHTML = '';
             }
         });
     </script>

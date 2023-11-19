@@ -14,14 +14,19 @@ if (isset($_SESSION['user_id'])) {
         $checkPasswordResult = mysqli_query($mysqli, $checkPasswordQuery);
 
         if (mysqli_num_rows($checkPasswordResult) > 0) {
-            // Contraseña actual es correcta, actualiza la contraseña
-            $updatePasswordQuery = "UPDATE jugadores SET contrasena_jugador = '$newPassword' WHERE id_jugador = $user_id";
-            $updatePasswordResult = mysqli_query($mysqli, $updatePasswordQuery);
+            // Verifica que la nueva contraseña tenga al menos 6 caracteres
+            if (strlen($newPassword) >= 6) {
+                // Contraseña actual es correcta y la nueva contraseña cumple con los requisitos, actualiza la contraseña
+                $updatePasswordQuery = "UPDATE jugadores SET contrasena_jugador = '$newPassword' WHERE id_jugador = $user_id";
+                $updatePasswordResult = mysqli_query($mysqli, $updatePasswordQuery);
 
-            if ($updatePasswordResult) {
-                echo "contraseña cambiada con exito";
+                if ($updatePasswordResult) {
+                    echo "success";
+                } else {
+                    echo "Error al actualizar la contraseña: " . mysqli_error($mysqli);
+                }
             } else {
-                echo "Error al actualizar la contraseña: " . mysqli_error($mysqli);
+                echo "La nueva contraseña debe tener al menos 6 caracteres";
             }
         } else {
             echo "La contraseña actual es incorrecta";

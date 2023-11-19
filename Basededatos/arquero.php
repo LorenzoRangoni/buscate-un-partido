@@ -2,7 +2,7 @@
 <?php 
 include ("conexion_db.php");
 
-$sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM jugadores WHERE posicion_jugador = 'arquero'";
+$sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'arquero'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

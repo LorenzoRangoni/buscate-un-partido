@@ -67,33 +67,34 @@
 </head>
 <body>
   <header>
-    <nav class="container">
-        <div class="nav__logo">
-            <h1>Partido</h1>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Buscate un partido</h1>
         </div>
         <div class="nav__links">
             <a href="index.html" class="button">Inicio</a>
             <a href="logeoprincipal.html" class="button">Logearse</a>
-            <a href="encontrar-jugador.html" class="button">Encontrar jugador</a>
+            <a href="filtro.html" class="button">Encontrar jugador</a>
             <a href="registrarse2.html" class="button">Formulario</a>
         </div>
     </nav>
-</header>
+</header> 
   <h4>Formulario Registro</h4>
-  <form class="form-register" action="../../Basededatos/DB_registroformjugador.php" method="POST">
+  <form class="form-register" action="DB_regsitroformjugador_edicion.php" method="POST">
    
      
-    <form id="formulario" action="../../Basededatos/DB_registroformjugador.php" method="POST" enctype="multipart/form-data"  target="_blank" onsubmit="return validarFormulario()">
+    <form id="formulario" action="DB_regsitroformjugador_edicion.php" method="POST" enctype="multipart/form-data"  target="_blank" onsubmit="return validarFormulario()">
     <div class="form-group">
 
+      
+    <input type="hidden" name="id_formulario" value="<?php echo isset($id_formulario) $id_formulario : ''; ?>">
 
 
-      <input type="hidden" name="id_formulario" value="el_valor_del_id_del_formulario_a_eliminar">
-
-
+      
       <label for="nombre">Nombre y Apellido:</label>
       <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
     </div>
+
 
 
 
@@ -127,7 +128,6 @@
       <label for="zona">Zona residencial:</label>
       <input class="controls" type="text" name="zona" id="zona" placeholder="Zona residenacial">
     </div>
-    
 
     <div class="form-group">
       <label for="habilidad">Mejor habilidad:</label>
@@ -191,10 +191,7 @@
       </select>
     </div>
     
-    <input class="botons" type="submit" value="Registrar">
-
-    
-
+    <input class="botons" type="submit" value="Confirmar cambios">
     
     
   </form>

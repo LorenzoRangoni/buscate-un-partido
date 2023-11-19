@@ -39,7 +39,7 @@ if (isset($_SESSION['user_id'])) {
 
     <main class="container">
         <section class="user-profile">
-            <h2>Mi Perfil</h2>
+            <h2>Mi Cuenta</h2>
             <div id="userData">
                 <div class="data-item">
                     <span class="data-label">Nombre de Usuario:</span>
@@ -88,10 +88,12 @@ if (isset($_SESSION['user_id'])) {
         </form>
     </div>
 </div>
-<form id="editPasswordForm">
-    <div class="form-group">
-        <a href="#" class="edit-button" id="editPasswordButton">Editar</a>
-    </div>
+
+<div id="editPasswordModal"  class="modal">
+    <div class="modal-content">
+         <span class="close" id="closePasswordModal">&times;</span>
+    <h2>Editar Contrasena</h2>
+        <form id="editPasswordForm" action="micuentapassword_equipo.php" method="post">
     <div class="form-group">
         <label for="currentPassword">Contraseña Actual:</label>
         <input type="password" id="currentPassword" name="currentPassword" required>
@@ -100,8 +102,12 @@ if (isset($_SESSION['user_id'])) {
         <label for="newPassword">Nueva Contraseña:</label>
         <input type="password" id="newPassword" name="newPassword" required>
     </div>
+    <div id="mensajealerta"> </div>
     <button type="submit" class="save-button">Guardar Cambios</button>
 </form>
+    </div>
+</div>
+
 
   
 
