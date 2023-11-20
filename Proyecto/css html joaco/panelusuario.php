@@ -238,7 +238,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="modal-content">
             <span class="close" id="closePasswordModal">&times;</span>
             <h2>Editar Contraseña</h2>
-            <form id="editPasswordForm" action="micuentapassword_equipo.php" method="post">
+            <form id="editPasswordForm" action="micuentapassword.php" method="post">
                 <div class="form-group">
                     <label for="currentPassword">Contraseña Actual:</label>
                     <input type="password" id="currentPassword" name="currentPassword" required>

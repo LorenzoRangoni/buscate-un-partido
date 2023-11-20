@@ -87,7 +87,8 @@
     <div class="form-group">
 
       
-    <input type="hidden" name="id_formulario" value="<?php echo isset($id_formulario) $id_formulario : ''; ?>">
+    <input type="hidden" name="id_formulario" value="<?php echo isset($id_formulario) ? $id_formulario : ''; ?>">
+
 
 
       

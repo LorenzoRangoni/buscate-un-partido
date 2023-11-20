@@ -190,7 +190,7 @@ async function renderTeams(teamsData) {
 
     const teamStats = document.createElement("div");
     teamStats.classList.add("team-stats");
-    teamStats.textContent = `Nombre de Equipo:  ${team.nombre_equipo} Capitan:${team.telefono_capitan } Goles: ${team.goles} liga: ${team.liga} Posicion faltante: ${team.posicion_requerida} Frecuencia de entreanamiento: ${team.frecuencia_entrenamiento}  Dias de entreanamiento: ${team.dias_entrenamiento} Hora de entreanamiento: ${team.hora_entrenamiento} Ubicacion: ${team.ubicacion} Nivel de juego: ${team.nivel_de_juego } Telefono equipo/Telefono capitan: ${team.telefono_capitan } ` ;
+    teamStats.textContent = `Nombre de Equipo:  ${team.nombre_equipo} Capitan:${team.capitan } Goles: ${team.goles} liga: ${team.liga} Posicion faltante: ${team.posicion_requerida} Frecuencia de entreanamiento: ${team.frecuencia_entrenamiento}  Dias de entreanamiento: ${team.dias_entrenamiento} Hora de entreanamiento: ${team.hora_entrenamiento} Ubicacion: ${team.ubicacion} Nivel de juego: ${team.nivel_de_juego } Telefono equipo/Telefono capitan: ${team.telefono_capitan } ` ;
 
     teamCard.appendChild(teamStats);
 

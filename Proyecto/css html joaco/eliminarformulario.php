@@ -11,7 +11,10 @@ if (isset($_SESSION['user_id'])) {
 }
 
 // Obtén el ID del formulario desde el formulario
-$id_formulario = $_POST["id_formulario"];
+// Obtén el ID del formulario desde la URL
+$id_formulario = $_GET["id"];
+
+
 
 // Escapa el valor del ID del formulario
 $id_formulario = mysqli_real_escape_string($mysqli, $id_formulario);
