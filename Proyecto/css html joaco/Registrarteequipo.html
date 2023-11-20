@@ -35,13 +35,12 @@
 
         <input type="submit" value="Registrarte">
     </form>
-
     <script type="text/javascript">
         document.getElementById("registroForm").addEventListener("submit", function (event) {
-            const password = document.getElementById("password").value;  // Cambiado a "contrasena"
-            const confirm_password = document.getElementById("confirm_password").value;  // Cambiado a "confirm_password"
+            const password = document.getElementById("password").value;
+            const confirm_password = document.getElementById("confirm_password").value;
             const mensajeAlerta = document.getElementById('mensajealerta');
-        
+
             if (password.length < 6) {
                 // Muestra el mensaje de error si la longitud es insuficiente
                 mensajeAlerta.innerHTML = '<p style="color: red;">La contraseña debe tener al menos 6 caracteres</p>';
@@ -53,6 +52,25 @@
             } else {
                 // Limpia el mensaje de error si la validación es exitosa
                 mensajeAlerta.innerHTML = '';
+                const email = document.getElementById("Mail").value;
+            const emailAlerta = document.getElementById('emailAlerta');
+
+            // Realizar una solicitud AJAX para verificar si el correo electrónico ya está registrado
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // La respuesta del servidor es un mensaje indicando si el correo electrónico está registrado o no
+                        const respuesta = xhr.responseText;
+                        if (respuesta === "registrado") {
+                            emailAlerta.innerHTML = '<p style="color: red;">El correo electrónico ya está registrado. Por favor, elige otro.</p>';
+                            event.preventDefault();
+                        } else {
+                            emailAlerta.innerHTML = '';
+                        }
+                    }
+                }
+            };
             }
         });
     </script>

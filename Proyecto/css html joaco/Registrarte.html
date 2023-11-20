@@ -5,6 +5,7 @@
     <title>Registrarte</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="styles6.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -22,9 +23,9 @@
 
     <h2>Registrarte (Jugador)</h2>
 
-    <form action="../../Basededatos/Registrarte.php" method="POST" id="registroForm">
+    <form action="" method="POST" id="registroForm">
         <label>Mail:</label>
-        <input type="email" name="Mail" required><br>
+        <input type="email" name="Mail" id="Mail" required><br>
         <label>Nombre y Apellido:</label>
         <input type="text" name="Nombre" required><br>
         <label>Contrasena:</label>
@@ -32,50 +33,60 @@
         <label>Confirmar contrasena:</label>
         <input type="password" name="confirm_password" id="confirm_password" required>
         <div id="mensajealerta"> </div>
+        <div id="emailAlerta"> </div>
         <p>Ya tienes una cuenta? <a href="logeoprincipal.html">Iniciar sesion</a></p>
 
         <input type="submit" value="Registrarte">
     </form>
 
     <script type="text/javascript">
-        document.getElementById("registroForm").addEventListener("submit", function (event) {
-            const password = document.getElementById("password").value;
-            const confirm_password = document.getElementById("confirm_password").value;
-            const mensajeAlerta = document.getElementById('mensajealerta');
-
-            if (password.length < 6) {
-                // Muestra el mensaje de error si la longitud es insuficiente
-                mensajeAlerta.innerHTML = '<p style="color: red;">La contraseña debe tener al menos 6 caracteres</p>';
-                event.preventDefault();
-            } else if (password !== confirm_password) {
-                // Muestra el mensaje de error si las contraseñas no coinciden
-                mensajeAlerta.innerHTML = '<p style="color: red;">Las contraseñas no coinciden</p>';
-                event.preventDefault();
-            } else {
-                // Limpia el mensaje de error si la validación es exitosa
-                mensajeAlerta.innerHTML = '';
-                const email = document.getElementById("Mail").value;
-            const emailAlerta = document.getElementById('emailAlerta');
-
-            // Realizar una solicitud AJAX para verificar si el correo electrónico ya está registrado
-            const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        // La respuesta del servidor es un mensaje indicando si el correo electrónico está registrado o no
-                        const respuesta = xhr.responseText;
-                        if (respuesta === "registrado") {
-                            emailAlerta.innerHTML = '<p style="color: red;">El correo electrónico ya está registrado. Por favor, elige otro.</p>';
-                            event.preventDefault();
-                        } else {
-                            emailAlerta.innerHTML = '';
+        $(document).ready(function () {
+            $('#registroForm').submit(function (event) {
+                const password = $('#password').val();
+                const confirm_password = $('#confirm_password').val();
+                const mensajeAlerta = $('#mensajealerta');
+    
+                if (password.length < 6) {
+                    mensajeAlerta.html('<p style="color: red;">La contraseña debe tener al menos 6 caracteres</p>');
+                    event.preventDefault();
+                } else if (password !== confirm_password) {
+                    mensajeAlerta.html('<p style="color: red;">Las contraseñas no coinciden</p>');
+                    event.preventDefault();
+                } else {
+                    console.log('busco email');
+                    mensajeAlerta.html('');
+                    const email = $('#Mail').val();
+                    const emailAlerta = $('#emailAlerta');
+                    console.log(email);
+                    alert(email);
+    
+                    // Realizar una solicitud AJAX para verificar si el correo electrónico ya está registrado
+                    $.ajax({
+                        type: 'POST',
+                        url: 'validaremail.php',
+                        data: { Mail: email },
+                        success: function (response) {
+                            // La respuesta del servidor es un mensaje indicando si el correo electrónico está registrado o no
+                            alert(response);
+                            conole.log(response);
+                            alert('la respuesta');
+                            if (response === 'registrado') {
+                                alert('El email ya existe');
+                                mensajeAlerta.html('<p style="color: red;">El correo electrónico ya está registrado. Por favor, elige otro.</p>');
+                                //event.preventDefault();
+                            } else {
+                                //alert('pp');
+                                mensajeAlerta.html('');
+                            }
                         }
-                    }
+                    });
                 }
-            };
-            }
+            });
         });
     </script>
+</body>
+
+</html>
 </body>
 
 </html>
