@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de Formularios</title>
-    <!-- Agrega tus estilos CSS si es necesario -->
+    <link rel="stylesheet" href="styles8.css">
 </head>
 <body>
     <h1>Historial de Formularios Enviados</h1>
