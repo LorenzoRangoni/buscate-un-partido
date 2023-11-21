@@ -169,7 +169,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="nav__logo">
         </div>
         <div class="nav__links">
-            <a href="index.html" class="button">Inicio</a>
+            <a href="index.php" class="button">Inicio</a>
             <a href="Pagina_de_registroylogin.html" class="button">Logearse</a>
             <a href="encontrarjugadores.html" class="button">Encontrar jugador</a>
             <a href="registrarse2.html" class="button">Formulario</a>
