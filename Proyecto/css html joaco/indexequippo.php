@@ -47,13 +47,20 @@ if (isset($_SESSION['team_id'])) {
                     <a href="Pagina_de_registroylogin.html" class="nav__links">Logearse</a>
                 </li>
                 <?php }  ?>
+
+                <?php if ($team <> "") { ?>
+             <a href="histroialformequipo.php" class="nav__links">Historial</a>
+           <?php } else { ?>
+           <a href="panelusuario.php" ></a>
+         <?php } ?>
+                
                 </li>
                 <li class="nav__items">
                     <a href="formularioequipo.html" class="nav__links"> Formulario </a>
                 </li>
                 <li>
              <?php if ($team <> "") { ?>
-             <a href="panelusuarioequipo.php" class="nav__links user-link">Cuenta</a>
+             <a href="panelusuarioequipo.php" class="nav__links">Cuenta</a>
            <?php } else { ?>
            <a href="panelusuario.php" ></a>
          <?php } ?>

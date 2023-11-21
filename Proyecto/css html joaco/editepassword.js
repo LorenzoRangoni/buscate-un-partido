@@ -21,6 +21,10 @@ editPasswordForm.addEventListener("submit", function (event) {
     var currentPassword = currentPasswordInput.value;
     var newPassword = newPasswordInput.value;
 
+    if (newPassword.length < 6 ) {
+        document.getElementById('mensajealerta').innerHTML = '<p style="color: red;">La contraseña debe tener mas de 6 caracteres</p>'; 
+    } else {    
+
     // Realiza una verificación previa del lado del cliente
     // Puedes agregar aquí más validaciones según tus necesidades
 
@@ -52,9 +56,15 @@ editPasswordForm.addEventListener("submit", function (event) {
     .catch(error => {
         console.error("Error al enviar la solicitud al servidor: " + error);
     });
+  }
 });
 
 function openEditPasswordModal(title, inputId, spanId) {
+
+    document.getElementById("currentPassword").value = "";
+    document.getElementById("newPassword").value = "";
+    document.getElementById('mensajealerta').innerHTML = "";
+
     // Configura el título del modal
     document.getElementById("modalTitle").textContent = title;
 
