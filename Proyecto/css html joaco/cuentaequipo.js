@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
   
-  // Resto del código...
+  
   
 
   function closeModal() {

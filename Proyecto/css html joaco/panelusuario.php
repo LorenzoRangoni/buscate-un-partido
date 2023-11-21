@@ -170,15 +170,14 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="nav__links">
             <a href="index.php" class="button">Inicio</a>
-            <a href="Pagina_de_registroylogin.html" class="button">Logearse</a>
+            <!-- <a href="Pagina_de_registroylogin.html" class="button">Logearse</a>
             <a href="encontrarjugadores.html" class="button">Encontrar jugador</a>
-            <a href="registrarse2.html" class="button">Formulario</a>
+            <a href="registrarse2.html" class="button">Formulario</a> -->
  
     </div>
 
     </nav>
             </div>
-            <a href="index.php" class="button">Volver al inicio</a>
             <a href="http://localhost/buscate_un_partido/buscate-un-partido/Basededatos/CerrarSesion.php" class="button">Cerrar Sesión</a>
         </nav>
     </header>

@@ -1,31 +1,31 @@
 <?php 
 include("conexion_db.php");
 
-$sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo'";
+$sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'extremo izquierdo'";
 $result = $conn->query($sql);
 
 // Manejo del formulario de búsqueda por disponibilidad horaria
 if (isset($_POST['buscar_horario'])) {
     $horario = $_POST['horario'];
-    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo' AND disponibilidad_horaria_jugador LIKE '%$horario%'";
+    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'extremo izquierdo' AND disponibilidad_horaria_jugador LIKE '%$horario%'";
     $result = $conn->query($sql);
 }
 
 // Manejo del formulario de búsqueda por zona
 if (isset($_POST['buscar_zona'])) {
     $zona = $_POST['zona'];
-    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo' AND zona_residencial LIKE '%$zona%'";
+    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'extremo izquierdo' AND zona_residencial LIKE '%$zona%'";
     $result = $conn->query($sql);
 }
 
 // Si no se ha realizado ninguna búsqueda, mostrar todos los jugadores
 if (!isset($_POST['buscar_horario']) && !isset($_POST['buscar_zona'])) {
-    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo'";
+    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'extremo izquierdo'";
     $result = $conn->query($sql);
 }
 ?>
 
-echo "
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -173,7 +173,7 @@ echo "
 
     <!-- Formulario de búsqueda por disponibilidad horaria -->
     <form class='search-form' method='post'>
-        <label for='horario'>Buscar por disponibilidad horaria:</label>
+        <label for='horario'>Buscar por hora:</label>
         <input type='text' name='horario' id='horario' placeholder='Ingrese el horario'>
         <input type='submit' name='buscar_horario' value='Buscar' class='button search-button'>
         <button type='submit' name='reset_horario' class='reset-button'>Resetear Horario</button>
