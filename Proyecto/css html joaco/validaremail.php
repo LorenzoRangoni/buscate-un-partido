@@ -2,9 +2,9 @@
 include("../../Basededatos/conexion_db.php");
 
 // Obtengo los valores enviados por el formulario
-if (isset($_POST['Mail']) ) {
+if (isset($_POST['email']) ) {
     // Obtengo los valores enviados por el formulario
-    $mail = $_POST['Mail'];
+    $mail = $_POST['email'];
 
 
     // Verificar si el correo electrónico ya está registrado

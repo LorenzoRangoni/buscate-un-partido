@@ -23,9 +23,10 @@
 
     <h2>Registrarte (Jugador)</h2>
 
-    <form action="" method="POST" id="registroForm">
+    <form action="Registrarte.php" method="POST" id="registroForm" onsubmit="return validateForm()">
         <label>Mail:</label>
-        <input type="email" name="Mail" id="Mail" required><br>
+        <input type="email" name="Mail" id="Mail" required onfocusout="checkEmail()"><br>
+        <div id="emailStatus"> </div>
         <label>Nombre y Apellido:</label>
         <input type="text" name="Nombre" required><br>
         <label>Contrasena:</label>
@@ -40,49 +41,86 @@
     </form>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#registroForm').submit(function (event) {
+        function checkEmail() {
+                        // Get the email input value
+                        var email = document.getElementById('Mail').value;
+                        console.log('checking');
+
+                        // Create an XMLHttpRequest object
+                        var xhr = new XMLHttpRequest();
+
+                        // Configure it: specify the type of request and the URL
+                        xhr.open('POST', 'validaremail.php', false);
+
+                        // Set the request header
+                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                        // Set up the callback function
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                // Handle the response from the server
+                                if ( xhr.responseText === 'registrado') {
+                                   document.getElementById('emailStatus').innerText = 'El email ya esta registrado';
+                                   //event.preventDefault();
+                                   return false;
+                                } else {
+                                   document.getElementById('emailStatus').innerText = 'Nuevo Email'; 
+                                    return true;
+                                }   
+                            }
+                        };
+
+                        // Send the request with the email parameter
+                        xhr.send('email=' + email);
+                        // Set up the callback function
+
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                // Handle the response from the server
+                                if ( xhr.responseText === 'registrado') {
+                                   document.getElementById('emailStatus').innerText = 'El email ya esta registrado';
+                                   //event.preventDefault();
+                                   return false;
+                                } else {
+                                    document.getElementById('emailStatus').innerText = 'Nuevo Email'; 
+                                    return true;
+                                }   
+                            }
+                       //console.log(xhr.responseText);
+                       return false;
+
+                  }
+
+        //$(document).ready(function () {
+        //    $('#registroForm').submit(function (event) {
+
+        function validateForm() {        
                 const password = $('#password').val();
                 const confirm_password = $('#confirm_password').val();
                 const mensajeAlerta = $('#mensajealerta');
     
                 if (password.length < 6) {
                     mensajeAlerta.html('<p style="color: red;">La contraseña debe tener al menos 6 caracteres</p>');
-                    event.preventDefault();
+                    //event.preventDefault();
+                    return false;
                 } else if (password !== confirm_password) {
                     mensajeAlerta.html('<p style="color: red;">Las contraseñas no coinciden</p>');
-                    event.preventDefault();
+                    //event.preventDefault();
+                    return false;
                 } else {
                     console.log('busco email');
                     mensajeAlerta.html('');
                     const email = $('#Mail').val();
                     const emailAlerta = $('#emailAlerta');
                     console.log(email);
-                    alert(email);
     
                     // Realizar una solicitud AJAX para verificar si el correo electrónico ya está registrado
-                    $.ajax({
-                        type: 'POST',
-                        url: 'validaremail.php',
-                        data: { Mail: email },
-                        success: function (response) {
-                            // La respuesta del servidor es un mensaje indicando si el correo electrónico está registrado o no
-                            alert(response);
-                            conole.log(response);
-                            alert('la respuesta');
-                            if (response === 'registrado') {
-                                alert('El email ya existe');
-                                mensajeAlerta.html('<p style="color: red;">El correo electrónico ya está registrado. Por favor, elige otro.</p>');
-                                //event.preventDefault();
-                            } else {
-                                //alert('pp');
-                                mensajeAlerta.html('');
-                            }
-                        }
-                    });
+                    return checkEmail();
                 }
-            });
-        });
+
+                return true;
+            }
+        //    });
+        //});
     </script>
 </body>
 
