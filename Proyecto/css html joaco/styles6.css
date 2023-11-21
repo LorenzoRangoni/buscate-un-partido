@@ -118,3 +118,11 @@ h2 {
     color: white;
     text-align: center;
 }
+
+.email-status {
+    color: red;
+    margin-top: -10px; 
+}
+
+
+

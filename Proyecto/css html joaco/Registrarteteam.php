@@ -1,5 +1,5 @@
 <?php
-include("conexion_db.php");
+include("../../Basededatos/conexion_db.php");
 
 // Obtengo los valores enviados por el formulario
 if (isset($_POST['Mail']) && isset($_POST['Nombre']) && isset($_POST['password'])) {
@@ -10,7 +10,7 @@ if (isset($_POST['Mail']) && isset($_POST['Nombre']) && isset($_POST['password']
     $fecha_registro_jugador = date("Y-m-d H:i:s");
 
     // Verificar si el correo electrónico ya está registrado
-    $sqlVerificarEmail = "SELECT * FROM equipo WHERE email_equipo_login = '$mail'";
+    $sqlVerificarEmail = "SELECT * FROM equipo WHERE mail_registrado_login = '$mail'";
     $resultadoVerificarEmail = $mysqli->query($sqlVerificarEmail);
 
     if ($resultadoVerificarEmail->num_rows > 0) {
@@ -19,7 +19,7 @@ if (isset($_POST['Mail']) && isset($_POST['Nombre']) && isset($_POST['password']
         die(); // Detener la ejecución del script
     } else {
         // Insertar datos en la base de datos
-        $sqlInsertar = "INSERT INTO equipo (email_equipo_login, nombre_equipo_login, password_equipo, fecha_registro_equipo) VALUES ('$mail', '$nombre', '$contrasena','$fecha_registro_jugador')";
+        $sqlInsertar = "INSERT INTO equipo (email_equipo_login, nombre_equipo_login, password_equipo, fecha_registro_equipo	) VALUES ('$mail', '$nombre', '$contrasena','$fecha_registro_jugador')";
         $resultadoInsertar = $mysqli->query($sqlInsertar);
 
         if ($resultadoInsertar) {
@@ -48,6 +48,4 @@ if (isset($_POST['Mail']) && isset($_POST['Nombre']) && isset($_POST['password']
     echo "Error: Datos del formulario no recibidos correctamente.";
 }
 ?>
-
-    
 

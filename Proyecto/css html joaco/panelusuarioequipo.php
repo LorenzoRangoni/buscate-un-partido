@@ -91,24 +91,24 @@ if (isset($_SESSION['team_id'])) {
 </div>
 
 
-<div id="editPasswordModal"  class="modal">
-    <div class="modal-content">
-         <span class="close" id="closePasswordModal">&times;</span>
-    <h2>Editar Contrasena</h2>
-        <form id="editPasswordForm" action="micuentapassword_equipo.php" method="post">
-    <div class="form-group">
-        <label for="currentPassword">Contraseña Actual:</label>
-        <input type="password" id="currentPassword" name="currentPassword" required>
+<div id="editPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closePasswordModal">&times;</span>
+            <h2>Editar Contraseña</h2>
+            <form id="editPasswordForm" action="micuentapassword.php" method="post">
+                <div class="form-group">
+                    <label for="currentPassword">Contraseña Actual:</label>
+                    <input type="password" id="currentPassword" name="currentPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Nueva Contraseña:</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div id="mensajealerta"></div>
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="newPassword">Nueva Contraseña:</label>
-        <input type="password" id="newPassword" name="newPassword" required>
-    </div>
-    <div id="mensajealerta"> </div>
-    <button type="submit" class="save-button">Guardar Cambios</button>
-</form>
-    </div>
-</div>
 
 
 
