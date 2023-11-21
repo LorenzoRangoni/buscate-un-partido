@@ -4,6 +4,27 @@ include("conexion_db.php");
 $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo'";
 $result = $conn->query($sql);
 
+// Manejo del formulario de búsqueda por disponibilidad horaria
+if (isset($_POST['buscar_horario'])) {
+    $horario = $_POST['horario'];
+    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo' AND disponibilidad_horaria_jugador LIKE '%$horario%'";
+    $result = $conn->query($sql);
+}
+
+// Manejo del formulario de búsqueda por zona
+if (isset($_POST['buscar_zona'])) {
+    $zona = $_POST['zona'];
+    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo' AND zona_residencial LIKE '%$zona%'";
+    $result = $conn->query($sql);
+}
+
+// Si no se ha realizado ninguna búsqueda, mostrar todos los jugadores
+if (!isset($_POST['buscar_horario']) && !isset($_POST['buscar_zona'])) {
+    $sql = "SELECT nombre, apellido, altura, numero_de_telefono_jugador, mail_del_jugador, peso, edad, habilidad, disponibilidad_horaria_jugador, sub, zona_residencial FROM formulario_jugadores WHERE posicion_jugador = 'Extremo Izquierdo'";
+    $result = $conn->query($sql);
+}
+?>
+
 echo "
 <!DOCTYPE html>
 <html lang='en'>
