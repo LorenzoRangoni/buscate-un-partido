@@ -55,7 +55,7 @@ if (isset($_SESSION['user_id'])) {
                 <?php if ($username <> "") { ?>
                 <a href="panelusuario.php" class="nav__links">Mi cuenta</a>
                 <?php } else { ?>
-                    <a href="registrarse2.php" class="nav__links"> Formulario </a>
+                    <a href="Pagina_de_registroylogin.html" class="nav__links"> Formulario </a>
                     <?php } ?>
                 </li>
                 <li>
@@ -80,7 +80,7 @@ if (isset($_SESSION['user_id'])) {
 
                 <?php if ($username <> "") { ?>
              <a href="registrarse2.html" class="cta">Enviar formulario</a>
-           <?php } else { ?> <a href="filtro.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
+           <?php } else { ?> <a href="Pagina_de_registroylogin.html" class="cta">Encontrar jugadores (nuevo filtro)</a>
             <?php } ?>
             <?php if ($username <> "") { ?>
              <a href="cuentaequipo.html" class="cta">Encontrar equipo (nuevo filtro)</a>
