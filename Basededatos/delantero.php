@@ -152,12 +152,10 @@ if (!isset($_POST['buscar_horario']) && !isset($_POST['buscar_zona'])) {
             <div class="nav__logo">
                 <h2 class="nav__title">Partido</h2>
             </div>
-            <div class="nav__links">
-                <a href="index.php" class="button">Inicio</a>
-                <a href="Pagina_de_registroylogin.html" class="button">Logearse</a>
-                <a href="encontrarjugadores.html" class="button">Encontrar jugador</a>
-                <a href="registrarse2.html" class="button">Formulario</a>
-            </div>
+            <!-- <a href=('Location: http://localhost/buscate_un_partido/buscate-un-partido/Proyecto/css%20html%20joaco/indexequippo.php'); class='button'>Inicio</a>
+                 <a href='Pagina_de_registroylogin.html' class='button'>Logearse</a>
+                <a href='encontrarjugadores.html' class='button'>Encontrar jugador</a>
+                <a href='registrarse2.html' class='button'>Formulario</a> -->
         </div>
     </nav>
 
@@ -183,7 +181,6 @@ if (!isset($_POST['buscar_horario']) && !isset($_POST['buscar_zona'])) {
         echo "<table>
         <tr>
             <th>Nombre</th>
-            <th>Apellido</th>
             <th>Disponibilidad Horaria</th>
             <th>Correo</th>
             <th>Teléfono</th>
@@ -197,7 +194,6 @@ if (!isset($_POST['buscar_horario']) && !isset($_POST['buscar_zona'])) {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
                 <td>" . $row["nombre"] . "</td>
-                <td>" . $row["apellido"] . "</td>
                 <td>" . $row["disponibilidad_horaria_jugador"] . "</td>
                 <td>" . $row["mail_del_jugador"] . "</td>
                 <td>" . $row["numero_de_telefono_jugador"] . "</td>

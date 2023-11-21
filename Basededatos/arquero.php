@@ -44,7 +44,6 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $salida.= "<tr>
             <td>" . $row["nombre"] . "</td>
-            <td>" . $row["apellido"] . "</td>
             <td>" . $row["disponibilidad_horaria_jugador"] . "</td>
             <td>" . $row["mail_del_jugador"] . "</td>
             <td>" . $row["numero_de_telefono_jugador"] . "</td>
