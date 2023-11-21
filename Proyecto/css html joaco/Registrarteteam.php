@@ -10,7 +10,7 @@ if (isset($_POST['Mail']) && isset($_POST['Nombre']) && isset($_POST['password']
     $fecha_registro_jugador = date("Y-m-d H:i:s");
 
     // Verificar si el correo electrónico ya está registrado
-    $sqlVerificarEmail = "SELECT * FROM equipo WHERE mail_registrado_login = '$mail'";
+    $sqlVerificarEmail = "SELECT * FROM equipo WHERE email_equipo_login = '$mail'";
     $resultadoVerificarEmail = $mysqli->query($sqlVerificarEmail);
 
     if ($resultadoVerificarEmail->num_rows > 0) {
