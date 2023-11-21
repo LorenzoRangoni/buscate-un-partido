@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="cuentaequipo.css">
   <title>Estadísticas de Equipos</title>
 </head>
+
 <body>
   <header>
     <h1>Estadísticas de Equipos</h1>
@@ -13,17 +15,17 @@
 
     <nav class="nav container">
       <div class="nav__logo">
-          <h2 class="nav__title">Partido</h2>
+        <h2 class="nav__title">Partido</h2>
       </div>
       <div class="nav__links">
-          <a href="index.php" class="button">Inicio</a>
-          <!-- <a href="Pagina_de_registroylogin.html" class="button">Logearse</a>
-          <a href="encontrarjugadores.html" class="button">Encontrar jugador</a>
-          <a href="registrarse2.html" class="button">Formulario</a> -->
+        <a href="index.php" class="button">Inicio</a>
+        <!-- <a href="Pagina_de_registroylogin.html" class="button">Logearse</a> -->
+        <a href="encontrarjugadores.html" class="button">Encontrar jugador</a>
+        <!-- <a href="registrarse2.html" class="button">Formulario</a> -->
 
-  </div>
+      </div>
 
-  </nav>
+    </nav>
   </header>
 
   <div id="filters">
@@ -69,7 +71,7 @@
   </div>
 
   <section id="teams">
-    
+
   </section>
 
   <div id="teamDetailsModal">
@@ -95,53 +97,53 @@
     </div>
   </div>
 
-  <script  type="text/javascript">
-  
-  document.addEventListener("DOMContentLoaded", function () {
+  <script type="text/javascript">
 
-let teamsData; // Declare teamsData
+    document.addEventListener("DOMContentLoaded", function () {
 
-const teamsContainer = document.getElementById("teams");
-const goalsFilterInput = document.getElementById("goalsFilter");
-const positionFilterSelect = document.getElementById("positionFilter");
-const trainingFrequencyFilterSelect = document.getElementById("trainingFrequencyFilter");
-const levelFilterSelect = document.getElementById("levelFilter");
-const teamDetailsModal = document.getElementById("teamDetailsModal");
-const positionChoiceSelect = document.getElementById("positionChoice");
-const closeButton = document.getElementById("closeButton");
+      let teamsData; // Declare teamsData
 
-const api = {
-  getTeams: () => {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            const teamsData = JSON.parse(xhr.responseText);
-            resolve(teamsData);
-          } else {
-            reject(new Error(`Error en la solicitud AJAX: ${xhr.status}`));
-          }
-        }
-      };
-      xhr.open("GET", "../../Basededatos/filtroequipo.php", true);
-      xhr.send();
-    });
-  },
-};;
+      const teamsContainer = document.getElementById("teams");
+      const goalsFilterInput = document.getElementById("goalsFilter");
+      const positionFilterSelect = document.getElementById("positionFilter");
+      const trainingFrequencyFilterSelect = document.getElementById("trainingFrequencyFilter");
+      const levelFilterSelect = document.getElementById("levelFilter");
+      const teamDetailsModal = document.getElementById("teamDetailsModal");
+      const positionChoiceSelect = document.getElementById("positionChoice");
+      const closeButton = document.getElementById("closeButton");
 
-
-
-// Resto del código...
+      const api = {
+        getTeams: () => {
+          return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                  const teamsData = JSON.parse(xhr.responseText);
+                  resolve(teamsData);
+                } else {
+                  reject(new Error(`Error en la solicitud AJAX: ${xhr.status}`));
+                }
+              }
+            };
+            xhr.open("GET", "../../Basededatos/filtroequipo.php", true);
+            xhr.send();
+          });
+        },
+      };;
 
 
-function closeModal() {
-  teamDetailsModal.style.display = "none";
-}
 
-function showTeamDetails(team) {
-  const modalContent = document.querySelector(".modal-content");
-  modalContent.innerHTML = `
+      // Resto del código...
+
+
+      function closeModal() {
+        teamDetailsModal.style.display = "none";
+      }
+
+      function showTeamDetails(team) {
+        const modalContent = document.querySelector(".modal-content");
+        modalContent.innerHTML = `
     <img src="${team.logo}" alt="${team.name} Logo">
     <h2>${team.name}</h2>
     <p>Posición: ${team.position}</p>
@@ -163,93 +165,94 @@ function showTeamDetails(team) {
     </div>
     <button id="closeModalButton" onclick="closeModal()">Cerrar</button>
   `;
-  teamDetailsModal.style.display = "flex";
-  document.getElementById("closeModalButton").addEventListener("click", closeModal);
-}
+        teamDetailsModal.style.display = "flex";
+        document.getElementById("closeModalButton").addEventListener("click", closeModal);
+      }
 
-window.applyFilters = function () {
-    if (!teamsData) {
-      console.error('Error: teamsData is not defined.');
-      return;
-    }
-  
-  const searchInputValue = document.getElementById("searchInput").value.toLowerCase();
-  const minGoals = parseInt(document.getElementById("goalsFilter").value) || 0;
-  const selectedPosition = document.getElementById("positionFilter").value;
-  const selectedTrainingFrequency = document.getElementById("trainingFrequencyFilter").value;
-  const selectedLevel = document.getElementById("levelFilter").value;
+      window.applyFilters = function () {
+        if (!teamsData) {
+          console.error('Error: teamsData is not defined.');
+          return;
+        }
 
-  const filteredTeams = teamsData.filter((team) => {
-    const teamNameLower = team.nombre_equipo.toLowerCase();
-    console.log(teamNameLower);
-    const isNameMatch = teamNameLower.includes(searchInputValue);
-    const isPositionMatch = selectedPosition === "" || team.posicion_requerida === selectedPosition;
-    const isGoalsMatch = team.goles >= minGoals;
-    const isTrainingFrequencyMatch = selectedTrainingFrequency === "" || team.frecuencia_entrenamiento.includes(selectedTrainingFrequency);
-    const isLevelMatch = selectedLevel === ""|| team.nivel_de_juego === selectedLevel;
+        const searchInputValue = document.getElementById("searchInput").value.toLowerCase();
+        const minGoals = parseInt(document.getElementById("goalsFilter").value) || 0;
+        const selectedPosition = document.getElementById("positionFilter").value;
+        const selectedTrainingFrequency = document.getElementById("trainingFrequencyFilter").value;
+        const selectedLevel = document.getElementById("levelFilter").value;
 
-    return isNameMatch && isPositionMatch && isGoalsMatch && isTrainingFrequencyMatch && isLevelMatch;
-  });
+        const filteredTeams = teamsData.filter((team) => {
+          const teamNameLower = team.nombre_equipo.toLowerCase();
+          console.log(teamNameLower);
+          const isNameMatch = teamNameLower.includes(searchInputValue);
+          const isPositionMatch = selectedPosition === "" || team.posicion_requerida === selectedPosition;
+          const isGoalsMatch = team.goles >= minGoals;
+          const isTrainingFrequencyMatch = selectedTrainingFrequency === "" || team.frecuencia_entrenamiento.includes(selectedTrainingFrequency);
+          const isLevelMatch = selectedLevel === "" || team.nivel_de_juego === selectedLevel;
 
-  renderTeams(filteredTeams);
-};
+          return isNameMatch && isPositionMatch && isGoalsMatch && isTrainingFrequencyMatch && isLevelMatch;
+        });
 
-
-
-async function renderTeams(teamsData) {
-  teamsContainer.innerHTML = "";
-
-  teamsData.forEach((team) => {
-    const teamCard = document.createElement("div");
-    teamCard.classList.add("team-card");
-
-    const teamStats = document.createElement("div");
-    teamStats.classList.add("team-stats");
-    teamStats.textContent = `Nombre de Equipo:  ${team.nombre_equipo} Capitan:${team.capitan } Goles: ${team.goles} liga: ${team.liga} Posicion faltante: ${team.posicion_requerida} Frecuencia de entreanamiento: ${team.frecuencia_entrenamiento}  Dias de entreanamiento: ${team.dias_entrenamiento} Hora de entreanamiento: ${team.hora_entrenamiento} Ubicacion: ${team.ubicacion} Nivel de juego: ${team.nivel_de_juego } Telefono equipo/Telefono capitan: ${team.telefono_capitan } ` ;
-
-    teamCard.appendChild(teamStats);
-
-    teamCard.addEventListener("click", () => showTeamDetails(team));
-
-    teamsContainer.appendChild(teamCard);
-  });
+        renderTeams(filteredTeams);
+      };
 
 
-  const mostSearchedTeam = getMostSearchedTeam(teamsData);
-  if (mostSearchedTeam) {
-    const mostSearchedTeamCard = document.createElement("div");
-    mostSearchedTeamCard.classList.add("most-searched-team-card");
-    mostSearchedTeamCard.innerHTML = `
+
+      async function renderTeams(teamsData) {
+        teamsContainer.innerHTML = "";
+
+        teamsData.forEach((team) => {
+          const teamCard = document.createElement("div");
+          teamCard.classList.add("team-card");
+
+          const teamStats = document.createElement("div");
+          teamStats.classList.add("team-stats");
+          teamStats.textContent = `Nombre de Equipo:  ${team.nombre_equipo} Capitan:${team.capitan} Goles: ${team.goles} liga: ${team.liga} Posicion faltante: ${team.posicion_requerida} Frecuencia de entreanamiento: ${team.frecuencia_entrenamiento}  Dias de entreanamiento: ${team.dias_entrenamiento} Hora de entreanamiento: ${team.hora_entrenamiento} Ubicacion: ${team.ubicacion} Nivel de juego: ${team.nivel_de_juego} Telefono equipo/Telefono capitan: ${team.telefono_capitan} `;
+
+          teamCard.appendChild(teamStats);
+
+          teamCard.addEventListener("click", () => showTeamDetails(team));
+
+          teamsContainer.appendChild(teamCard);
+        });
+
+
+        const mostSearchedTeam = getMostSearchedTeam(teamsData);
+        if (mostSearchedTeam) {
+          const mostSearchedTeamCard = document.createElement("div");
+          mostSearchedTeamCard.classList.add("most-searched-team-card");
+          mostSearchedTeamCard.innerHTML = `
      
     `;
-    teamsContainer.appendChild(mostSearchedTeamCard);
-  }
-}
+          teamsContainer.appendChild(mostSearchedTeamCard);
+        }
+      }
 
-function getMostSearchedTeam(teams) {
-  return teams.reduce((mostSearched, currentTeam) => {
-    return currentTeam.goles > mostSearched.goles ? currentTeam : mostSearched;
-  }, teams[0]);
-}
+      function getMostSearchedTeam(teams) {
+        return teams.reduce((mostSearched, currentTeam) => {
+          return currentTeam.goles > mostSearched.goles ? currentTeam : mostSearched;
+        }, teams[0]);
+      }
 
-// Aplicar el evento de clic a cada tarjeta del equipo
-const teamCards = document.querySelectorAll(".team-card");
-teamCards.forEach((card) => {
-    card.addEventListener("click", () => {
-        const teamIndex = Array.from(teamCards).indexOf(card);
-        showTeamDetails(teamsData[teamIndex]);
+      // Aplicar el evento de clic a cada tarjeta del equipo
+      const teamCards = document.querySelectorAll(".team-card");
+      teamCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const teamIndex = Array.from(teamCards).indexOf(card);
+          showTeamDetails(teamsData[teamIndex]);
+        });
+      });
+
+
+      api.getTeams().then((data) => {
+        teamsData = data;
+        console.log(data);
+        renderTeams(teamsData);
+      });
     });
-});
 
 
-api.getTeams().then((data) => {
-  teamsData = data;
-  console.log(data);
-  renderTeams(teamsData);
-});
-});
-
-  
   </script>
 </body>
+
 </html>
