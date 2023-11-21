@@ -3,7 +3,72 @@
 
 <head>
     <title>Tipo de búsqueda</title>
-    <link rel="stylesheet" type="text/css" href="styles8.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #3498db;
+        }
+
+        h2 {
+            font: oblique;
+            color: black;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #tipoBusquedaForm {
+            width: 400px;
+            background: #2c3e50;
+            padding: 30px;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 40px;
+            font-family: 'calibri';
+            color: white;
+            box-shadow: 7px 13px 37px #000;
+            position: relative;
+            text-align: center;
+        }
+
+        #tipoBusquedaForm label {
+            color: white;
+        }
+
+        #tipoBusquedaForm select {
+            width: 100%;
+            background: #24303c;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            border: 1px solid #1f53c5;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            color: white;
+        }
+
+        #tipoBusquedaForm button {
+            width: 100%;
+            background: #1f53c5;
+            border: none;
+            padding: 12px;
+            color: white;
+            margin: 16px 0;
+            font-size: 16px;
+            cursor: pointer; /* Añadido para indicar que el botón es interactivo */
+        }
+
+        #tipoBusquedaForm button:hover {
+            background-color: white;
+            color: #3498db;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,9 +77,9 @@
     <form action="#" method="POST" id="tipoBusquedaForm">
         <label>Selecciona tu tipo de búsqueda:</label>
         <select id="tipoBusqueda" name="tipoBusqueda" required>
-            <option value="">Selecciona una opción</option>
-            <option value="Nuevo filtro">Nuevo filtro</option>
-            <option value="Posicion">Posición</option>
+            <option value="">Selecciona una opcion.</option>
+            <option value="Nuevo filtro">Filtro (todos los jugadores)</option>
+            <option value="Posicion">Por Posicion</option>
         </select><br>
 
         <button type="button" onclick="redireccionar()">Continuar</button>

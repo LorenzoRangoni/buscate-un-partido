@@ -172,7 +172,7 @@ if ($result->num_rows > 0) {
 
         <!-- Formulario de búsqueda por disponibilidad horaria -->
         <form class='search-form' method='post'>
-            <label for='horario'>Buscar por disponibilidad horaria:</label>
+            <label for='horario'>Buscar por hora:</label>
             <input type='text' name='horario' id='horario' placeholder='Ingrese el horario'>
             <input type='submit' name='buscar_horario' value='Buscar' class='button search-button'>
             <button type='submit' name='reset_horario' class='reset-button'>Resetear Horario</button>

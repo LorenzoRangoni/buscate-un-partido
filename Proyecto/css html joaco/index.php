@@ -53,7 +53,10 @@ if (isset($_SESSION['user_id'])) {
                 </li>
                 <li class="nav__items">
                 <?php if ($username <> "") { ?>
-                <a href="panelusuario.php" class="nav__links">Mi cuenta</a>
+                <a href="panelusuario.php" class="nav__links">Mi cuenta // </a>
+                
+                
+                <a href="registrarse2.html" class="nav__links">Formulario</a>
                 <?php } else { ?>
                     <a href="registrarse2.php" class="nav__links"> Formulario </a>
                     <?php } ?>
