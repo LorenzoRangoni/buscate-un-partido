@@ -48,6 +48,3 @@ if (isset($_POST['Mail']) && isset($_POST['Nombre']) && isset($_POST['password']
     echo "Error: Datos del formulario no recibidos correctamente.";
 }
 ?>
-
-    
-

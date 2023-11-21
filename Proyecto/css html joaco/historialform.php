@@ -139,7 +139,7 @@ if (isset($_SESSION['user_id'])) {
             echo '<tr>';
             echo '<td><button class="boton-fecha" onclick="mostrarPopup(\'' . $row["fecha_registro_formulario_jugador"] . '\', \'' . $row["posicion_jugador"] . '\', \'' . $row["nombre"] . '\', \'' . $row["altura"] . '\', \'' . $row["peso"] . '\', \'' . $row["numero_de_telefono_jugador"] . '\', \'' . $row["disponibilidad_horaria_jugador"] . '\', \'' . $row["mail_del_jugador"] . '\', \'' . $row["edad"] . '\', \'' . $row["sub"] . '\', \'' . $row["habilidad"] . '\', \'' . $row["zona_residencial"] . '\')">' . $row["fecha_registro_formulario_jugador"] . '</button></td>';
             echo '<td>' . $row["posicion_jugador"] . '</td>';
-            echo '<td><a href="registrarse2_edicion.php?id=' . $row["id_formulario"] . '">Editar</a> | <a href="eliminarformulario.php?id=' . $row["id_formulario"] . '">Eliminar</a></td>';
+            echo '<td><a href="eliminarformulario.php?id=' . $row["id_formulario"] . '">Eliminar</a></td>';
             echo '</tr>';
         }
         echo '</table>';

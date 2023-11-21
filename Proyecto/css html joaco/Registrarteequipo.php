@@ -1,5 +1,5 @@
 <?php
-include("conexion_db.php");
+include("../../Basededatos/conexion_db.php");
 
 // Obtengo los valores enviados por el formulario
 if (isset($_POST['Mail']) && isset($_POST['Nombre']) && isset($_POST['password'])) {

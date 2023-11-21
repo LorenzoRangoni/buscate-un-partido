@@ -139,7 +139,7 @@ if (isset($_SESSION['team_id'])) {
             echo '<tr>';
             echo '<td><button class="boton-fecha" onclick="mostrarPopup(\'' . $row["fecha_registro_formulario"] . '\', \'' . $row["nombre_equipo"] . '\', \'' . $row["goles"] . '\', \'' . $row["posicion_requerida"] . '\', \'' . $row["capitan"] . '\', \'' . $row["telefono_capitan"] . '\', \'' . $row["mail_capitan"] . '\', \'' . $row["ubicacion"] . '\', \'' . $row["liga"] . '\', \'' . $row["dias_entrenamiento"] . '\', \'' . $row["frecuencia_entrenamiento"] . '\', \'' . $row["hora_entrenamiento"] .'\', \'' . $row["nivel_de_juego"] . '\')">' . $row["fecha_registro_formulario"] . '</button></td>';
             echo '<td>' . $row["posicion_requerida"] . '</td>';
-            echo '<td><a href="formularioequipoedicion.php?id=' . $row["id_formulario"] . '">Editar</a> | <a href="eliminarformularioequipo.php?id=' . $row["id_formulario"] . '">Eliminar</a></td>';
+            echo '<td><a href="eliminarformularioequipo.php?id=' . $row["id_formulario"] . '">Eliminar</a></td>';
             echo '</tr>';
         }
         echo '</table>';

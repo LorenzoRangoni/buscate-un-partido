@@ -26,7 +26,7 @@
     <form action="Registrarte.php" method="POST" id="registroForm" onsubmit="return validateForm()">
         <label>Mail:</label>
         <input type="email" name="Mail" id="Mail" required onfocusout="checkEmail()"><br>
-        <div id="emailStatus"> </div>
+        <div id="emailStatus" class="email-status"> </div>
         <label>Nombre y Apellido:</label>
         <input type="text" name="Nombre" required><br>
         <label>Contrasena:</label>
@@ -60,11 +60,13 @@
                             if (xhr.readyState === 4 && xhr.status === 200) {
                                 // Handle the response from the server
                                 if ( xhr.responseText === 'registrado') {
-                                   document.getElementById('emailStatus').innerText = 'El email ya esta registrado';
+                                   document.getElementById('emailStatus').innerText = 'El email ya esta en uso';
                                    //event.preventDefault();
+                                   emailRegistrado = true;
                                    return false;
                                 } else {
-                                   document.getElementById('emailStatus').innerText = 'Nuevo Email'; 
+                                   document.getElementById('emailStatus').innerText = 'Mail disponible'; 
+                                   emailRegistrado = false;
                                     return true;
                                 }   
                             }
@@ -77,18 +79,24 @@
                             if (xhr.readyState === 4 && xhr.status === 200) {
                                 // Handle the response from the server
                                 if ( xhr.responseText === 'registrado') {
-                                   document.getElementById('emailStatus').innerText = 'El email ya esta registrado';
+                                   document.getElementById('emailStatus').innerText = 'Mail ya en uso';
+                                   emailRegistrado = true;
                                    //event.preventDefault();
                                    return false;
                                 } else {
-                                    document.getElementById('emailStatus').innerText = 'Nuevo Email'; 
+                                   document.getElementById('emailStatus').innerText = ''; 
+                                   emailRegistrado = false;
                                     return true;
                                 }   
                             }
                        //console.log(xhr.responseText);
-                       return false;
+                      // Send the request with the email parameter
+                     //console.log(xhr.responseText);
+                  return false;
+    }
 
-                  }
+                  
+                  
 
         //$(document).ready(function () {
         //    $('#registroForm').submit(function (event) {
@@ -109,6 +117,10 @@
                 } else {
                     console.log('busco email');
                     mensajeAlerta.html('');
+
+                    if (!emailRegistrado) {
+                document.getElementById('emailStatus').innerText = 'Mail disponible';
+            }
                     const email = $('#Mail').val();
                     const emailAlerta = $('#emailAlerta');
                     console.log(email);
